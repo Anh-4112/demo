@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+/* Khôi phục lại cỡ chữ mặc định theo rem */
+body {
+    font-size: 1.6rem;
+    font-family: "Jost", sans-serif;
+}
+
+/* ===Common=== */
+a {
+    text-decoration: none;
+}
+
+.header-fixed {
+    width: 1920px;
+    max-width: calc(100%);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===Header=== */
+.notification {
+    display: flex;
+    background: #D0473E;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.notification .topbar {
+    margin: auto;
+}
+
+.notification .topbar ul {
+    display: flex;
+    color: #FFFFFF;
+}
+
+.notification .btn-X {
+    font-family: blueskytechco;
+    padding-right: 10px;
+    color: #FFFFFF;
+}
+
+.top-links {
+    display: flex;
+    padding: 10px;
+}
+
+.top-links .a {
+    display: flex;
+}
+
+.top-links .b {
+    display: flex;
+    margin: auto;
+}
+
+.top-links .language {
+    display: flex;
+}
+
+.top-links .language .english {
+    display: flex;
+}
+
+.top-links .language .united-states {
+    display: flex;
+}
