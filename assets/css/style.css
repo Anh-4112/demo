@@ -87,14 +87,6 @@ header, main {
     margin: 0px 5px;
 }
 
-.top-links .language .english {
-    display: flex;
-}
-
-.top-links .language .united-states {
-    display: flex;
-}
-
 /* ===Background=== */
 .background {
     display: flex;
@@ -122,6 +114,10 @@ header, main {
 /* ============Main============ */
 
 /* ===Slider=== */
+.slider {
+    position: relative;
+}
+
 .slider .img-slider {
     display: flex;
     overflow: hidden;
@@ -130,10 +126,40 @@ header, main {
 .slider .img-slider {
     transform: translateX();
     transition: transform 0.5s ease-in-out;
+    object-fit: cover;
 }
 
 .slider .img-slider img {
     width: 1500px;
-    height: 600px;
-    object-fit: cover;
+    height: 600px; 
+}
+
+.slider .text-slider {
+    /* background-color: aqua; */
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    padding: 30px 10px;
+    position: absolute;
+    left: 250px;
+    top: 200px;
+}
+
+.slider .text-slider h1 {
+    font-size: 45px;
+    font-weight: 500;
+}
+
+.slider .text-slider p {
+    padding: 10px 0 30px 0;
+}
+
+.slider .text-slider .bnt-en {
+    display: inline-block;
+    padding: 10px 15px;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 25px;
+    background: black;
 }
