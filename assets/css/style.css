@@ -13,7 +13,7 @@ body {
 }
 
 /* ===Common=== */
-a {
+a{
     text-decoration: none;
 }
 
@@ -24,7 +24,9 @@ a {
     margin-right: auto;
 }
 
-/* ===Header=== */
+/* ============Header============ */
+
+/* ===Notification=== */
 .notification {
     display: flex;
     background: #D0473E;
@@ -47,13 +49,22 @@ a {
     color: #FFFFFF;
 }
 
+/* ===Top Links=== */
 .top-links {
     display: flex;
     padding: 10px;
 }
 
+.top-links a {
+    color: black;
+}
+
 .top-links .a {
-    display: flex;
+    display: flex; 
+}
+
+.top-links .a p {
+    padding: 0 5px;
 }
 
 .top-links .b {
@@ -61,8 +72,19 @@ a {
     margin: auto;
 }
 
+.top-links .b a {
+    padding: 0 5px;
+    text-decoration: underline;
+    color: #171100;
+    text-shadow: 1px 0 0 currentColor;
+}
+
 .top-links .language {
     display: flex;
+}
+
+.top-links .language div {
+    margin: 0px 5px;
 }
 
 .top-links .language .english {
@@ -71,4 +93,28 @@ a {
 
 .top-links .language .united-states {
     display: flex;
+}
+
+/* ===Background=== */
+.background {
+    display: flex;
+    padding: 10px 18px;
+}
+
+.background .menu {
+    display: flex;
+    margin: auto;
+}
+
+.background .menu div {
+    padding: 0 15px;
+}
+
+.background .menu a {
+    color: black;
+    text-shadow: 1px 0 0 currentColor;
+}
+
+.background .icon img {
+    padding: 0 5px;
 }
