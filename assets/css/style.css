@@ -17,7 +17,7 @@ a{
     text-decoration: none;
 }
 
-.header-fixed {
+header, main {
     width: 1920px;
     max-width: calc(100%);
     margin-left: auto;
@@ -101,20 +101,39 @@ a{
     padding: 10px 18px;
 }
 
-.background .menu {
+.background nav {
     display: flex;
     margin: auto;
 }
 
-.background .menu div {
+.background nav div {
     padding: 0 15px;
 }
 
-.background .menu a {
+.background nav a {
     color: black;
     text-shadow: 1px 0 0 currentColor;
 }
 
 .background .icon img {
     padding: 0 5px;
+}
+
+/* ============Main============ */
+
+/* ===Slider=== */
+.slider .img-slider {
+    display: flex;
+    overflow: hidden;
+}
+
+.slider .img-slider {
+    transform: translateX();
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider .img-slider img {
+    width: 1500px;
+    height: 600px;
+    object-fit: cover;
 }
