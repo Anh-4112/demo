@@ -3,7 +3,7 @@ const slides = document.querySelectorAll('.img-slider img');
 const totalSlides = slides.length;
 
 function showSlide(index) {
-    const offset = index * -100; // Adjust based on your image widths
+    const offset = index * -100;
     document.querySelector('.img-slider').style.transform = `translateX(${offset}%)`;
 }
 
