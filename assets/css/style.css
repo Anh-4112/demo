@@ -17,7 +17,7 @@ a{
     text-decoration: none;
 }
 
-header, main {
+body {
     width: 1920px;
     max-width: calc(100%);
     margin-left: auto;
@@ -36,17 +36,21 @@ header, main {
 
 .notification .topbar {
     margin: auto;
+    color: #ffffff;
 }
 
 .notification .topbar ul {
     display: flex;
-    color: #FFFFFF;
+}
+
+.notification .topbar ul li {
+    padding: 0 5px;
 }
 
 .notification .btn-X {
     font-family: blueskytechco;
-    padding-right: 10px;
-    color: #FFFFFF;
+    padding-right: 20px;
+    color: #ffffff;
 }
 
 /* ===Top Links=== */
@@ -59,12 +63,12 @@ header, main {
     color: black;
 }
 
-.top-links .a {
-    display: flex; 
+.top-links p {
+    padding: 0 5px;
 }
 
-.top-links .a p {
-    padding: 0 5px;
+.top-links .a {
+    display: flex; 
 }
 
 .top-links .b {
@@ -79,26 +83,29 @@ header, main {
     text-shadow: 1px 0 0 currentColor;
 }
 
-.top-links .language {
+.top-links nav ul {
     display: flex;
 }
 
-.top-links .language div {
-    margin: 0px 5px;
+.top-links nav ul li {
+    padding: 0 15px;
 }
 
 /* ===Background=== */
 .background {
     display: flex;
-    padding: 10px 18px;
+    padding: 10px 20px;
 }
 
 .background nav {
-    display: flex;
     margin: auto;
 }
 
-.background nav div {
+.background nav ul {
+    display: flex;
+}
+
+.background nav ul li {
     padding: 0 15px;
 }
 
@@ -118,48 +125,58 @@ header, main {
     position: relative;
 }
 
-.slider .img-slider {
-    display: flex;
-    overflow: hidden;
+.slider img {
+    max-width: calc(100%);
 }
 
-.slider .img-slider {
-    transform: translateX();
-    transition: transform 0.5s ease-in-out;
-    object-fit: cover;
-}
-
-.slider .img-slider img {
-    width: 1500px;
-    height: 600px; 
-}
-
-.slider .text-slider {
-    /* background-color: aqua; */
+.slider .text {
     width: 300px;
-    height: 200px;
+    height: 250px;
     text-align: center;
     padding: 30px 10px;
     position: absolute;
-    left: 250px;
-    top: 200px;
+    left: 15%;
+    top: 30%;
 }
 
-.slider .text-slider h1 {
+.slider .text h1 {
     font-size: 45px;
     font-weight: 500;
 }
 
-.slider .text-slider p {
-    padding: 10px 0 30px 0;
+.slider .text p {
+    padding: 20px 0 30px 0;
 }
 
-.slider .text-slider .bnt-en {
+.slider .text .bnt-en {
     display: inline-block;
     padding: 10px 15px;
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 15px;
     font-weight: 500;
     border-radius: 25px;
     background: black;
+}
+
+.slider .hover-button a {
+    font-size: 25px;
+    color: gray;
+    position: absolute;
+    top: 50%;
+    padding: 10px 15px;
+    border-radius: 50%;
+    background: white;
+}
+
+.slider .hover-button a:hover {
+    background: black;
+    color: white;
+}
+
+.slider .hover-button .btn-l {
+    left: 0;
+}
+
+.slider .hover-button .btn-r {
+    right: 0;
 }
