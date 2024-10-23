@@ -85,6 +85,7 @@ body {
 
 .top-links nav ul {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .top-links nav ul li {
@@ -103,10 +104,12 @@ body {
 
 .background nav ul {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .background nav ul li {
     padding: 0 15px;
+
 }
 
 .background nav a {
@@ -206,10 +209,13 @@ body {
     width: 1410px;
     margin: auto;
     padding-top: 100px;
+    max-width: 100%;
+    height: auto;
 }
 
 .feature .title {
     text-align: center;
+    word-wrap: break-word;
 }
 
 .feature .title h1 {
@@ -220,6 +226,7 @@ body {
 .feature .categories {
     margin-top: 20px;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .feature .categories .b {
@@ -231,8 +238,8 @@ body {
 }
 
 .feature .categories .clothing,
-.feature .categories .b .sunglasses,
-.feature .categories .b .bags,
+.feature .categories .sunglasses,
+.feature .categories .bags,
 .feature .categories .sneaker {
     position: relative;
 }
@@ -248,9 +255,4 @@ body {
     font-weight: 500;
     border-radius: 25px;
     background: white;
-}
-
-.feature img {
-    max-width: 100%;
-    height: auto;
 }
