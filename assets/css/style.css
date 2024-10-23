@@ -19,7 +19,7 @@ a{
 
 body {
     width: 1920px;
-    max-width: calc(100%);
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -115,7 +115,7 @@ body {
 }
 
 .background .icon img {
-    padding: 0 5px;
+    padding: 0 10px;
 }
 
 /* ============Main============ */
@@ -126,7 +126,8 @@ body {
 }
 
 .slider img {
-    max-width: calc(100%);
+    max-width: 100%;
+    height: auto;
 }
 
 .slider .text {
@@ -179,4 +180,77 @@ body {
 
 .slider .hover-button .btn-r {
     right: 0;
+}
+
+.slider .dot {
+    display: flex;
+    position: absolute;
+    bottom: 1%;
+    left: 50%;
+}
+
+.slider .dot button {
+    padding: 5px;
+    margin: 5px;
+    border-radius: 50%;
+    background-color: gray;
+    border: gray;
+}
+
+.slider .dot button:hover {
+    background-color: black;
+}
+
+/* ===Feature Categories=== */
+.feature {
+    width: 1410px;
+    margin: auto;
+    padding-top: 100px;
+}
+
+.feature .title {
+    text-align: center;
+}
+
+.feature .title h1 {
+    font-size: 45px;
+    padding-bottom: 10px;
+}
+
+.feature .categories {
+    margin-top: 20px;
+    display: flex;
+}
+
+.feature .categories .b {
+    margin: auto;
+}
+
+.feature .categories .b .sunglasses {
+    padding-bottom: 27px;
+}
+
+.feature .categories .clothing,
+.feature .categories .b .sunglasses,
+.feature .categories .b .bags,
+.feature .categories .sneaker {
+    position: relative;
+}
+
+.feature .categories .btn {
+    position: absolute;
+    bottom: 10%;
+    left: 30%;
+    display: inline-block;
+    padding: 15px 45px;
+    color: black;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 25px;
+    background: white;
+}
+
+.feature img {
+    max-width: 100%;
+    height: auto;
 }
