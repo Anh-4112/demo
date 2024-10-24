@@ -282,8 +282,8 @@ body {
 }
 
 .trending nav {
-    margin-top: 40px;
-    margin-left: 33%; /*fix sau*/
+    margin: 40px auto;
+    width: fit-content;
 }
 
 .trending nav ul {
@@ -303,7 +303,6 @@ body {
 .trending .products {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 40px;
 }
 
 .trending .products .text {
