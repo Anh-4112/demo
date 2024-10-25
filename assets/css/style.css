@@ -340,7 +340,6 @@ body {
 }
 
 .banner .text {
-    /* background-color: aqua; */
     position: absolute;
     top: 600px;
     left: 50px;
@@ -400,4 +399,49 @@ body {
 
 .arrivals .products .text img {
     margin-top: 8px;
+}
+
+/* === People like === */
+.people {
+    width: 1410px;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.people .title {
+    text-align: center;
+}
+
+.people .title h1 {
+    font-size: 45px;
+}
+
+.people .title p {
+    font-size: 16px;
+    color: #555555;
+    margin-top: 14px;
+}
+
+.people .text {
+    display: flex;
+    margin-top: 40px;
+}
+
+.people .text .txt {
+    margin: 0 30px;
+}
+
+.people .text p {
+    margin: 0 40px;
+}
+
+.people .text div {
+    width: 450px;
+    height: 250px;
+    display: grid;
+    place-items: center;
+    text-align: center;
 }
