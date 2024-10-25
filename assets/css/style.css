@@ -316,3 +316,88 @@ body {
 .trending .products .text img {
     margin-top: 8px;
 }
+
+/* === Banner === */
+.banner {
+    width: 1860px;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.banner .bn2 {
+    margin: auto;
+}
+
+.banner .bn1,
+.banner .bn2,
+.banner .bn3 {
+    position: relative;
+}
+
+.banner .text {
+    /* background-color: aqua; */
+    position: absolute;
+    top: 600px;
+    left: 50px;
+}
+
+.banner .text p {
+    font-size: 12px;
+}
+
+.banner .text h1 {
+    margin: 10px auto;
+    font-size: 30px;
+}
+
+.banner .text a {
+    color: black;
+    text-decoration: underline;
+}
+
+/* === New arrivals === */
+.arrivals {
+    width: 1410px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    max-width: 100%;
+    height: auto;
+}
+
+.arrivals .title {
+    text-align: center;
+}
+
+.arrivals .title h1 {
+    font-size: 45px;
+    margin-bottom: 25px;
+}
+
+.arrivals .title p {
+    font-size: 16px;
+    color: #555555;
+}
+
+.arrivals .products {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.arrivals .products .text {
+    margin-top: 15px;
+}
+
+.arrivals .products .text p {
+    margin-top: 8px;
+}
+
+.arrivals .products .text img {
+    margin-top: 8px;
+}
