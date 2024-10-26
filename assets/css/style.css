@@ -404,11 +404,11 @@ body {
 /* === People like === */
 .people {
     width: 1410px;
+    max-width: 100%;
+    height: auto;
     margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
-    max-width: 100%;
-    height: auto;
 }
 
 .people .title {
@@ -425,23 +425,88 @@ body {
     margin-top: 14px;
 }
 
-.people .text {
+.people .at {
     display: flex;
     margin-top: 40px;
 }
 
-.people .text .txt {
+.people .at .txt {
     margin: 0 30px;
 }
 
-.people .text p {
+.people .at p {
     margin: 0 40px;
 }
 
-.people .text div {
+.people .at div {
     width: 450px;
     height: 250px;
     display: grid;
     place-items: center;
     text-align: center;
+}
+
+.people .text {
+    position: relative;
+}
+
+.people .hover a {
+    position: absolute;
+    top: 50%;
+    font-size: 25px;
+    color: black;
+}
+
+.people .btn-l {
+    left: 0;
+}
+
+.people .btn-r {
+    right: 0;
+}
+
+/* === Instagram === */
+.ig {
+    width: 1410px;
+    max-width: 100%;
+    height: auto;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ig .title {
+    text-align: center;
+}
+
+.ig .title h1 {
+    font-size: 45px;
+}
+
+.ig .title p {
+    font-size: 16px;
+    color: #555555;
+    margin-top: 14px;
+}
+
+.ig .img {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.ig .img img {
+    margin: 0 2px;
+}
+
+.ig .img .i1 {
+    position: relative;
+}
+
+.ig .img .icon {
+    position: absolute;
+    top: 10px;
+    left: 190px;
 }
