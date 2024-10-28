@@ -587,6 +587,21 @@ footer {
 }
 
 .copyright {
-    background-color: aqua;
     margin-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.copyright p {
+    margin: auto;
+}
+
+.copyright ul {
+    display: flex;
+    gap: 25px;
+    margin-top: 5px;
+}
+
+.copyright a {
+    color: black;
 }
