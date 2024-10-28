@@ -303,6 +303,7 @@ body {
 .trending .products {
     display: flex;
     flex-wrap: wrap;
+    gap: 30px;
 }
 
 .trending .products .text {
@@ -387,6 +388,7 @@ body {
     margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
+    gap: 30px;
 }
 
 .arrivals .products .text {
@@ -495,10 +497,7 @@ body {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-}
-
-.ig .img img {
-    margin: 0 2px;
+    gap: 6px;
 }
 
 .ig .img .i1 {
@@ -509,4 +508,85 @@ body {
     position: absolute;
     top: 10px;
     left: 190px;
+}
+
+/* ============Footer============ */
+footer {
+    width: 1410px;
+    max-width: 100%;
+    height: auto;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container .about {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+}
+
+.container .txt {
+    color: #555555;
+}
+
+.container .hot-categories {
+    margin-left: 140px;
+}
+
+.container .service {
+    margin-left: 120px;
+}
+
+.container .newsletter {
+    margin-left: 100px;
+}
+
+.container p {
+    color: #555555;
+    font-size: 16px;
+}
+
+.container h1 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.container ul {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    color: #555555;
+}
+
+.container .subscribe {
+    margin-top: 25px;
+}
+
+.container button {
+    display: inline-block;
+    padding: 15px 45px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 25px;
+    background: black;
+    float: right;
+}
+
+.container input{
+    padding: 10px 20px;
+    border: 1px;
+    color: white;
+}
+
+.copyright {
+    background-color: aqua;
+    margin-top: 80px;
 }
