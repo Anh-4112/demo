@@ -238,22 +238,21 @@ body {
     flex-wrap: wrap;
 }
 
-.feature .categories .b {
+.feature .b {
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
 }
 
-.feature .categories .b .sunglasses {
-    padding-bottom: 27px;
-}
-
-.feature .categories .clothing,
-.feature .categories .sunglasses,
-.feature .categories .bags,
-.feature .categories .sneaker {
+.feature .clothing,
+.feature .sunglasses,
+.feature .bags,
+.feature .sneaker {
     position: relative;
 }
 
-.feature .categories .btn {
+.feature .btn {
     position: absolute;
     bottom: 10%;
     left: 30%;
@@ -306,15 +305,15 @@ body {
     gap: 30px;
 }
 
-.trending .products .text {
+.trending .text {
     margin-top: 15px;
 }
 
-.trending .products .text p {
+.trending .text p {
     margin-top: 8px;
 }
 
-.trending .products .text img {
+.trending .text img {
     margin-top: 8px;
 }
 
