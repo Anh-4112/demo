@@ -20,8 +20,7 @@ a{
 body {
     width: 1920px;
     max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
 /* ============Header============ */
@@ -30,95 +29,119 @@ body {
 .notification {
     display: flex;
     background: #D0473E;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 12px 0;
 }
 
 .notification .topbar {
     margin: auto;
     color: #ffffff;
-}
-
-.notification .topbar ul {
     display: flex;
+    gap: 5px;
 }
 
-.notification .topbar ul li {
-    padding: 0 5px;
-}
-
-.notification .btn-X {
+.notification .action {
     font-family: blueskytechco;
-    padding-right: 20px;
     color: #ffffff;
+    margin-right: 16px;
 }
 
 /* ===Top Links=== */
 .top-links {
     display: flex;
-    padding: 10px;
+    padding: 12px 30px;
 }
 
 .top-links a {
     color: black;
 }
 
-.top-links p {
-    padding: 0 5px;
-}
-
 .top-links .a {
-    display: flex; 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px 25px;
 }
 
 .top-links .b {
     display: flex;
+    flex-wrap: wrap;
     margin: auto;
+    gap: 0px 5px;
 }
 
 .top-links .b a {
-    padding: 0 5px;
     text-decoration: underline;
     color: #171100;
     text-shadow: 1px 0 0 currentColor;
 }
 
-.top-links nav ul {
+.top-links .language ul {
     display: flex;
     flex-wrap: wrap;
-}
-
-.top-links nav ul li {
-    padding: 0 15px;
+    gap: 0px 25px;
 }
 
 /* ===Background=== */
-.background {
+nav {
     display: flex;
-    padding: 10px 20px;
+    padding: 23.5px 30px;
 }
 
-.background nav {
+nav .menu {
     margin: auto;
-}
-
-.background nav ul {
     display: flex;
     flex-wrap: wrap;
+    gap: 0 30px;
 }
 
-.background nav ul li {
-    padding: 0 15px;
-
-}
-
-.background nav a {
+nav a {
     color: black;
     text-shadow: 1px 0 0 currentColor;
 }
 
-.background .icon img {
-    padding: 0 10px;
+nav a:hover {
+    color: #D0473E;
+    text-shadow: 1px 0 0 currentColor;
+}
+
+nav .icon {
+    display: flex;
+    gap: 0 20px;
+}
+
+nav .menu li {
+    position: relative;
+}
+
+nav .list-home {
+    position: absolute;
+    background-color: white;
+    display: none;
+    z-index: 100;
+    width: 250px;
+    margin-left: -30px;
+    padding-left: 30px;
+}
+
+nav li:hover .list-home {
+    display: block;
+    z-index: 100;
+}
+
+nav .list-home li{
+    display: flex;
+}
+
+nav .list-home a {
+    display: block;
+    color: #555555;
+    text-shadow: none;
+    font-size: 16px;
+    padding-top: 25px;
+}
+
+nav .list-home img {
+    margin-top: 23px;
+    margin-left: 10px;
 }
 
 /* ============Main============ */
@@ -126,6 +149,8 @@ body {
 /* ===Slider=== */
 .slider {
     position: relative;
+    width: fit-content;
+    height: fit-content;
 }
 
 .slider img {
@@ -134,15 +159,14 @@ body {
 }
 
 .slider .text {
+    position: absolute;
+    top: 31%;
+    left: 18%;
+    right: 59%;
+    bottom: 31%;
     text-align: center;
-    padding: 30px 10px;
     max-width: 100%;
     height: auto;
-    position: absolute;
-    top: 30%;
-    left: 15%;
-    right: 65%;
-    bottom: 30%;
 }
 
 @media (max-width:979px) {
@@ -152,12 +176,12 @@ body {
 }
 
 .slider .text h1 {
-    font-size: 45px;
+    font-size: 50px;
     font-weight: 500;
 }
 
 .slider .text p {
-    padding: 20px 0 30px 0;
+    padding: 30px 0 50px 0;
 }
 
 .slider .text .bnt-en {
@@ -224,25 +248,29 @@ body {
 
 .feature .title {
     text-align: center;
-    word-wrap: break-word;
 }
 
 .feature .title h1 {
     font-size: 45px;
-    padding-bottom: 10px;
+    margin-bottom: 25px;
 }
 
 .feature .categories {
-    margin-top: 20px;
+    margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
+    gap: 30px;
+}
+
+.feature .categories img {
+    max-width: 100%;
+    height: auto;
 }
 
 .feature .b {
-    margin: auto;
     display: flex;
     flex-direction: column;
-    gap: 27px;
+    gap: 30px 0px;
 }
 
 .feature .clothing,
@@ -250,6 +278,7 @@ body {
 .feature .bags,
 .feature .sneaker {
     position: relative;
+    width: fit-content;
 }
 
 .feature .btn {
@@ -280,21 +309,19 @@ body {
     text-align: center;
 }
 
-.trending nav {
+.trending .txt {
     margin: 40px auto;
     width: fit-content;
 }
 
-.trending nav ul {
+.trending .txt ul {
     display: flex;
     flex-wrap: wrap;
+    gap: 0px 10px;
 }
 
-.trending nav ul li {
-    padding: 0 25px;
-}
-
-.trending nav a {
+.trending .txt a {
+    padding: 7.5px 25px;
     color: black;
     text-shadow: 1px 0 0 currentColor;
 }
@@ -302,21 +329,15 @@ body {
 .trending .products {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 0px 30px;
 }
 
 .trending .text {
-    margin-top: 15px;
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px 0px;
 }
-
-.trending .text p {
-    margin-top: 8px;
-}
-
-.trending .text img {
-    margin-top: 8px;
-}
-
 /* === Banner === */
 .banner {
     width: 1860px;
@@ -326,23 +347,34 @@ body {
     max-width: 100%;
     height: auto;
     display: flex;
-    flex-wrap: wrap;
+    gap: 0 30px;
 }
 
-.banner .bn2 {
-    margin: auto;
+.banner img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width:768px) {
+    .banner {
+        overflow: hidden;               
+    }
+
+    .banner img {
+        max-width: none;
+    }
 }
 
 .banner .bn1,
 .banner .bn2,
 .banner .bn3 {
-    position: relative;
+    position: relative; 
 }
 
 .banner .text {
     position: absolute;
-    top: 600px;
-    left: 50px;
+    left: 8%;
+    bottom: 6%;
 }
 
 .banner .text p {
@@ -350,7 +382,8 @@ body {
 }
 
 .banner .text h1 {
-    margin: 10px auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
     font-size: 30px;
 }
 
@@ -392,14 +425,9 @@ body {
 
 .arrivals .products .text {
     margin-top: 15px;
-}
-
-.arrivals .products .text p {
-    margin-top: 8px;
-}
-
-.arrivals .products .text img {
-    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px 0;
 }
 
 /* === People like === */
@@ -426,22 +454,16 @@ body {
     margin-top: 14px;
 }
 
-.people .at {
-    display: flex;
+.people .txt {
     margin-top: 40px;
+    display: flex;
+    gap: 0 30px;
 }
 
-.people .at .txt {
-    margin: 0 30px;
-}
-
-.people .at p {
-    margin: 0 40px;
-}
-
-.people .at div {
+.people .txt div {
     width: 450px;
     height: 250px;
+    padding: 0 40px;
     display: grid;
     place-items: center;
     text-align: center;
@@ -519,6 +541,7 @@ footer {
     margin-right: auto;
 }
 
+/* === Container === */
 .container{
     display: flex;
     flex-wrap: wrap;
@@ -585,6 +608,8 @@ footer {
     color: white;
 }
 
+
+/* === Copyright === */
 .copyright {
     margin-top: 80px;
     display: flex;
