@@ -105,18 +105,20 @@ nav a:hover {
 
 nav .icon {
     display: flex;
+    flex-wrap: wrap;
     gap: 0 20px;
 }
 
+/* ---Hover Menu--- */
 nav .menu li {
     position: relative;
 }
 
+/* --Menu Home-- */
 nav .list-home {
     position: absolute;
     background-color: white;
     display: none;
-    z-index: 100;
     width: 250px;
     margin-left: -30px;
     padding-left: 30px;
@@ -132,16 +134,74 @@ nav .list-home li{
 }
 
 nav .list-home a {
-    display: block;
     color: #555555;
     text-shadow: none;
-    font-size: 16px;
     padding-top: 25px;
 }
 
 nav .list-home img {
     margin-top: 23px;
     margin-left: 10px;
+}
+
+/* --Menu Shop-- */
+nav .ctn-list-shop {
+    position: absolute;
+    display: none;
+    background-color: white;
+    margin-left: -300px;
+    width: 1047px;
+}
+
+nav li:hover .ctn-list-shop {
+    display: block;
+    z-index: 100;
+}
+
+nav .list-shop {
+    display: flex;
+    max-width: 100%;
+}
+
+nav .list-shop p {
+    font-weight: bold;
+}
+
+nav .list-shop a {
+    display: block;
+    padding-top: 20px;
+    color: #555555;
+    text-shadow: none;
+}
+
+nav .list-shop .layouts,
+nav .list-shop .page,
+nav .list-shop .collection {
+    margin: 40px;
+}
+
+nav .list-shop .collection {
+    display: flex;
+    gap: 0 20px;
+}
+
+nav .list-shop .clt1,
+nav .list-shop .clt2 {
+    position: relative;
+}
+
+nav .list-shop .collection a {
+    color: black;
+    padding: 12px 80px;
+    background: white;
+    position: absolute;
+    left: 10%;
+    bottom: 7%;
+}
+
+nav .list-shop .collection img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* ============Main============ */
