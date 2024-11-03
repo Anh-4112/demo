@@ -66,6 +66,7 @@ body {
     flex-wrap: wrap;
     margin: auto;
     gap: 0px 5px;
+    justify-content: center;
 }
 
 .top-links .b a {
@@ -78,12 +79,13 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 0px 25px;
+    justify-content: end;
 }
 
 /* ===Background=== */
 nav {
     display: flex;
-    padding: 23.5px 30px;
+    padding: 22px 30px;
 }
 
 nav .menu {
@@ -103,12 +105,6 @@ nav a:hover {
     text-shadow: 1px 0 0 currentColor;
 }
 
-nav .icon {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0 20px;
-}
-
 /* ---Hover Menu--- */
 nav .menu li {
     position: relative;
@@ -119,6 +115,7 @@ nav .list-home {
     position: absolute;
     background-color: white;
     display: none;
+    z-index: 100;
     width: 250px;
     margin-left: -30px;
     padding-left: 30px;
@@ -126,7 +123,6 @@ nav .list-home {
 
 nav li:hover .list-home {
     display: block;
-    z-index: 100;
 }
 
 nav .list-home li{
@@ -148,19 +144,31 @@ nav .list-home img {
 nav .ctn-list-shop {
     position: absolute;
     display: none;
-    background-color: white;
+    z-index: 100;
     margin-left: -300px;
     width: 1047px;
 }
 
+@media (max-width:1047px) {
+    nav .ctn-list-shop {
+        margin-left: -440%;
+        width: 636px;
+    }
+
+    nav .list-shop {
+        justify-content: center;
+    }
+    
+}
+
 nav li:hover .ctn-list-shop {
     display: block;
-    z-index: 100;
 }
 
 nav .list-shop {
+    background-color: white;
     display: flex;
-    max-width: 100%;
+    flex-wrap: wrap;
 }
 
 nav .list-shop p {
@@ -202,6 +210,29 @@ nav .list-shop .collection a {
 nav .list-shop .collection img {
     max-width: 100%;
     height: auto;
+}
+
+nav .icon {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0 20px;
+}
+
+nav .icon .cart {
+    position: relative;
+}
+
+nav .icon .cart:hover .minicart{
+    display: block;
+}
+
+nav .icon .minicart {
+    position: absolute;
+    display: none;
+    z-index: 100;
+    margin-top: -129px;
+    margin-left: -389px;
 }
 
 /* ============Main============ */
@@ -319,7 +350,10 @@ nav .list-shop .collection img {
     margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 0 30px;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .feature .categories img {
@@ -390,6 +424,8 @@ nav .list-shop .collection img {
     display: flex;
     flex-wrap: wrap;
     gap: 0px 30px;
+    justify-content: center;
+    align-items: center;
 }
 
 .trending .text {
@@ -481,6 +517,8 @@ nav .list-shop .collection img {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+    justify-content: center;
+    align-items: center;
 }
 
 .arrivals .products .text {
@@ -605,6 +643,8 @@ footer {
 .container{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 0;
 }
 
 .container .about {
