@@ -110,7 +110,7 @@ nav .menu li {
     position: relative;
 }
 
-/* --Menu Home-- */
+/* Menu Home */
 nav .list-home {
     position: absolute;
     background-color: white;
@@ -140,7 +140,7 @@ nav .list-home img {
     margin-left: 10px;
 }
 
-/* --Menu Shop-- */
+/* Menu Shop */
 nav .ctn-list-shop {
     position: absolute;
     display: none;
@@ -212,29 +212,13 @@ nav .list-shop .collection img {
     height: auto;
 }
 
+/* ---Hover Icon--- */
 nav .icon {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 0 20px;
 }
-
-nav .icon .cart {
-    position: relative;
-}
-
-nav .icon .cart:hover .minicart{
-    display: block;
-}
-
-nav .icon .minicart {
-    position: absolute;
-    display: none;
-    z-index: 100;
-    margin-top: -129px;
-    margin-left: -389px;
-}
-
 /* ============Main============ */
 
 /* ===Slider=== */
