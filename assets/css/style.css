@@ -219,6 +219,86 @@ nav .icon {
     justify-content: center;
     gap: 0 20px;
 }
+
+nav .icon .cart {
+    position: relative;
+}
+
+nav .icon .cart:hover .minicart {
+    display: block;
+}
+
+nav .icon .minicart {
+    background-color: white;
+    width: 450px;
+    height: 960px;
+    position: absolute;
+    top: -104px;
+    right: -30px;
+    z-index: 100;
+    display: none;
+}
+
+nav .icon .minicart .title {
+    display: flex;
+    padding: 15px 30px;
+    justify-content: space-between;
+}
+
+nav .icon .minicart h1 {
+    font-weight: bold;
+}
+
+nav .icon .minicart .close {
+    border: white;
+    background: white;
+    color: #555555;
+}
+
+nav .icon .minicart .ic {
+    padding: 15px 122px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav .icon .minicart .subtotal {
+    padding: 15px 30px;
+}
+
+nav .icon .minicart .tick {
+    display: flex;
+    padding: 5px 30px;
+    gap: 0 5px;
+}
+
+nav .icon .minicart a {
+    display: block;
+    color: black;
+    text-decoration: underline;
+}
+
+nav .icon .minicart .button {
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+    padding: 10px 30px;
+}
+
+nav .icon .minicart .viewcart {
+    font-weight: bold;
+    padding: 15px 0;
+    background: white;
+    border-radius: 30px;
+}
+
+nav .icon .minicart .checkout {
+    font-weight: bold;
+    padding: 15px 0;
+    background: black;
+    border-radius: 30px;
+    color: white;
+}
+
 /* ============Main============ */
 
 /* ===Slider=== */
