@@ -49,6 +49,7 @@ body {
 .top-links {
     display: flex;
     padding: 12px 30px;
+    font-size: 14px;
 }
 
 .top-links a {
@@ -56,17 +57,16 @@ body {
 }
 
 .top-links .a {
+    width: 310px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 0px 25px;
+    justify-content: space-between;
 }
 
 .top-links .b {
+    width: 268px;
     display: flex;
-    flex-wrap: wrap;
     margin: auto;
     gap: 0px 5px;
-    justify-content: center;
 }
 
 .top-links .b a {
@@ -75,11 +75,13 @@ body {
     text-shadow: 1px 0 0 currentColor;
 }
 
+.top-links .language {
+    width: 325px;
+}
+
 .top-links .language ul {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0px 25px;
-    justify-content: end;
+    justify-content: space-between;
 }
 
 /* ===Background=== */
@@ -149,7 +151,7 @@ nav .ctn-list-shop {
     width: 1047px;
 }
 
-@media (max-width:1047px) {
+@media (min-width:1024px) and (max-width:1047px) {
     nav .ctn-list-shop {
         margin-left: -440%;
         width: 636px;
@@ -318,10 +320,10 @@ nav .icon .minicart .checkout {
 
 .slider .text {
     position: absolute;
-    top: 31%;
-    left: 18%;
-    right: 59%;
-    bottom: 31%;
+    top: 30%;
+    left: 20%;
+    right: 50%;
+    bottom: 30%;
     text-align: center;
     max-width: 100%;
     height: auto;
@@ -439,7 +441,7 @@ nav .icon .minicart .checkout {
 .feature .btn {
     position: absolute;
     bottom: 10%;
-    left: 25%;
+    left: 30%;
     display: inline-block;
     padding: 15px 45px;
     color: black;
