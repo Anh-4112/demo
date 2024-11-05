@@ -48,7 +48,8 @@ body {
 /* ===Top Links=== */
 .top-links {
     display: flex;
-    padding: 12px 30px;
+    padding: 13px 30px;
+    align-items: center;
     font-size: 14px;
 }
 
@@ -572,7 +573,6 @@ nav .icon .minicart .checkout {
 .arrivals .products {
     margin-top: 40px;
     display: flex;
-    /* flex-wrap: wrap; */
     gap: 30px;
     justify-content: center;
     align-items: center;
