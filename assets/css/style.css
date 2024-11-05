@@ -18,7 +18,7 @@ a{
 }
 
 body {
-    width: 1920px;
+    /* width: 1920px; */
     max-width: 100%;
     margin: 0 auto;
 }
@@ -304,13 +304,16 @@ nav .icon .minicart .checkout {
 /* ===Slider=== */
 .slider {
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
     width: fit-content;
-    height: fit-content;
 }
 
 .slider img {
     max-width: 100%;
     height: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .slider .text {
@@ -324,15 +327,9 @@ nav .icon .minicart .checkout {
     height: auto;
 }
 
-@media (max-width:979px) {
-    .slider .text {
-        display: none;
-    }
-}
-
 .slider .text h1 {
     font-size: 50px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .slider .text p {
@@ -413,7 +410,7 @@ nav .icon .minicart .checkout {
 .feature .categories {
     margin-top: 40px;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     gap: 0 30px;
     justify-content: center;
     align-items: center;
@@ -442,7 +439,7 @@ nav .icon .minicart .checkout {
 .feature .btn {
     position: absolute;
     bottom: 10%;
-    left: 30%;
+    left: 25%;
     display: inline-block;
     padding: 15px 45px;
     color: black;
@@ -486,10 +483,14 @@ nav .icon .minicart .checkout {
 
 .trending .products {
     display: flex;
-    flex-wrap: wrap;
     gap: 0px 30px;
     justify-content: center;
     align-items: center;
+}
+
+.trending .products img {
+    max-width: 100%;
+    height: auto;
 }
 
 .trending .text {
@@ -513,16 +514,6 @@ nav .icon .minicart .checkout {
 .banner img {
     max-width: 100%;
     height: auto;
-}
-
-@media (max-width:768px) {
-    .banner {
-        overflow: hidden;               
-    }
-
-    .banner img {
-        max-width: none;
-    }
 }
 
 .banner .bn1,
@@ -579,10 +570,15 @@ nav .icon .minicart .checkout {
 .arrivals .products {
     margin-top: 40px;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     gap: 30px;
     justify-content: center;
     align-items: center;
+}
+
+.arrivals .products img {
+    max-width: 100%;
+    height: auto;
 }
 
 .arrivals .products .text {
@@ -677,10 +673,12 @@ nav .icon .minicart .checkout {
 .ig .img {
     margin-top: 40px;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
     gap: 6px;
+}
+
+.ig .img img {
+    max-width: 100%;
+    height: auto;
 }
 
 .ig .img .i1 {
@@ -706,9 +704,7 @@ footer {
 /* === Container === */
 .container{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px 0;
+    justify-content: space-between;
 }
 
 .container .about {
@@ -721,16 +717,18 @@ footer {
     color: #555555;
 }
 
-.container .hot-categories {
-    margin-left: 140px;
+@media (min-width:1024px) and (max-width:1100px) {
+    .container .hot-categories,
+    .container .service,
+    .container .newsletter {
+        margin-left: 10px;
+    }
 }
 
-.container .service {
-    margin-left: 120px;
-}
-
-.container .newsletter {
-    margin-left: 100px;
+@media (min-width:1024px) and (max-width:1439px) {
+    .container .about {
+        margin-left: 5px;
+    }
 }
 
 .container p {
@@ -763,7 +761,7 @@ footer {
     font-weight: bold;
     border-radius: 25px;
     background: black;
-    float: right;
+    /* float: right; */
 }
 
 .container input{
