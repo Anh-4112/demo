@@ -236,11 +236,21 @@ nav .icon .minicart {
     width: 450px;
     height: 960px;
     position: absolute;
-    top: -104px;
+    top: -102px;
     right: -30px;
+    /* animation: slideInleft ease 0.3s; */
     z-index: 100;
-    display: none;
+    /* display: none; */
 }
+
+/* @keyframes slideInleft {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+} */
 
 nav .icon .minicart .title {
     display: flex;
