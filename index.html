@@ -1,616 +1,178 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- reset css -->
-    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./css/reset.css">
     <!-- embel fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- embel icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- styles -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Figma To Web</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <title>DEMO</title>
 </head>
+
 <body>
-    <!-- Header -->  
-     <header>
-        <!-- notification -->
-         <div class="notification">
+   <!-- Header -->
+   <header>
+      <!-- Notification -->
+      <div class="d-none d-lg-block">
+        <div class="d-flex justify-content-center bg-orange-red relative pt-14 pb-12">
             <!-- topbar -->
-             <div class="topbar">
-               <p>Black Friday 50% Off! Limited time only:</p>
-               <p>652 days : 05 hour : 09 mins : 52 secs</p>
-             </div>
+            <div class="fs-14 fw-400 color-white lh d-flex gap-5">
+                <p>Black Friday 50% Off! Limited time only:</p>
+                <p>652 days : 05 hour : 09 mins : 52 secs</p>
+            </div>
+
             <!-- button -->
-             <a href="#!" class="action">X</a>
-         </div>
-        <!-- top links -->
-         <div class="top-links">
-            <!-- a -->
-             <div class="a">
+            <span class="fs-18 fw-400 color-white absolute right-19">
+                <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.5" d="M0.972656 1.52148C0.820312 1.38086 0.744141 1.21094 0.744141 1.01172C0.744141 0.800781 0.820312 0.619141 0.972656 0.466797C1.11328 0.326172 1.28906 0.255859 1.5 0.255859C1.71094 0.255859 1.88672 0.326172 2.02734 0.466797L6 4.43945L9.97266 0.466797C10.1133 0.326172 10.2891 0.255859 10.5 0.255859C10.7109 0.255859 10.8867 0.326172 11.0273 0.466797C11.1797 0.619141 11.2559 0.800781 11.2559 1.01172C11.2559 1.21094 11.1797 1.38086 11.0273 1.52148L7.05469 5.49414L11.0273 9.4668C11.1797 9.61914 11.2559 9.80078 11.2559 10.0117C11.2559 10.2109 11.1797 10.3809 11.0273 10.5215C10.8867 10.6738 10.7109 10.75 10.5 10.75C10.2891 10.75 10.1133 10.6738 9.97266 10.5215L6 6.56641L2.02734 10.5215C1.88672 10.6738 1.71094 10.75 1.5 10.75C1.28906 10.75 1.11328 10.6738 0.972656 10.5215C0.820312 10.3809 0.744141 10.2109 0.744141 10.0117C0.744141 9.80078 0.820312 9.61914 0.972656 9.4668L4.94531 5.49414L0.972656 1.52148Z"fill="white" />
+                </svg>
+            </span>
+        </div>
+
+        <div class="d-flex justify-content-center fs-14 fw-400 px-30 pt-14 pb-12">
+            <!-- 1 -->
+            <div class="flex-fill d-xxl-flex gap-25 mr-4 d-lg-none d-xxl-block">
                 <p>+222-1800-2628</p>
                 <p>blueskytechcompany@gmail.com</p>
-             </div>
-            <!-- b -->
-             <div class="b">
+            </div>
+
+            <!-- 2 -->
+            <div class="d-flex gap-5">
                 <p>Sign up for 10% off your first order:</p>
-                <a href="#!">Sign Up</a>
-             </div>
+                <a class="text-decoration-display fw-500" href="#!">Sign Up</a>
+            </div>
+
             <!-- Language -->
-            <div class="language">
-               <ul>
-                  <li>
-                     <a href="#!">Our Stores</a>
-                  </li>
-                  <li>
-                     <a href="#!">English</a>
-                     <img src="./assets/img/header/.svg" alt="." width="12px" height="10px">
-                  </li>
-                  <li>
-                     <a href="#!">United States (USD-$)</a>
-                     <img src="./assets/img/header/.svg" alt="." width="12px" height="10px">
-                  </li>
-               </ul>
-            </div>
+            <ul class="flex-fill d-xxl-flex justify-content-end align-items-end mr-3 d-lg-none d-xxl-block">
+                <li>
+                    <a href="#!">Our Stores</a>
+                </li>
+                <li>
+                    <a class="ml-25" href="#!">
+                        English
+                        <i class="fa fa-solid fa-angle-down ml-5 fs-12 fw-400 lh"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="ml-29" href="#!">
+                        United States (USD $)
+                        <i class="fa fa-solid fa-angle-down ml-5 fs-12 fw-400 lh" ></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="line-notification bg-gray-lighter"></div>
+      </div>
+
+      <!-- Navbar -->
+      <div class="d-flex align-items-center pt-28 pt-26 px-20 px-lg-30 pt-lg-24">
+         <!-- Menu Mobile -->
+         <div class="flex-fill mr-49 d-lg-none">
+            <span>
+               <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 8H19C19.2812 8 19.5156 7.90625 19.7031 7.71875C19.9062 7.51562 20.0078 7.27344 20.0078 6.99219C20.0078 6.72656 19.9062 6.5 19.7031 6.3125C19.5156 6.10938 19.2812 6.00781 19 6.00781H1C0.71875 6.00781 0.476562 6.10938 0.273438 6.3125C0.0859375 6.5 -0.0078125 6.72656 -0.0078125 6.99219C-0.0078125 7.27344 0.0859375 7.51562 0.273438 7.71875C0.476562 7.90625 0.71875 8 1 8ZM1 2H19C19.2812 2 19.5156 1.90625 19.7031 1.71875C19.9062 1.51563 20.0078 1.27344 20.0078 0.992188C20.0078 0.726562 19.9062 0.5 19.7031 0.3125C19.5156 0.109375 19.2812 0.0078125 19 0.0078125H1C0.71875 0.0078125 0.476562 0.109375 0.273438 0.3125C0.0859375 0.5 -0.0078125 0.726562 -0.0078125 0.992188C-0.0078125 1.27344 0.0859375 1.51563 0.273438 1.71875C0.476562 1.90625 0.71875 2 1 2ZM1 14H19C19.2812 14 19.5156 13.9062 19.7031 13.7188C19.9062 13.5156 20.0078 13.2734 20.0078 12.9922C20.0078 12.7266 19.9062 12.5 19.7031 12.3125C19.5156 12.1094 19.2812 12.0078 19 12.0078H1C0.71875 12.0078 0.476562 12.1094 0.273438 12.3125C0.0859375 12.5 -0.0078125 12.7266 -0.0078125 12.9922C-0.0078125 13.2734 0.0859375 13.5156 0.273438 13.7188C0.476562 13.9062 0.71875 14 1 14Z" fill="#111111"/>
+               </svg>
+            </span>
          </div>
-        <!-- Background -->
-         <nav>
-            <!-- Logo -->
-            <a href="#!" class="logo">
-               <img src="./assets/img/header/Logo.svg" alt="Logo">
+
+         <!-- Logo -->
+         <div class="d-flex flex-fill justify-content-center justify-content-lg-start mr-lg-50 mr-xxl-95">
+            <a href="\">
+               <img class="d-block" src="assets/img/header/Logo.svg" alt="Logo">
             </a>
-            <!-- Menu -->
-            <ul class="menu">
-               <li>
-                  <a href="#!">Home</a>
-                  <!-- List Home -->
-                  <ul class="list-home">
-                     <li>
-                        <a href="#!">Main demo</a>
-                        <img src="./assets/img/header/menu/menu-home-hot.svg" alt="hot" width="39px" height="21px">
-                     </li>
-                     <li>
-                        <a href="#!">Skincare</a>
-                     </li>
-                     <li>
-                        <a href="#!">Simple Modern</a>
-                        <img src="./assets/img/header/menu/menu-home-hot.svg" alt="hot" width="39px" height="21px">
-                     </li>
-                     <li>
-                        <a href="#!">Simple Fashion</a>
-                        <img src="./assets/img/header/menu/menu-home-tiktok.svg" alt="tiktok" width="52px" height="21px">
-                     </li>
-                     <li>
-                        <a href="#!">Trendy Style</a>
-                     </li>
-                     <li>
-                        <a href="#!">Minimal Clothings</a>
-                     </li>
-                     <li>
-                        <a href="#!">Men's Luxury</a>
-                        <img src="./assets/img/header/menu/menu-home-hot.svg" alt="hot" width="39px" height="21px">
-                     </li>
-                     <li>
-                        <a href="#!">Clothing Store</a>
-                     </li>
-                     <li>
-                        <a href="#!">Categories Men’s</a>
-                     </li>
-                     <li>
-                        <a href="#!">Unique Watches</a>
-                     </li>
-                     <li>
-                        <a href="#!">Underwear</a>
-                        <img src="./assets/img/header/menu/menu-home-new.svg" alt="new" width="42px" height="21px">
-                     </li>
-                     <li>
-                        <a href="#!">RTL Demo</a>
-                     </li>
-                  </ul>
-               </li>
-               <li>
-                  <a href="#!">Shop</a>
-                  <!-- List Shop -->
-                  <div class="ctn-list-shop">
-                     <div class="list-shop">
-                        <!-- Layout -->
-                        <div class="layouts">
-                           <p>Shop Layouts</p>
-                           <ul>
-                              <li>
-                                 <a href="#!">Filter Left Sidebar</a>
-                              </li>
-                              <li>
-                                 <a href="#!">Filter Right Sidebar</a>
-                              </li>
-                              <li>
-                                 <a href="#!">Filter Dropdown</a>
-                              </li>
-                              <li>
-                                 <a href="#!">Canvas Sidebar</a>
-                              </li>
-                              <li>
-                                 <a href="#!">Full Width</a>
-                              </li>
-                              <li>
-                                 <a href="#!">List View</a>
-                              </li>
-                              <li>
-                                 <a href="#!">Grid 2 Columns</a>
-                              </li>
-                              <li>
-                                 <a href="#!">Grid 3 Columns</a>
-                              </li>
-                              <li>
-                                 <a href="#!">Grid 4 Columns</a>
-                              </li>
-                           </ul>
-                        </div>
-                        <!-- Page -->
-                        <div class="page">
-                           <p>Shop Pages</p>
-                           <ul>
-                              <li>
-                                 <a href="#!">Collection List v1</a>
-                              </li>
-                              <li>
-                                 <a href="#!">Collection List v2</a>
-                              </li>
-                              <li>
-                                 <a href="#!">Load More Button</a>                          
-                              </li>
-                              <li>
-                                 <a href="#!">Infinite Scrolling</a>
-                              </li>
-                              <li>
-                                 <a href="#!">Panigation Page</a>                         
-                              </li>
-                           </ul>
-                        </div>
-                        <!-- Collection -->
-                        <div class="collection">
-                           <div class="clt1">
-                              <img src="./assets/img/header/menu/menu-shop-1.svg" alt="menu-shop-1" width="268px" height="330px">
-                              <a href="#!">Blazers</a>
-                           </div>
-                           <div class="clt2">
-                              <img src="./assets/img/header/menu/menu-shop-2.svg" alt="menu-shop-2" width="268px" height="330px">
-                              <a href="#!">Handbag</a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>   
-               </li>
-               <li>
-                  <a href="#!">Products</a>
-               </li>
-               <li>
-                  <a href="#!">Pages</a>
-               </li>
-               <li>
-                  <a href="#!">Blog</a>
-               </li>
-               <li>
-                  <a href="#!">Sale</a>
-               </li>
-               <li>
-                  <a href="#!">Buy Umino!</a>
-               </li>
+         </div>
+
+         <!-- Menu Desktop -->
+         <div class="flex-fill d-none d-lg-block">
+            <ul class="d-flex justify-content-center gap-lg-20 gap-xxl-30">
+                <li>
+                    <a class="fs-16 fw-500 lh btn-nav" href="">
+                        Home
+                        <i class="fa fa-solid fa-angle-down ml-5 fs-14 fw-400 lh"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="fs-16 fw-500 lh btn-nav" href="">
+                        Shop
+                        <i class="fa fa-solid fa-angle-down ml-5 fs-14 fw-400 lh"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="fs-16 fw-500 lh btn-nav" href="">
+                        Products
+                        <i class="fa fa-solid fa-angle-down ml-5 fs-14 fw-400 lh"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="fs-16 fw-500 lh btn-nav" href="">
+                        Pages
+                        <i class="fa fa-solid fa-angle-down ml-5 fs-14 fw-400 lh"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="fs-16 fw-500 lh btn-nav" href="">
+                        Blog
+                        <i class="fa fa-solid fa-angle-down ml-5 fs-14 fw-400 lh"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="fs-16 fw-500 lh btn-nav" href="">
+                        Sale
+                    </a>
+                </li>
+                <li>
+                    <a class="fs-16 fw-500 lh btn-nav" href="">
+                        Buy Uminno!
+                    </a>
+                </li>
             </ul>
-            <!-- Icon -->
-            <div class="icon">
-               <img src="./assets/img/header/Search.svg" alt="Search">
-               <img src="./assets/img/header/Login.svg" alt="Login">
-               <img src="./assets/img/header/Recently viewed.svg" alt="Recently viewed">
-               <img src="./assets/img/header/Wishlist.svg" alt="Wishlist">
-               <div class="cart">
-                  <img src="./assets/img/header/Cart.svg" alt="Cart">
-                  <div class="minicart">
-                     <div class="title">
-                        <h1>Shopping Cart</h1>
-                        <button class="close">X</button>
-                     </div>
-                     <div style="background-color: white; height: 650px;">
-                        
-                     </div>
-                     <div class="ic">
-                        <img src="./assets/img/header/icon/cart/note.svg" alt="note">
-                        <img src="./assets/img/header/icon/cart/gift.svg" alt="gift">
-                        <img src="./assets/img/header/icon/cart/shipping.svg" alt="shipping">
-                     </div>
-                     <div class="subtotal">
-                        <h1>Subtotal:</h1>
-                     </div>
-                     <div class="tick">
-                        <input type="checkbox">
-                        <p>I agree with the</p>
-                        <a href="#!">terms and conditions</a>
-                     </div>
-                     <div class="button">
-                        <button class="viewcart">View Cart</button>
-                        <button class="checkout">Checkout</button>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </nav>
-     </header>
-    <!-- Main -->
-     <main>
-         <!-- Slider -->
-          <div class="slider">
-            <!-- Img -->
-             <div class="img">
-               <img src="./assets/img/main/slider/img1.jpg" alt="img1" width="1920px" height="810px">
-               <!-- Text -->
-               <div class="text">
-                  <h1>Stylish</h1>
-                  <h1>Top Trending</h1>
-                  <p>So soft you don't want to take it off.</p>
-                  <a href="#!" class="bnt-en">Explore Now</a>
-               </div>
-               <!-- Hover Button -->
-               <div class="hover-button">
-                  <a href="#!" class="btn-l">❮</a>
-                  <a href="#!" class="btn-r">❯</a>
-               </div>
-               <!-- Dots -->
-               <div class="dot">
-                  <button onclick="curentSlide(1)"></button>
-                  <button onclick="curentSlide(2)"></button>
-                  <button onclick="curentSlide(3)"></button>
-               </div>
-             </div>
-          </div>
-         <!-- Feature Categories -->
-          <div class="feature">
-            <!-- Title -->
-             <div class="title">
-                <h1>Featured Collections</h1>
-                <p>Elevate your style with our chic featured collection—where fashion meets flair effortlessly.</p>
-             </div>
-            <!-- Categories -->
-             <div class="categories">
-               <!-- Clothing -->
-                <div class="clothing">
-                  <img src="./assets/img/main/feature/Clothing.svg" alt="Clothing" width="450px" height="730px">
-                  <a href="#!" class="btn" >Clothing</a>
-                </div>
-               <!-- B -->
-                <div class="b">
-                  <!-- Sunglasses -->
-                   <div class="sunglasses">
-                     <img src="./assets/img/main/feature/Sunglasses.svg" alt="Clothing" width="450px" height="350px">
-                     <a href="#!" class="btn">Sunglasses</a>
-                   </div>
-                  <!-- Bags -->
-                   <div class="bags">
-                     <img src="./assets/img/main/feature/Bags.svg" alt="Bags" width="450px" height="350px">
-                     <a href="#!" class="btn">Bags</a>
-                   </div>
-                </div>
-               <!-- Sneaker -->
-                <div class="sneaker">
-                  <img src="./assets/img/main/feature/Sneaker.svg" alt="Sneaker" width="450px" height="730px">
-                  <a href="#!" class="btn">Sneaker</a>
-                </div>
-             </div>
-          </div>
-         <!-- Trending this week -->
-          <div class="trending">
-            <!-- Title -->
-             <div class="title">
-               <h1>Trending this Week</h1>
-             </div>
-            <!-- Text -->
-             <div class="txt">
-               <ul>
-                  <li>
-                     <a href="#!">TOPS</a>
-                  </li>
-                  <li>
-                     <a href="#!">DRESSES</a>
-                  </li>
-                  <li>
-                     <a href="#!">T-SHIRT</a>
-                  </li>
-                  <li>
-                     <a href="#!">BAGS</a>
-                  </li>
-                  <li>
-                     <a href="#!">SHOES</a>
-                  </li>
-               </ul>
-             </div>
-            <!-- Products -->
-             <div class="products">
-               <!-- 1 -->
-               <div class="pro1">
-                  <img src="./assets/img/main/trending/pro1.svg" alt="pro1" width="330px" height="440px">
-                  <div class="text">
-                     <h1>Square Textured Striped</h1>
-                     <img src="./assets/img/main/trending/rate1.svg" alt="rate" width="54px" height="10px">
-                     <p>$150.00</p>
-                     <img src="./assets/img/main/trending/color.svg" alt="color" width="85px" height="25px">
-                  </div>
-               </div>
-               <!-- 2 -->
-               <div class="pro2">
-                  <img src="./assets/img/main/trending/pro2.svg" alt="pro2" width="330px" height="440px">
-                  <div class="text">
-                     <h1>Square Textured Striped</h1>
-                     <img src="./assets/img/main/trending/rate2.svg" alt="rate" width="54px" height="10px">
-                     <p>$150.00</p>
-                     <img src="./assets/img/main/trending/color.svg" alt="color" width="85px" height="25px">
-                  </div>
-               </div>
-               <!-- 3 -->
-               <div class="pro3">
-                  <img src="./assets/img/main/trending/pro3.svg" alt="pro3" width="330px" height="440px">
-                  <div class="text">
-                     <h1>Square Textured Striped</h1>
-                     <img src="./assets/img/main/trending/rate1.svg" alt="rate" width="54px" height="10px">
-                     <p>$150.00</p>
-                     <img src="./assets/img/main/trending/color.svg" alt="color" width="85px" height="25px">
-                  </div>
-               </div>
-               <!-- 4 -->
-               <div class="pro4">
-                  <img src="./assets/img/main/trending/pro4.svg" alt="pro4" width="330px" height="440px">
-                  <div class="text">
-                     <h1>Square Textured Striped</h1>
-                     <img src="./assets/img/main/trending/rate2.svg" alt="rate" width="54px" height="10px">
-                     <p>$145.00 - $169.00</p>
-                     <img src="./assets/img/main/trending/color.svg" alt="color" width="85px" height="25px">
-                  </div>
-               </div>
-             </div>
-          </div>
-         <!-- Banner -->
-          <div class="banner">
-            <!-- Banner1 -->
-             <div class="bn1">
-               <img src="./assets/img/main/banner/banner1.svg" alt="bn1" width="600px" height="800px">
-               <div class="text">
-                  <p>ONLINE EXCLUSIVE</p>
-                  <h1>Oversized Shirt</h1>
-                  <a href="#!">Shop the Look</a>
-               </div>
-             </div>
-            <!-- Banner2 -->
-             <div class="bn2">
-               <img src="./assets/img/main/banner/banner2.svg" alt="bn2" width="600px" height="800px">
-               <div class="text">
-                  <p>ONLINE EXCLUSIVE</p>
-                  <h1>Oversized Shirt</h1>
-                  <a href="#!">Shop the Look</a>
-               </div>
-             </div>
-            <!-- Banner3 -->
-             <div class="bn3">
-               <img src="./assets/img/main/banner/banner3.svg" alt="bn3" width="600px" height="800px">
-               <div class="text">
-                  <p>ONLINE EXCLUSIVE</p>
-                  <h1>Oversized Shirt</h1>
-                  <a href="#!">Shop the Look</a>
-               </div>
-             </div>
-          </div>
-         <!-- New arrivals -->
-          <div class="arrivals">
-            <!-- Title -->
-             <div class="title">
-               <h1>New Arrivals</h1>
-               <p>Here’s some of our new arrivals products people are in love with.</p>
-             </div>
-             <!-- Products -->
-             <div class="products">
-               <!-- 1 -->
-               <div class="pro1">
-                  <img src="./assets/img/main/arrivals/pro1.svg" alt="pro1" width="330px" height="440px">
-                  <div class="text">
-                     <h1>Square Textured Striped</h1>
-                     <img src="./assets/img/main/arrivals/rate1.svg" alt="rate" width="54px" height="10px">
-                     <p>$150.00</p>
-                     <img src="./assets/img/main/arrivals/color1.svg" alt="color" width="85px" height="25px">
-                  </div>
-               </div>
-               <!-- 2 -->
-               <div class="pro2">
-                  <img src="./assets/img/main/arrivals/pro2.svg" alt="pro2" width="330px" height="440px">
-                  <div class="text">
-                     <h1>Square Textured Striped</h1>
-                     <img src="./assets/img/main/arrivals/rate2.svg" alt="rate" width="54px" height="10px">
-                     <p>$150.00</p>
-                     <img src="./assets/img/main/arrivals/color2.svg" alt="color" width="85px" height="25px">
-                  </div>
-               </div>
-               <!-- 3 -->
-               <div class="pro3">
-                  <img src="./assets/img/main/arrivals/pro3.svg" alt="pro3" width="330px" height="440px">
-                  <div class="text">
-                     <h1>Square Textured Striped</h1>
-                     <img src="./assets/img/main/arrivals/rate1.svg" alt="rate" width="54px" height="10px">
-                     <p>$150.00</p>
-                     <img src="./assets/img/main/arrivals/color3.svg" alt="color" width="85px" height="25px">
-                  </div>
-               </div>
-               <!-- 4 -->
-               <div class="pro4">
-                  <img src="./assets/img/main/arrivals/pro4.svg" alt="pro4" width="330px" height="440px">
-                  <div class="text">
-                     <h1>Square Textured Striped</h1>
-                     <img src="./assets/img/main/arrivals/rate2.svg" alt="rate" width="54px" height="10px">
-                     <p>$150.00</p>
-                     <img src="./assets/img/main/arrivals/color3.svg" alt="color" width="85px" height="25px">
-                  </div>
-               </div>
-             </div>
-          </div>
-         <!-- People like -->
-          <div class="people">
-            <!-- Title -->
-             <div class="title">
-               <h1>Customer Say!</h1>
-               <p>Customers love our products and we always strive to please them all.</p>
-             </div>
-            <!-- Text -->
-             <div class="text">
-               <!-- About Text -->
-                <div class="txt">
-                  <!-- 1 -->
-                  <div>
-                     <img src="./assets/img/main/people/img1.svg" alt="people1">
-                     <p>A perfect product, it keeps you very warm without over heating. True to size, I couldn't be happier with the purchase... Thank you! 🤗</p>
-                     <img src="./assets/img/main/people/rate.svg" alt="rate">
-                     <p>Algistino Lionel - Verified Buyer</p>
-                  </div>
-                  <!-- 2 -->
-                  <div>
-                     <img src="./assets/img/main/people/img2.svg" alt="people2">
-                     <p>Great to be able to order everything I needed from the comfort of my home and the delivery was extremely quick. Recommend... 🥰</p>
-                     <img src="./assets/img/main/people/rate.svg" alt="rate">
-                     <p>Algistino Lionel - Verified Buyer</p>
-                  </div>
-                  <!-- 3 -->
-                  <div>
-                     <img src="./assets/img/main/people/img3.svg" alt="people">
-                     <p>These are sooo pretty and very comfy. Perfect color as well. I love wearing these with a neutral top and Chelsea boots. Wicked cute...😍 </p>
-                     <img src="./assets/img/main/people/rate.svg" alt="rate">
-                     <p>Algistino Lionel - Verified Buyer</p>
-                  </div>
-                </div>
-               <!-- Hover -->
-                <div class="hover">
-                  <a href="#!" class="btn-l">❮</a>
-                  <a href="#!" class="btn-r">❯</a>
-                </div>
-             </div>
-          </div>
-         <!-- Instagram -->
-          <div class="ig">
-            <!-- Title -->
-             <div class="title">
-               <h1>Shop by Gram</h1>
-               <p>Inspire and let yourself be inspired, from one unique fashion to another.</p>
-             </div>
-            <!-- List Img -->
-             <div class="img">
-               <!-- 1 -->
-                <div class="i1">
-                  <img src="./assets/img/main/ig/img1.svg" alt="img1" width="230px" height="230px">
-                  <div class="icon">
-                     <img src="./assets/img/main/ig/icon.svg" alt="icon">
-                  </div>
-                </div>
-               <!-- 2 -->
-                <div class="i1">
-                  <img src="./assets/img/main/ig/img2.svg" alt="img2" width="230px" height="230px">
-                  <div class="icon">
-                     <img src="./assets/img/main/ig/icon.svg" alt="icon">
-                  </div>
-                </div>
-               <!-- 3 -->
-                <div class="i1">
-                  <img src="./assets/img/main/ig/img3.svg" alt="img3" width="230px" height="230px">
-                  <div class="icon">
-                     <img src="./assets/img/main/ig/icon.svg" alt="icon">
-                  </div>
-                </div>
-               <!-- 4 -->
-                <div class="i1">
-                  <img src="./assets/img/main/ig/img4.svg" alt="img4" width="230px" height="230px">
-                  <div class="icon">
-                     <img src="./assets/img/main/ig/icon.svg" alt="icon">
-                  </div>
-                </div>
-               <!-- 5 -->
-                <div class="i1">
-                  <img src="./assets/img/main/ig/img5.svg" alt="img5" width="230px" height="230px">
-                  <div class="icon">
-                     <img src="./assets/img/main/ig/icon.svg" alt="icon">
-                  </div>
-                </div>
-               <!-- 6 -->
-                <div class="i1">
-                  <img src="./assets/img/main/ig/img6.svg" alt="img6" width="230px" height="230px">
-                  <div class="icon">
-                     <img src="./assets/img/main/ig/icon.svg" alt="icon">
-                  </div>
-                </div>
-             </div>
-          </div>
-     </main>
-    <!-- Footer -->
-     <footer>
-      <!-- Container -->
-       <div class="container">
-         <!-- About -->
-         <div class="about">
-            <p><img src="./assets/img/footer/Logo.svg" alt="logo"></p>
-            <div class="txt">
-               <p>268 St, South New York/NY 98944, United States
-               <p>+222-1800-2628</p>
-               <p>blueskytechcompany@gmail.com</p>
-            </div>
-            <p><img src="./assets/img/footer/social.svg" alt="social"></p>
-            <p><img src="./assets/img/footer/followOnShop.svg" alt="followOnShop"></p>
+        </div>
+
+         <!-- Icon -->
+         <div class="flex-fill d-flex justify-content-end align-items-end gap-20 gap-lg-15 gap-xxl-20">
+            <a href="">
+               <img src="assets/img/header/icon/search/Search.svg" alt="Search">
+            </a>
+            <a class="d-none d-lg-block" href="">
+               <img src="./assets/img/header/icon/login/Login.svg" alt="Login">
+            </a>
+            <a class="d-none d-lg-block" href="">
+               <img src="assets/img/header/icon/recently viewed/Recently viewed.svg" alt="Recently viewed">
+            </a>
+            <a class="d-none d-lg-block" href="">
+               <img src="assets/img/header/icon/wishlist/Wishlist.svg" alt="Wishlist">
+            </a>
+            <a class="pr-12 pr-lg-10" href="">
+               <img src="assets/img/header/icon/cart/Cart.svg" alt="Cart">
+            </a>
          </div>
-         <!-- Hot Categories -->
-         <div class="hot-categories">
-            <h1>HOT CATEGORIES</h1>
-            <ul>
-               <li>Special Offers</li>
-               <li>Performance</li>
-               <li>T-shirts</li>
-               <li>Underwear</li>
-               <li>Top Brands</li>
-               <li>Online Exclusive</li>
-            </ul>
-         </div>
-         <!-- Service -->
-         <div class="service">
-            <h1>CUSTOMER SERVICE</h1>
-            <ul>
-               <li>Privacy Policy</li>
-               <li>Refund Policy</li>
-               <li>Shipping & Return</li>
-               <li>Term & Conditions</li>
-               <li>Advanced Search</li>
-               <li>Theme FAQs</li>
-               <li>Store Locations</li>
-            </ul>
-         </div>
-         <!-- Newsletter -->
-         <div class="newsletter">
-            <h1>SIGN UP TO NEWSLETTER</h1>
-            <p>Enter your email address to get $10 off your first order and</p>
-            <p>free hipping. Updates information on Sales and Offers.</p>
-            <div class="subscribe">
-               <input type="text" id="subscribe" placeholder="Enter your email...">
-               <button>SUBSCRIBE</button>
-            </div>
-         </div>
-       </div>
-      <!-- Copyright -->
-       <div class="copyright">
-         <div>
-            <ul>
-               <li>
-                  <a href="#!">English</a>
-                  <img src="./assets/img/footer/.svg" alt="." width="12px" height="10px">
-               </li>
-               <li>
-                  <a href="#!">United States (USD-$)</a>
-                  <img src="./assets/img/footer/.svg" alt="." width="12px" height="10px">
-               </li>
-            </ul>
-         </div>
-         <p>© 2023 Umino Store. All Rights Reserved.</p>
-         <img src="./assets/img/footer/payment.svg" alt="payment">
-       </div>
-     </footer>
+      </div>
+   </header>
+
+   <!-- Main -->
+   <main>
+
+   </main>
+
+   <!-- footer -->
+   <footer>
+
+   </footer>
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+   <script src="js/main.js"></script>
 </body>
+
 </html>
