@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- styles -->
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>DEMO</title>
 </head>
 
@@ -76,7 +77,7 @@
       </div>
 
       <!-- Navbar -->
-      <div class="d-flex align-items-center pt-28 pt-26 px-20 px-lg-30 pt-lg-24">
+      <div class="d-flex align-items-center pt-28 pb-25 px-20 px-lg-30 pt-lg-24">
          <!-- Menu Mobile -->
          <div class="flex-fill mr-49 d-lg-none">
             <span>
@@ -162,7 +163,35 @@
 
    <!-- Main -->
    <main>
+        <div class="slider-wrapper relative overflow-hidden">
+            <div class="slider d-flex">
+                <div class="slide relative">
+                    <a href="">
+                        <img class="img-slide" src="assets/img/main/slider/slider-pc-1.jpg" alt="Slide 1">
+                    </a>
+                    <!-- <div class="absolute">
+                        <h1 class="">Stylish<br>Top Trending</h1>
+                        <p class="">So soft you don't want to take it off.</p>
+                        <button class="">EXPLORE NOW</button>
+                    </div> -->
+                </div>
+                <div class="slide">
+                    <a href="">
+                        <img class="img-slide" src="assets/img/main/slider/slider-pc-2.jpg" alt="Slide 2">
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="">
+                        <img class="img-slide" src="assets/img/main/slider/slider-pc-3.jpg" alt="Slide 3">
+                    </a>
+                </div>
+            </div>
 
+            <div class="slider-prev d-none d-lg-block cursor-pointer bg-white color-black px-26 py-23 fs-14 fw-400 lh absolute left-30">&#10094;</div>
+            <div class="slider-next d-none d-lg-block cursor-pointer bg-white color-black px-26 py-23 fs-14 fw-400 lh absolute right-30">&#10095;</div>
+        
+            <div class="slider-dots cursor-pointer absolute bottom-23"></div>
+        </div>
    </main>
 
    <!-- footer -->
@@ -170,9 +199,8 @@
 
    </footer>
 
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-   <script src="js/main.js"></script>
+   <script src="js/js.js"></script>
+   
 </body>
 
 </html>
