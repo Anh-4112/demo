@@ -5,9 +5,6 @@ $(document).ready(function () {
     const slider = $(".slider");
     const dotsContainer = $(".slider-dots");
 
-    // Đặt width của slider theo số lượng slide
-    slider.css("width", `${totalSlides * 100}%`);
-
     // Thêm dots theo số lượng slide
     for (let i = 0; i < totalSlides; i++) {
         dotsContainer.append(`<span class="dot" data-index="${i}"></span>`);

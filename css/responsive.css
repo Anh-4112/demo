@@ -1,16 +1,32 @@
+/* sm */
 @media screen and (min-width: 576px) {
     
 }
 
+/* md */
 @media screen and (min-width: 768px) {
     :root {
         --height-slider: 65rem;
     }
+
+    .text-md-center {
+        text-align: center;
+    }
+
+    .top-md-225 {
+        top: 22.5rem;
+    }
+
+    .left-md-130 {
+        left: 13rem;
+    }
 }
 
+/* lg */
 @media screen and (min-width: 992px) {
     :root {
         --height-slider: 81rem;
+        --position-img-slider: 50% center;
     }
     
     .d-lg-none {
@@ -50,12 +66,47 @@
     .mr-lg-50 {
         margin-right: 5rem;
     }
+
+    .top-lg-300 {
+        top: 30rem;
+    }
+
+    .left-lg-220 {
+        left: 22rem;
+    }
+
 }
 
+/* xl */
 @media screen and (min-width: 1200px) {
-    
+   .fs-xl-80 {
+    font-size: 8rem;
+   }
+
+   .lh-xl-80 {
+    line-height: 8rem;
+   }
+
+   .px-xl-54 {
+    padding-left: 5.4rem;
+    padding-right: 5.4rem;
+   }
+
+   .py-xl-21 {
+    padding-top: 2.1rem;
+    padding-bottom: 2.1rem;
+   }
+
+   .mb-xl-24 {
+    margin-bottom: 2.4rem;
+   }
+
+   .mb-xl-53 {
+    margin-bottom: 5.3rem;
+   }
 }
 
+/* xxl */
 @media screen and (min-width: 1400px) {
     .d-xxl-block {
         display: block;
@@ -75,5 +126,13 @@
 
     .mr-xxl-95 {
         margin-right: 9.5rem;
+    }
+
+    .top-xxl-252 {
+        top: 25.2rem;
+    }
+
+    .left-xxl-352 {
+        left: 35.2rem;
     }
 }

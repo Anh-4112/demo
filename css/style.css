@@ -13,11 +13,12 @@ html {
     --gray-lighter: #EBEBEB;
     --gray-medium: #999999;
     --gray-dark: #555555;
-    --orange-red: #D73F0F;
+    --orange-red: #d0473e;
     --green: #26A66A;
     --color-slider: #f6f6f6;
-    /* == Height == */
+    /* ========= */
     --height-slider: 55rem;
+    --position-img-slider: 60% center;
 }
 
 /* === Background Color =============== */
@@ -220,7 +221,17 @@ html {
     padding-right: 3rem;
 }
 
+.px-44 {
+    padding-left: 4.4rem;
+    padding-right: 4.4rem;
+}
+
 /* === Padding Y ========= */
+.py-18 {
+    padding-top: 1.8rem;
+    padding-bottom: 1.8rem;
+}
+
 .py-23 {
     padding-top: 2.3rem;
     padding-bottom: 2.3rem;
@@ -243,6 +254,13 @@ html {
 }
 
 /* === Margin Bottom ========= */
+.mb-14 {
+    margin-bottom: 1.4rem;
+}
+
+.mb-34 {
+    margin-bottom: 3.4rem;
+}
 
 /* === Margin Right ========= */
 .mr-3 {
@@ -267,11 +285,17 @@ html {
 
 
 /* === Top ========= */
-
+.top-175 {
+    top: 17.5rem;
+}
 
 /* === Left ========= */
 .left-30 {
     left: 3rem;
+}
+
+.left-21 {
+    left: 2.1rem;
 }
 
 /* === Bottom ========= */
@@ -292,6 +316,10 @@ html {
     line-height: 100%;
 }
 
+.lh-45 {
+    line-height: 4.5rem;
+}
+
 /* === Font Size ========= */
 .fs-12 {
     font-size: 1.2rem;
@@ -309,6 +337,10 @@ html {
     font-size: 1.8rem;
 }
 
+.fs-40 {
+    font-size: 4rem;
+}
+
 /* === Font Weight ========= */
 .fw-400{
     font-weight: 400;
@@ -318,9 +350,26 @@ html {
     font-weight: 500;
 }
 
+.fw-600 {
+    font-weight: 600;
+}
+
 /* === Btn ========= */
 .btn-nav:hover {
     color: var(--orange-red);
+}
+
+.btn {
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid transparent;
+}
+
+.btn-black {
+    color: var(--white);
+    border-color: var(--black);
+    background-color: var(--black);
 }
 
 /* ======================= */
@@ -336,12 +385,16 @@ html {
     background-color: var(--color-slider);
 }
 
+.slide {
+    flex: 0 0 100%;
+}
+
 .img-slide {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 53% center;
+    object-position: var(--position-img-slider);
 }
 
 .slider-prev, 
