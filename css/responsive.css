@@ -33,9 +33,21 @@
         grid-column: 3;
         grid-row: 1/3;
     }
+
+    .gap-md-30 {
+        gap: 3rem;
+    }
+
+    .col-md-2 {
+        flex: 0 0 calc(calc(100% - 15.4rem) /2);
+    }
     
     .col-md-3 {
         flex: 0 0 calc(calc(100% - 4rem) /3);
+    }
+
+    .col-md-3-gap-5 {
+        flex: 0 0 calc(calc(100% - 1rem) /3);
     }
 
     .text-md-center {
@@ -152,6 +164,10 @@
     gap: 3rem;
    }
 
+    .col-xl-3 {
+     flex: 0 0 calc(calc(100% - 24.6rem) /3);
+    }
+
    .justify-content-xl-between {
     justify-content: space-between;
    }
@@ -162,6 +178,10 @@
 
     .col-xl-4 {
         flex: 0 0 calc(calc(100% - 6rem) /4);
+    }
+
+    .col-xl-6-gap-5 {
+        flex: 0 0 calc(calc(100% - 2.5rem) /6);
     }
 
     .fs-xl-36 {
@@ -220,12 +240,20 @@
     margin-top: 3.3rem;
    }
 
+   .mt-xl-45 {
+    margin-top: 4.4rem;
+   }
+
    .mt-xl-48 {
     margin-top: 4.8rem;
    }
 
-   .mt-xl-88 {
-    margin-top: 8.8rem;
+   .mt-xl-87 {
+    margin-top: 8.7rem;
+   }
+
+   .mt-xl-93 {
+    margin-top: 9.3rem;
    }
 
    .mt-xl-94 {
@@ -234,6 +262,10 @@
 
    .mt-xl-100 {
     margin-top: 10rem;
+   }
+
+   .mt-xl-107 {
+    margin-top: 10.7rem;
    }
 
    .mb-xl-12 {
