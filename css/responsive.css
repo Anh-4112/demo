@@ -42,7 +42,7 @@
         flex: 0 0 calc(calc(100% - 15.4rem) /2);
     }
     
-    .col-md-3 {
+    .col-md-3-gap-20 {
         flex: 0 0 calc(calc(100% - 4rem) /3);
     }
 
@@ -176,7 +176,7 @@
     z-index: 6;
    }
 
-    .col-xl-4 {
+    .col-xl-4-gap-20 {
         flex: 0 0 calc(calc(100% - 6rem) /4);
     }
 

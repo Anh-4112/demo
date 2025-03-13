@@ -315,7 +315,7 @@ html {
     flex: 0 0 calc(100% - 6.2rem);
 }
 
-.col-2 {
+.col-2-gap-20 {
     flex: 0 0 calc(calc(100% - 2rem) /2);
 }
 
@@ -966,3 +966,16 @@ html {
 .rate-label:hover ~ label {
     color: var(--black);
 }
+
+/* -------- */
+/* .carousel-ig {
+    scroll-snap-type: x mandatory;
+    scroll-snap-align: center;
+    overflow-x: scroll;
+    display: flex;
+    scroll-behavior: smooth;
+}
+.carousel-ig img {
+    scroll-snap-align: center;
+    object-fit: cover;
+} */
