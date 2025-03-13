@@ -111,7 +111,7 @@ html {
 
 .overflow-auto {
     overflow: auto;
-    scrollbar-width: none;
+    scrollbar-width: 100%;
 }
 
 /*=== Tooltip =================*/
