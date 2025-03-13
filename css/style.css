@@ -114,13 +114,6 @@ html {
     scrollbar-width: 100%;
 }
 
-.overflow-x {
-    overflow-x: auto; /* Đảm bảo có thể cuộn ngang */
-    white-space: nowrap;
-    display: flex;
-    scrollbar-width: none; /* Ẩn thanh cuộn trên Firefox */
-}
-
 .overflow-x::-webkit-scrollbar {
     display: none; /* Ẩn thanh cuộn trên Chrome, Safari */
 }
