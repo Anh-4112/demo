@@ -9,6 +9,31 @@
         --height-slider: 65rem;
     }
 
+    .d-md-flex {
+        display: flex;
+    }
+
+    .flex-md-wrap {
+        flex-wrap: wrap;
+    }
+
+    .border-md-none {
+        border: none;
+    }
+
+    .d-md-none {
+        display: none;
+    }
+
+    .pe-md-none {
+        pointer-events: none; /* Vô hiệu hóa click */
+    }
+
+    .footer-list-md {
+        max-height: none !important;
+        overflow: visible;
+    }
+
     .grid-md-3-2 {
         grid-template-columns: auto auto auto;
         grid-template-rows: repeat(2, auto);
@@ -39,6 +64,10 @@
     }
 
     .col-md-2 {
+        flex: 0 0 50%;
+    }
+
+    .col-md-2-gap-2 {
         flex: 0 0 calc(calc(100% - 15.4rem) /2);
     }
     
@@ -52,6 +81,10 @@
 
     .text-md-center {
         text-align: center;
+    }
+
+    .pt-md-20 {
+        padding-top: 2rem;
     }
 
     .top-md-225 {
@@ -176,6 +209,14 @@
     z-index: 6;
    }
 
+   .col-xl-4-17pct {
+    flex: 0 0 calc(17% - 2.3rem);
+   }
+
+   .col-xl-4-33pct {
+    flex: 0 0 33%;
+   }
+
     .col-xl-4-gap-20 {
         flex: 0 0 calc(calc(100% - 6rem) /4);
     }
@@ -198,6 +239,10 @@
 
    .lh-xl-80 {
     line-height: 8rem;
+   }
+
+   .pl-xl-15 {
+    padding-left: 1.5rem;
    }
 
    .px-xl-49 {
@@ -224,6 +269,10 @@
     margin-top: 0.8rem;
    }
 
+   .mt-xl-10 {
+    margin-top: 1rem;
+   }
+
    .mt-xl-11 {
     margin-top: 1.1rem;
    }
@@ -238,6 +287,10 @@
 
    .mt-xl-33 {
     margin-top: 3.3rem;
+   }
+
+   .mt-xl-40 {
+    margin-top: 4rem;
    }
 
    .mt-xl-45 {
@@ -264,8 +317,8 @@
     margin-top: 10rem;
    }
 
-   .mt-xl-107 {
-    margin-top: 10.7rem;
+   .mt-xl-104 {
+    margin-top: 10.4rem;
    }
 
    .mb-xl-12 {

@@ -436,3 +436,31 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("mouseup", dragStop);
     carousel.addEventListener("mouseleave", dragStop);
 });
+
+// ==================================
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".footer-list").forEach(menu => {
+        let icon = menu.previousElementSibling.querySelector('.footer-icon');
+        if (menu.id === "newsletter") {
+            menu.style.maxHeight = menu.scrollHeight + "px";
+            icon.textContent = '-';
+        } else {
+            menu.style.maxHeight = "0px";
+            icon.textContent = '+';
+        }
+    });
+});
+
+function toggleMenu(id) {
+    let menu = document.getElementById(id);
+    let icon = menu.previousElementSibling.querySelector('.footer-icon');
+    let isOpen = menu.style.maxHeight && menu.style.maxHeight !== "0px";
+
+    if (isOpen) {
+        menu.style.maxHeight = "0px";
+        icon.textContent = '+';
+    } else {
+        menu.style.maxHeight = menu.scrollHeight + "px";
+        icon.textContent = '-';
+    }
+}
