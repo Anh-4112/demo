@@ -154,9 +154,104 @@
             <a class="d-none d-lg-block" href="">
                <img src="assets/img/header/icon/wishlist/Wishlist.svg" alt="Wishlist">
             </a>
-            <a class="pr-12 pr-lg-10" href="">
-               <img src="assets/img/header/icon/cart/Cart.svg" alt="Cart">
-            </a>
+            <div>
+                <div id="cartIcon" class="cursor-pointer pr-12 pr-lg-10">
+                    <img src="assets/img/header/icon/cart/Cart.svg" alt="Cart">
+                </div>
+
+                <!-- Overlay Cart -->
+                <div id="overlayCart" class="overlay-cart cursor-pointer fixed top-0 left-0 w-100vw h-100vh z-index-98 opacity-0"></div>
+
+                <!-- Mini Cart -->
+                <div id="cartBlock" class="cart d-flex flex-direction-column fixed z-index-100 top-0 right-0 h-100vh bg-white">
+                    <!-- Title -->
+                    <div class="px-30 pt-22 pb-20 d-flex justify-content-between align-items-center">
+                        <h3 class="fs-18 fw-500">Shopping Cart</h3>
+                        <span id="closeCart" class="pr-1 cursor-pointer">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.855469 1.9707C0.669271 1.79883 0.576172 1.59115 0.576172 1.34766C0.576172 1.08984 0.669271 0.867839 0.855469 0.681641C1.02734 0.509766 1.24219 0.423828 1.5 0.423828C1.75781 0.423828 1.97266 0.509766 2.14453 0.681641L7 5.53711L11.8555 0.681641C12.0273 0.509766 12.2422 0.423828 12.5 0.423828C12.7578 0.423828 12.9727 0.509766 13.1445 0.681641C13.3307 0.867839 13.4238 1.08984 13.4238 1.34766C13.4238 1.59115 13.3307 1.79883 13.1445 1.9707L8.28906 6.82617L13.1445 11.6816C13.3307 11.8678 13.4238 12.0898 13.4238 12.3477C13.4238 12.5911 13.3307 12.7988 13.1445 12.9707C12.9727 13.1569 12.7578 13.25 12.5 13.25C12.2422 13.25 12.0273 13.1569 11.8555 12.9707L7 8.13672L2.14453 12.9707C1.97266 13.1569 1.75781 13.25 1.5 13.25C1.24219 13.25 1.02734 13.1569 0.855469 12.9707C0.669271 12.7988 0.576172 12.5911 0.576172 12.3477C0.576172 12.0898 0.669271 11.8678 0.855469 11.6816L5.71094 6.82617L0.855469 1.9707Z" fill="#999999"/>
+                            </svg>                                
+                        </span>
+                    </div>
+                    <!-- Shipping -->
+                    <div class="px-30 pt-35 pb-22 bg-white-smoke">
+                        <div class="progress-bar relative bg-gray-light rounded-circle-10">
+                            <div class="progress-fill rounded-circle-10"></div>
+                            <div class="progress-icon absolute">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="15" cy="15" r="14.5" fill="white" stroke="#D73F0F"/>
+                                    <path d="M23.8015 14.611L22.711 13.5995C22.6367 13.5306 22.5796 13.4451 22.5446 13.3499L21.6882 11.0245C21.5657 10.6968 21.3463 10.4142 21.0591 10.2143C20.772 10.0145 20.4307 9.90691 20.0809 9.90594H18.7833V9.54193C18.7833 9.38539 18.7212 9.23526 18.6105 9.12457C18.4998 9.01388 18.3496 8.95169 18.1931 8.95169H10.3516C10.2349 8.95032 10.1223 8.9945 10.0377 9.07485C9.9531 9.1552 9.90316 9.26538 9.89851 9.38197C9.89743 9.44025 9.90796 9.49816 9.92951 9.55232C9.95106 9.60648 9.98319 9.65581 10.024 9.69741C10.0649 9.73901 10.1136 9.77206 10.1673 9.79462C10.2211 9.81718 10.2788 9.8288 10.3371 9.8288H17.9062V13.6344C17.9062 13.7909 17.9684 13.941 18.0791 14.0517C18.1898 14.1624 18.3399 14.2246 18.4964 14.2246H22.061L23.1197 15.1773V18.7313H22.1599C22.0643 18.3131 21.8296 17.9397 21.4942 17.6723C21.1587 17.4049 20.7424 17.2592 20.3134 17.2592C19.8845 17.2592 19.4682 17.4049 19.1327 17.6723C18.7973 17.9397 18.5626 18.3131 18.467 18.7313H15.5136C15.4181 18.3131 15.1833 17.9397 14.8479 17.6723C14.5125 17.4049 14.0962 17.2592 13.6672 17.2592C13.2382 17.2592 12.8219 17.4049 12.4865 17.6723C12.151 17.9397 11.9163 18.3131 11.8208 18.7313H10.3516C10.2349 18.7299 10.1223 18.7741 10.0377 18.8545C9.95305 18.9349 9.90313 19.0451 9.89851 19.1617C9.89743 19.22 9.90796 19.2779 9.92951 19.332C9.95106 19.3862 9.98319 19.4355 10.024 19.4771C10.0649 19.5187 10.1136 19.5518 10.1673 19.5743C10.2211 19.5969 10.2788 19.6085 10.3371 19.6085H11.8281C11.9297 20.0194 12.166 20.3845 12.4993 20.6455C12.8326 20.9064 13.2438 21.0482 13.6671 21.0482C14.0904 21.0482 14.5015 20.9064 14.8348 20.6455C15.1681 20.3845 15.4044 20.0194 15.506 19.6085H18.4745C18.576 20.0194 18.8123 20.3845 19.1457 20.6455C19.479 20.9064 19.8901 21.0482 20.3134 21.0482C20.7367 21.0482 21.1478 20.9064 21.4811 20.6455C21.8144 20.3845 22.0507 20.0194 22.1523 19.6085H23.4066C23.5631 19.6085 23.7133 19.5463 23.824 19.4356C23.9346 19.325 23.9968 19.1748 23.9968 19.0183V15.0497C23.9968 14.967 23.9794 14.8852 23.9457 14.8097C23.9121 14.7341 23.8629 14.6664 23.8015 14.611ZM18.7833 13.3476V10.783H20.0809C20.2517 10.7835 20.4183 10.836 20.5585 10.9336C20.6987 11.0312 20.8059 11.1692 20.8656 11.3292L21.6132 13.3476H18.7833ZM13.6671 20.171C13.4659 20.171 13.2692 20.1113 13.1019 19.9995C12.9346 19.8877 12.8042 19.7288 12.7272 19.543C12.6502 19.3571 12.6301 19.1525 12.6693 18.9552C12.7086 18.7578 12.8055 18.5766 12.9477 18.4343C13.09 18.292 13.2713 18.1951 13.4686 18.1559C13.666 18.1166 13.8705 18.1368 14.0564 18.2138C14.2423 18.2908 14.4012 18.4212 14.513 18.5885C14.6248 18.7558 14.6844 18.9525 14.6844 19.1537C14.6841 19.4234 14.5768 19.682 14.3861 19.8727C14.1954 20.0634 13.9368 20.1707 13.6671 20.171ZM20.3134 20.171C20.1122 20.171 19.9155 20.1113 19.7482 19.9995C19.5809 19.8877 19.4505 19.7289 19.3735 19.543C19.2965 19.3571 19.2764 19.1525 19.3156 18.9552C19.3549 18.7578 19.4518 18.5766 19.594 18.4343C19.7363 18.292 19.9176 18.1951 20.1149 18.1559C20.3123 18.1166 20.5168 18.1368 20.7027 18.2138C20.8886 18.2908 21.0475 18.4212 21.1593 18.5885C21.271 18.7558 21.3307 18.9525 21.3307 19.1537C21.3304 19.4234 21.2231 19.682 21.0324 19.8727C20.8417 20.0634 20.5831 20.1707 20.3134 20.171Z" fill="#D73F0F" stroke="#D73F0F" stroke-width="0.3"/>
+                                    <path d="M8.46986 12.2825H13.4436C13.5599 12.2825 13.6714 12.2363 13.7537 12.154C13.836 12.0718 13.8822 11.9602 13.8822 11.8439C13.8822 11.7276 13.836 11.616 13.7537 11.5337C13.6714 11.4515 13.5599 11.4053 13.4436 11.4053H8.46986C8.35353 11.4053 8.24197 11.4515 8.15972 11.5337C8.07746 11.616 8.03125 11.7276 8.03125 11.8439C8.03125 11.9602 8.07746 12.0718 8.15972 12.154C8.24197 12.2363 8.35353 12.2825 8.46986 12.2825Z" fill="#D73F0F" stroke="#D73F0F" stroke-width="0.3"/>
+                                    <path d="M13.8758 14.2799C13.8758 14.1636 13.8296 14.052 13.7473 13.9698C13.6651 13.8875 13.5535 13.8413 13.4372 13.8413H6.43472C6.3768 13.8408 6.31934 13.8518 6.26567 13.8736C6.21201 13.8954 6.16319 13.9276 6.12204 13.9684C6.0809 14.0092 6.04824 14.0577 6.02595 14.1112C6.00366 14.1646 5.99219 14.222 5.99219 14.2799C5.99219 14.3378 6.00366 14.3952 6.02595 14.4487C6.04824 14.5021 6.0809 14.5507 6.12204 14.5914C6.16319 14.6322 6.21201 14.6644 6.26567 14.6863C6.31934 14.7081 6.3768 14.719 6.43472 14.7185H13.4372C13.5535 14.7185 13.6651 14.6723 13.7473 14.5901C13.8296 14.5078 13.8758 14.3963 13.8758 14.2799Z" fill="#D73F0F" stroke="#D73F0F" stroke-width="0.3"/>
+                                    <path d="M11.1014 16.7164C11.1014 16.6588 11.09 16.6018 11.068 16.5486C11.046 16.4954 11.0136 16.447 10.9729 16.4063C10.9322 16.3656 10.8838 16.3333 10.8306 16.3112C10.7774 16.2892 10.7204 16.2778 10.6628 16.2778H7.61437C7.49873 16.2789 7.38818 16.3255 7.30677 16.4077C7.22536 16.4898 7.17969 16.6008 7.17969 16.7164C7.17969 16.8321 7.22536 16.943 7.30677 17.0252C7.38818 17.1073 7.49873 17.154 7.61437 17.155H10.6628C10.7791 17.155 10.8907 17.1088 10.9729 17.0265C11.0552 16.9443 11.1014 16.8327 11.1014 16.7164Z" fill="#D73F0F" stroke="#D73F0F" stroke-width="0.3"/>
+                                </svg>    
+                            </div>
+                        </div>
+                        <p class="fs-14 fw-400 mt-18">Spend $120 more and get <span class="fs-14 fw-600 color-orange-red">FREE SHIPPING!</span></p>
+                    </div>
+                    <!-- Timer Checkout -->
+                    <div class="px-30 pt-19 pb-12">
+                        <p class="fs-14 fw-400">
+                            <span class="mr-3">
+                                <svg width="12" height="15" viewBox="0 0 12 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.60503 14.9993C3.16846 14.9993 0.978724 13.4431 0.248687 11.1185C0.0942488 10.6267 0.000218391 10.1048 0.000218391 9.56278C0.000218391 6.53091 2.48246 4.08449 2.48246 4.08449C2.48246 4.08449 2.31146 5.07486 2.41785 5.91787C2.52423 6.76088 2.91629 7.27839 2.91629 7.27839C2.91629 7.27839 2.62999 5.95469 3.01038 5.0672C3.44823 4.04573 4.26489 3.57188 4.5786 2.65215C4.93967 1.5936 4.39863 0.362549 4.39863 0.362549C4.39863 0.362549 6.17818 1.05018 7.46412 2.82465C8.92256 4.83718 7.93979 7.43 7.93979 7.43C7.93979 7.43 8.07573 6.71383 8.81279 6.13359C9.54985 5.55335 9.25126 4.65344 9.25126 4.65344C9.25126 4.65344 11.2437 6.8864 11.2437 9.56284C11.2437 10.2894 11.0356 11.0222 10.7325 11.7043C9.83621 13.7208 7.81183 14.9993 5.60503 14.9993Z" fill="#D10028"/>
+                                    <path d="M2.48279 4.08521C2.48279 4.08521 2.38995 4.62348 2.38374 5.24405C1.80287 6.21698 1.25506 7.51201 1.25506 8.9362C1.25506 9.47818 1.34909 10.0001 1.50353 10.4919C2.23357 12.8165 4.42331 14.3727 6.85988 14.3727C7.51483 14.3727 8.15335 14.2593 8.75146 14.0482C7.83857 14.6573 6.74659 15 5.6053 15C3.16873 15 0.978993 13.4438 0.248956 11.1192C0.0945177 10.6274 0.000487328 10.1055 0.000487328 9.56349C0.00055027 6.53162 2.48279 4.08521 2.48279 4.08521Z" fill="#B7022D"/>
+                                    <path d="M2.79232 10.8895C2.79232 9.35852 3.79667 8.37105 4.42208 7.73755C5.5357 6.60925 5.33798 5.32544 5.33798 5.32544C5.33798 5.32544 7.52063 7.20191 7.86356 8.75833C8.19145 10.247 7.36663 11.0745 7.36663 11.0745C7.36663 11.0745 7.75097 10.9261 7.98996 10.6603C8.29438 10.3217 8.40378 9.91154 8.40378 9.91154C8.40378 9.91154 8.531 10.2194 8.3642 11.2724C8.24564 12.0209 7.85673 12.5811 7.40037 12.9933C6.29121 13.9952 4.56146 13.8983 3.55617 12.7922C3.12541 12.3183 2.79232 11.6923 2.79232 10.8895Z" fill="#FFA91A"/>
+                                    <path d="M7.10106 10.9352C7.1343 10.9352 7.16748 10.9221 7.19214 10.8961C7.24326 10.8421 7.69189 10.3432 7.69189 9.44583C7.69189 9.24045 7.66787 9.0273 7.62057 8.81233C7.55126 8.49768 7.394 8.1427 7.15325 7.75724C7.11655 7.69846 7.03921 7.68052 6.98037 7.71728C6.92159 7.75397 6.90371 7.83138 6.94041 7.89016C7.16598 8.25129 7.31232 8.57967 7.37549 8.86628C7.4189 9.06356 7.44092 9.25852 7.44092 9.44583C7.44092 10.2597 7.0276 10.7049 7.00997 10.7234C6.9623 10.7737 6.96437 10.8531 7.01468 10.9008C7.03902 10.9238 7.07007 10.9352 7.10106 10.9352ZM6.76439 7.53449C6.79017 7.53449 6.81621 7.52658 6.8386 7.51015C6.89443 7.46912 6.90647 7.39059 6.86545 7.33476L6.82863 7.28501C6.78716 7.2295 6.70863 7.21815 6.65305 7.25948C6.59753 7.30095 6.58612 7.37955 6.62752 7.43506L6.66327 7.4833C6.6878 7.5168 6.72588 7.53449 6.76439 7.53449Z" fill="#FFC91D"/>
+                                    <path d="M4.42393 7.73755C5.53756 6.60925 5.33984 5.32544 5.33984 5.32544C5.33984 5.32544 6.03324 5.92168 6.69986 6.72065C6.08612 7.35547 5.30339 8.28323 5.30339 9.63491C5.30339 10.4377 5.63648 11.0637 6.06724 11.5377C6.55865 12.0784 7.22327 12.3772 7.90381 12.4251C7.75589 12.6397 7.58471 12.8286 7.40229 12.9934C6.29312 13.9953 4.56338 13.8983 3.55809 12.7922C3.12733 12.3183 2.79424 11.6923 2.79424 10.8895C2.79418 9.35852 3.79859 8.37111 4.42393 7.73755Z" fill="#F79219"/>
+                                    <path d="M4.42153 7.73755C5.53516 6.60925 5.33743 5.32544 5.33743 5.32544C5.33743 5.32544 5.77509 5.70213 6.28909 6.25721C6.15103 6.53629 5.95456 6.82811 5.67611 7.11026C5.05077 7.74382 4.04635 8.73124 4.04635 10.2622C4.04635 11.065 4.37944 11.691 4.8102 12.1649C5.48008 12.902 6.47151 13.1902 7.38672 13.0046C6.27705 13.9942 4.55703 13.8941 3.55563 12.7922C3.12487 12.3183 2.79178 11.6923 2.79178 10.8895C2.79178 9.35852 3.79619 8.37111 4.42153 7.73755Z" fill="#EF7816"/>
+                                    <path d="M3.3175 0C3.3175 0 4.07074 0.474982 4.05644 1.35657C4.04891 1.82221 3.81105 2.19657 3.63722 2.61133C3.48197 2.98181 3.45111 3.54536 3.45111 3.54536C3.45111 3.54536 2.93504 3.10244 2.8799 2.11998C2.85826 1.73445 3.06238 1.26794 3.16883 0.933905C3.33362 0.416707 3.3175 0 3.3175 0Z" fill="#D10028"/>
+                                    <path d="M8.78452 4.26732C8.78452 4.26732 9.4221 3.64286 9.2218 2.78222C9.11604 2.32762 8.64401 2.03029 8.33444 1.70278C8.01892 1.36901 7.87364 0.765869 7.87364 0.765869C7.87364 0.765869 7.53628 1.17793 7.74868 1.97597C7.88518 2.4889 8.31123 2.8605 8.48612 3.1653C8.75692 3.63702 8.78452 4.26732 8.78452 4.26732Z" fill="#D10028"/>
+                                </svg>
+                            </span>
+                            Products are limited, checkout within
+                            <span class="fs-14 fw-500 color-orange-red">1m43s</span>
+                        </p>
+                    </div>
+
+                    <!-- Items -->
+                    <div id="cartItems" class="cart-items flex-grow-1 px-30 overflow-y">
+                        
+                    </div>
+
+                    <!--  -->
+                    <div class="pb-20 px-30 bg-white-smoke">
+                        <!-- Icon -->
+                        <div class="px-92 py-16 d-flex justify-content-between">
+                            <a href="">
+                                <img src="assets/img/header/icon/cart/note.svg" alt="">
+                            </a>
+                            <a class="" href="">
+                                <img src="assets/img/header/icon/cart/gift.svg" alt="">
+                            </a>
+                            <a href="">
+                                <img src="assets/img/header/icon/cart/shipping.svg" alt="">
+                            </a>
+                        </div>
+
+                        <!-- Subtotal -->
+                        <div class="mt-27 d-flex justify-content-between">
+                            <p class="fs-18 fw-500">Subtotal:</p>
+                            <p id="cartTotal" class="fs-18 fw-500">$000.00</p>
+                        </div>
+
+                        <!-- Tick -->
+                        <div class="mt-26 d-flex align-items-center">
+                            <input class="mr-11" type="checkbox">
+                            <p class="fs-16 fw-400 color-gray-dark">
+                                I agree with the
+                                <a class="text-decoration-display" href="">terms and conditions</a>
+                            </p>
+                        </div>
+
+                        <!-- Button -->
+                        <div class="mt-18 d-flex flex-direction-column gap-11">
+                            <button class="py-17 fs-12 fw-600 btn rounded-circle-35 btn-white border-1 border-black d-block flex-grow-1">VIEW CART</button>
+                            <button class="py-17 fs-12 fw-600 btn rounded-circle-35 btn-black d-block flex-grow-1">CHECKOUT</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
          </div>
       </div>
    </header>
@@ -332,7 +427,7 @@
                             </div>
 
                             <!-- Button -->
-                            <button class="btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-trending opacity-0">ADD TO CARD</button>
+                            <button data-id="trending-1-1" data-name="Trending 1" data-price="150000" data-image="assets/img/main/trending/1.jpg" class="btn-add-to-cart btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-trending opacity-0">ADD TO CART</button>
                         </div>
                         
                         <!-- Text -->
@@ -423,7 +518,7 @@
                             </div>
 
                             <!-- Button -->
-                            <button class="btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-trending opacity-0">ADD TO CARD</button>
+                            <button data-id="trending-2-1" data-name="Trending 2" data-price="150000" data-image="assets/img/main/trending/2.jpg" class="btn-add-to-cart btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-trending opacity-0">ADD TO CART</button>
                         </div>
                         
                         <!-- Text -->
@@ -514,7 +609,7 @@
                             </div>
 
                             <!-- Button -->
-                            <button class="btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-trending opacity-0">ADD TO CARD</button>
+                            <button data-id="trending-3-1" data-name="Trending 3" data-price="150000" data-image="assets/img/main/trending/3.jpg" class="btn-add-to-cart btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-trending opacity-0">ADD TO CART</button>
                         </div>
                         
                         <!-- Text -->
@@ -605,7 +700,7 @@
                             </div>
 
                             <!-- Button -->
-                            <button class="btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-trending opacity-0">ADD TO CARD</button>
+                            <button data-id="trending-4-1" data-name="Trending 4" data-price="150000" data-image="assets/img/main/trending/4.jpg" class="btn-add-to-cart btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-trending opacity-0">ADD TO CART</button>
                         </div>
                         
                         <!-- Text -->
@@ -696,7 +791,7 @@
                             </div>
 
                             <!-- Button -->
-                            <button class="btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-trending opacity-0">ADD TO CARD</button>
+                            <button data-id="trending-5-1" data-name="Trending 5" data-price="150000" data-image="assets/img/main/trending/5.jpg" class="btn-add-to-cart btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-trending opacity-0">ADD TO CART</button>
                         </div>
                         
                         <!-- Text -->
@@ -787,7 +882,7 @@
                             </div>
 
                             <!-- Button -->
-                            <button class="btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-trending opacity-0">ADD TO CARD</button>
+                            <button data-id="trending-6-1" data-name="Trending 6" data-price="150000" data-image="assets/img/main/trending/6.jpg" class="btn-add-to-cart btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-trending opacity-0">ADD TO CART</button>
                         </div>
                         
                         <!-- Text -->
@@ -948,7 +1043,7 @@
                             </div>
 
                             <!-- Button -->
-                            <button class="btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-arrivals opacity-0">ADD TO CARD</button>
+                            <button data-id="arrivals-1-1" data-name="Arrivals 1" data-price="150000" data-image="assets/img/main/arrivals/1.jpg" class="btn-add-to-cart btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-arrivals opacity-0">ADD TO CART</button>
                         </div>
                         
                         <!-- Text -->
@@ -1039,7 +1134,7 @@
                             </div>
 
                             <!-- Button -->
-                            <button class="btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-arrivals opacity-0">ADD TO CARD</button>
+                            <button data-id="arrivals-2-1" data-name="Arrivals 2" data-price="150000" data-image="assets/img/main/arrivals/2.jpg" class="btn-add-to-cart btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-arrivals opacity-0">ADD TO CART</button>
                         </div>
                         
                         <!-- Text -->
@@ -1130,7 +1225,7 @@
                             </div>
 
                             <!-- Button -->
-                            <button class="btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-arrivals opacity-0">ADD TO CARD</button>
+                            <button data-id="arrivals-3-1" data-name="Arrivals 3" data-price="150000" data-image="assets/img/main/arrivals/3.jpg" class="btn-add-to-cart btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-arrivals opacity-0">ADD TO CART</button>
                         </div>
                         
                         <!-- Text -->
@@ -1221,7 +1316,7 @@
                             </div>
 
                             <!-- Button -->
-                            <button class="btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-arrivals opacity-0">ADD TO CARD</button>
+                            <button data-id="arrivals-4-1" data-name="Arrivals 4" data-price="150000" data-image="assets/img/main/arrivals/4.jpg" class="btn-add-to-cart btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-arrivals opacity-0">ADD TO CART</button>
                         </div>
                         
                         <!-- Text -->
@@ -1312,7 +1407,7 @@
                             </div>
 
                             <!-- Button -->
-                            <button class="btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-arrivals opacity-0">ADD TO CARD</button>
+                            <button data-id="arrivals-5-1" data-name="Arrivals 5" data-price="150000" data-image="assets/img/main/arrivals/5.jpg" class="btn-add-to-cart btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-arrivals opacity-0">ADD TO CART</button>
                         </div>
                         
                         <!-- Text -->
@@ -1403,7 +1498,7 @@
                             </div>
 
                             <!-- Button -->
-                            <button class="btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-arrivals opacity-0">ADD TO CARD</button>
+                            <button data-id="arrivals-6-1" data-name="Arrivals 6" data-price="150000" data-image="assets/img/main/arrivals/6.jpg" class="btn-add-to-cart btn fs-12 fw-600 rounded-circle-35 bg-white px-100 py-16 absolute bottom-0 left-center z-index-4 btn-xl-arrivals opacity-0">ADD TO CART</button>
                         </div>
                         
                         <!-- Text -->
@@ -1623,7 +1718,7 @@
         </div>
 
         <!-- Instagram -->
-        <div class="px-20 mt-56 mt-xl-104 width-xxl-141 mx-auto">
+        <div class="px-20 mt-56 mt-xl-107 width-xxl-141 mx-auto">
             <!-- Title -->
             <div class="text-center">
                 <h1 class="fs-36 fw-400 fs-xl-45">Shop by Gram</h1>
@@ -1727,9 +1822,9 @@
    </main>
 
    <!-- footer -->
-   <footer class="mb-106 px-20 mt-58 mt-xl-40 width-xxl-141 mx-auto">
+   <footer class="mb-107 mb-md-73 px-20 mt-58 mt-xl-40 width-xxl-141 mx-auto">
         <!--  -->
-        <div class="d-md-flex flex-md-wrap">
+        <div class="d-md-flex flex-md-wrap border-bottom border-1 border-gray-lighter">
             <!-- About -->
             <div class="col-md-2 col-xl-4-33pct mb-30">
                 <div class="pt-md-20 mb-xl-5">
@@ -1805,22 +1900,22 @@
                 </div>
 
                 <ul id="categories" class="mt-xl-12 footer-list footer-list-md active">
-                    <li class="mb-22 hover-right-5">
+                    <li class="mb-22 hover-right-6">
                         <a class=" fs-16 fw-400 color-gray-dark hover-black" href="">Special Offers</a>
                     </li>
-                    <li class="mb-22 hover-right-5">
+                    <li class="mb-22 hover-right-6">
                         <a class="fs-16 fw-400 color-gray-dark hover-black" href="">Performance</a>
                     </li>
-                    <li class="mb-22 hover-right-5">
+                    <li class="mb-22 hover-right-6">
                         <a class="fs-16 fw-400 color-gray-dark hover-black" href="">T-shirts</a>
                     </li>
-                    <li class="mb-22 hover-right-5">
+                    <li class="mb-22 hover-right-6">
                         <a class="fs-16 fw-400 color-gray-dark hover-black" href="">Underwear</a>
                     </li>
-                    <li class="mb-22 hover-right-5">
+                    <li class="mb-22 hover-right-6">
                         <a class="fs-16 fw-400 color-gray-dark hover-black" href="">Top Brands</a>
                     </li>
-                    <li class="mb-22 hover-right-5">
+                    <li class="mb-22 hover-right-6">
                         <a class="fs-16 fw-400 color-gray-dark hover-black" href="">Online Exclusive</a>
                     </li>
                 </ul>
@@ -1835,32 +1930,32 @@
                     <span class="d-md-none footer-icon fs-23 fw-300 color-gray-dark">+</span>
                 </div>
                 <ul id="customer" class="mt-xl-12 footer-list footer-list-md active">
-                    <li class="mb-22 hover-right-5">
+                    <li class="mb-22 hover-right-6">
                         <a class="fs-16 fw-400 color-gray-dark hover-black" href="">Privacy Policy</a>
                     </li>
-                    <li class="mb-22 hover-right-5">
+                    <li class="mb-22 hover-right-6">
                         <a class="fs-16 fw-400 color-gray-dark hover-black" href="">Refund Policy</a>
                     </li>
-                    <li class="mb-22 hover-right-5">
+                    <li class="mb-22 hover-right-6">
                         <a class="fs-16 fw-400 color-gray-dark hover-black" href="">Shipping & Return</a>
                     </li>
-                    <li class="mb-22 hover-right-5">
+                    <li class="mb-22 hover-right-6">
                         <a class="fs-16 fw-400 color-gray-dark hover-black" href="">Term & Conditions</a>
                     </li>
-                    <li class="mb-22 hover-right-5">
+                    <li class="mb-22 hover-right-6">
                         <a class="fs-16 fw-400 color-gray-dark hover-black" href="">Advanced Search</a>
                     </li>
-                    <li class="mb-22 hover-right-5">
+                    <li class="mb-22 hover-right-6">
                         <a class="fs-16 fw-400 color-gray-dark hover-black" href="">Theme FAQs</a>
                     </li>
-                    <li class="mb-22 hover-right-5">
+                    <li class="mb-22 hover-right-6">
                         <a class="fs-16 fw-400 color-gray-dark hover-black" href="">Store Locations</a>
                     </li>
                 </ul>
             </div>
 
             <!-- Newsletter -->
-            <div class="col-md-2 col-xl-4-33pct mt-xl-10 pl-xl-15">
+            <div class="col-md-2 col-xl-4-33pct mt-xl-10 pl-xl-15 pb-30">
                 <div class="border-md-none cursor-pointer pe-md-none d-flex justify-content-between align-items-center pt-18 pb-12 border-top border-1 border-gray-lighter" onclick="toggleMenu('newsletter')">
                     <h3 class="fs-14 fw-600">
                         SIGN UP TO NEWSLETTER                
@@ -1871,7 +1966,7 @@
                     <p class="mb-17 fs-16 fw-400 lh-24 color-gray-dark">Enter your email address to get $10 off your first order and free shipping. Updates information on Sales and Offers.</p>
                     <div class="mt-xl-32 d-flex gap-10">
                         <div class="flex-grow-1 border border-1 border-gray-lighter rounded-circle-35 pt-14 pb-16 ">
-                            <input class="border-none ml-25 color-gray-medium" type="email" placeholder="Enter your email...">
+                            <input class="border-none ml-20" type="email" placeholder="Enter your email...">
                         </div>
                         <button class="px-40 btn btn-black rounded-circle-35 fs-12 fw-600">SUBSCRIBE</button>
                     </div>
@@ -1880,7 +1975,7 @@
         </div>
     
         <!-- Copyright -->
-        <div class="mt-65 d-flex gap-17 flex-wrap justify-content-center justify-content-md-between">
+        <div class="mt-35 d-flex gap-17 flex-wrap justify-content-center justify-content-md-between">
             <div class="mx-auto mx-lg-0">
                 <a class="fs-16 fw-400 mr-16" href="#!">
                     English
