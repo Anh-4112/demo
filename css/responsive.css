@@ -17,6 +17,10 @@
         flex-wrap: wrap;
     }
 
+    .justify-content-md-between {
+        justify-content: space-between;
+    }
+
     .border-md-none {
         border: none;
     }
@@ -149,6 +153,11 @@
         margin-right: 5rem;
     }
 
+    .mx-lg-0 {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
     .top-lg-300 {
         top: 30rem;
     }
@@ -197,9 +206,13 @@
     gap: 3rem;
    }
 
-    .col-xl-3 {
-     flex: 0 0 calc(calc(100% - 24.6rem) /3);
-    }
+   .justify-content-xl-start {
+    justify-content: start;
+   }
+
+   .justify-content-xl-end {
+    justify-content: end;
+   }
 
    .justify-content-xl-between {
     justify-content: space-between;
@@ -208,6 +221,10 @@
    .z-index-xl-6 {
     z-index: 6;
    }
+
+    .col-xl-3-gap-2 {
+     flex: 0 0 calc(calc(100% - 24.6rem) /3);
+    }
 
    .col-xl-4-17pct {
     flex: 0 0 calc(17% - 2.3rem);
