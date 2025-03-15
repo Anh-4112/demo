@@ -109,8 +109,12 @@ html {
     color: var(--black);
 }
 
+.hover-orange-red:hover {
+    color: var(--orange-red);
+}
+
 .hover-black:hover svg {
-    filter: brightness(0) invert(0);
+    filter: brightness(0) invert(0); /* Icon footer */
 }
 
 /*=== Cursor =================*/
@@ -659,6 +663,11 @@ html {
 }
 
 /* === Padding Y ========= */
+.py-5 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
 .py-8 {
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
@@ -952,7 +961,6 @@ html {
     bottom: 0rem;
 }
 
-
 .bottom-13 {
     bottom: 1.3rem;
 }
@@ -963,6 +971,10 @@ html {
 
 .bottom-25 {
     bottom: 2.5rem;
+}
+
+.bottom-55pct {
+    bottom: 55%;
 }
 
 /* === Right ========= */
@@ -981,6 +993,11 @@ html {
 .right-30 {
     right: 3rem;
 }
+
+.right-5pct {
+    right: 5%;
+}
+
 /* === Line Height ========= */
 .lh {
     line-height: 100%;
@@ -995,6 +1012,10 @@ html {
 }
 
 /* === Font Size ========= */
+.fs-10 {
+    font-size: 1rem;
+}
+
 .fs-12 {
     font-size: 1.2rem;
 }
@@ -1041,10 +1062,6 @@ html {
 }
 
 /* === Btn ========= */
-.btn-nav:hover {
-    color: var(--orange-red);
-}
-
 .btn {
     cursor: pointer;
     display: inline-block;

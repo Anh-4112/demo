@@ -420,30 +420,7 @@ function toggleMenu(id) {
     }
 }
 
-// ===== Open/Close Mini Cart ======================
-// const cartIcon = document.getElementById('cartIcon');
-// const cartBlock = document.getElementById('cartBlock');
-// const closeCart = document.getElementById('closeCart');
-// const overlayCart = document.getElementById('overlayCart');
-
-// cartIcon.addEventListener('click', () => {
-//     cartBlock.classList.add('open');
-//     overlayCart.classList.add('show');
-// });
-
-// // Đóng giỏ hàng với hiệu ứng trượt
-// const closeCartWithAnimation = () => {
-//     cartBlock.classList.remove('open');
-//     setTimeout(() => {
-//         overlayCart.classList.remove('show');
-//     }, 400); // Chờ hiệu ứng trượt xong (0.4s)
-// };
-
-// closeCart.addEventListener('click', closeCartWithAnimation);
-// overlayCart.addEventListener('click', closeCartWithAnimation);
-
-// +-+-+-+-+-+-+
-
+// ===== Mini Cart ======================
 document.addEventListener("DOMContentLoaded", function () {
     const cartIcon = document.getElementById("cartIcon");
     const cartBlock = document.getElementById("cartBlock");
@@ -560,4 +537,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Hiển thị giỏ hàng khi load trang
     renderCart();
+
+    const cartCount = document.getElementById("cartCount");
+
+    function updateCartCount() {
+        const cartCount = document.getElementById("cartCount");
+        if (!cartCount) return; // Tránh lỗi nếu phần tử chưa tồn tại
+    
+        let totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCount.innerText = totalQuantity;
+    
+        // Luôn hiển thị số "0" thay vì ẩn
+        cartCount.style.visibility = "visible";
+    }
+    
+    // Gọi updateCartCount() mỗi khi giỏ hàng thay đổi
+    function saveCart() {
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartCount(); // Cập nhật số lượng trên icon
+    }
+    
+    // Gọi updateCartCount() khi tải trang
+    document.addEventListener("DOMContentLoaded", () => {
+        cart = JSON.parse(localStorage.getItem("cart")) || [];
+        updateCartCount();
+    });
 });
