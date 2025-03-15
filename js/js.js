@@ -430,6 +430,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const cartTotal = document.getElementById("cartTotal");
     const addToCartButtons = document.querySelectorAll(".btn-add-to-cart");
     const cartItemTemplate = document.getElementById("cartItem");
+    const cartCount = document.getElementById("cartCount");
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -507,6 +508,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         cartTotal.innerText = `$${total.toLocaleString()}`;
+        updateCartCount();
     }
 
     // Cập nhật số lượng sản phẩm trong giỏ hàng
@@ -530,36 +532,22 @@ document.addEventListener("DOMContentLoaded", function () {
         renderCart();
     }
 
-    // Lưu giỏ hàng vào localStorage
+    // Lưu giỏ hàng vào localStorage và cập nhật số lượng trên icon
     function saveCart() {
         localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartCount();
     }
 
-    // Hiển thị giỏ hàng khi load trang
-    renderCart();
-
-    const cartCount = document.getElementById("cartCount");
-
+    // Cập nhật số lượng sản phẩm trong giỏ hàng trên biểu tượng giỏ hàng
     function updateCartCount() {
-        const cartCount = document.getElementById("cartCount");
-        if (!cartCount) return; // Tránh lỗi nếu phần tử chưa tồn tại
-    
+        if (!cartCount) return;
+
         let totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
         cartCount.innerText = totalQuantity;
-    
-        // Luôn hiển thị số "0" thay vì ẩn
-        cartCount.style.visibility = "visible";
+        cartCount.style.visibility = "visible"; // Luôn hiển thị, ngay cả khi số lượng là 0
     }
-    
-    // Gọi updateCartCount() mỗi khi giỏ hàng thay đổi
-    function saveCart() {
-        localStorage.setItem("cart", JSON.stringify(cart));
-        updateCartCount(); // Cập nhật số lượng trên icon
-    }
-    
-    // Gọi updateCartCount() khi tải trang
-    document.addEventListener("DOMContentLoaded", () => {
-        cart = JSON.parse(localStorage.getItem("cart")) || [];
-        updateCartCount();
-    });
+
+    // Hiển thị giỏ hàng và cập nhật số lượng khi trang tải lại
+    renderCart();
 });
+
