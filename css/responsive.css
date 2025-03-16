@@ -202,6 +202,10 @@
     display: flex;
    }
 
+   .flex-xl-nowrap {
+    flex-wrap: nowrap;
+   }
+
    .gap-xl-10 {
     gap: 1rem;
    }
@@ -366,6 +370,10 @@
     top: 40%;
    }
 
+   .left-xl--551pct {
+    left: -551%;
+   }
+
    .left-xl-60 {
     left: 6rem;
    }
@@ -435,8 +443,8 @@
         gap: 2rem;
     }
     
-    .gap-xxl-30 {
-        gap: 3rem;
+    .gap-xxl-32 {
+        gap: 3.2rem;
     }
 
     .mr-xxl-95 {
