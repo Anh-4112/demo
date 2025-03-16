@@ -219,6 +219,10 @@ html {
     text-decoration: underline;
 }
 
+.text-nowrap {
+    white-space: nowrap
+}
+
 .text-hover-gray:hover {
     color: var(--gray-dark);
 }
