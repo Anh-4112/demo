@@ -735,10 +735,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const menuMobileBlock = document.getElementById("menuMobileBlock");
     const closeMenuMobile = document.getElementById("closeMenuMobile");
     const overlayMenuMobile = document.getElementById("overlayMenuMobile");
+
     const subHome = document.getElementById("subHome");
     const subHomeBlock = document.getElementById("subHomeBlock");
     const subHomeBack = document.getElementById("subHomeBack");
     const closeSubHome = document.getElementById("closeSubHome");
+
+    const subShop = document.getElementById("subShop");
+    const subShopBlock = document.getElementById("subShopBlock");
+    const subShopBack = document.getElementById("subShopBack");
+    const closeSubShop = document.getElementById("closeSubShop");
+
+    const subShopLayout = document.getElementById("subShopLayout");
+    const subShopLayoutBlock = document.getElementById("subShopLayoutBlock");
+    const subShopLayoutBack = document.getElementById("subShopLayoutBack");
+    const closeSubShopLayout = document.getElementById("closeSubShopLayout");
 
     if (menuMobileIcon) {
         menuMobileIcon.addEventListener("click", () => {
@@ -750,6 +761,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeMenuMobileWithAnimation = () => {
         menuMobileBlock.classList.remove("open");
         subHomeBlock.classList.remove("open"); // Đóng luôn sub-home
+        subShopBlock.classList.remove("open"); // Đóng luôn sub-shop
+        subShopLayoutBlock.classList.remove("open"); // Đóng luôn sub-shop-layout
         setTimeout(() => overlayMenuMobile.classList.remove("show"), 400);
     };    
 
@@ -763,10 +776,41 @@ document.addEventListener("DOMContentLoaded", function () {
         subHomeBlock.classList.remove("open");
     };
 
+    
+    if (subShop) {
+        subShop.addEventListener("click", () => {
+            subShopBlock.classList.add("open");
+        });
+    }
+
+    const closeSubShopWithAnimation = () => {
+        subShopBlock.classList.remove("open");
+    };
+
+    if (subShopLayout) {
+        subShopLayout.addEventListener("click", () => {
+            subShopLayoutBlock.classList.add("open");
+        });
+    }
+
+    const closeSubShopLayoutWithAnimation = () => {
+        subShopLayoutBlock.classList.remove("open");
+    };
+
     // Đóng hoàn toàn menu khi click vào dấu "x" của sub-home
     if (closeSubHome) {
         closeSubHome.addEventListener("click", closeMenuMobileWithAnimation);
     }
+
+    // Đóng hoàn toàn menu khi click vào dấu "x" của sub-shop
+    if (closeSubShop) {
+        closeSubShop.addEventListener("click", closeMenuMobileWithAnimation);
+    }
+
+        // Đóng hoàn toàn menu khi click vào dấu "x" của sub-shop-layout
+        if (closeSubShopLayout) {
+            closeSubShopLayout.addEventListener("click", closeMenuMobileWithAnimation);
+        }
 
     // Đóng menu mobile khi nhấn overlay
     if (overlayMenuMobile) {
@@ -779,6 +823,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (subHomeBack) {
         subHomeBack.addEventListener("click", closeSubHomeWithAnimation);
+    }
+
+    if (subShopBack) {
+        subShopBack.addEventListener("click", closeSubShopWithAnimation);
+    }
+
+    if (subShopLayoutBack) {
+        subShopLayoutBack.addEventListener("click", closeSubShopLayoutWithAnimation);
     }
 });
 
