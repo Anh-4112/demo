@@ -586,27 +586,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ===== List Footer =============================
 document.addEventListener("DOMContentLoaded", () => {
+    // Chọn tất cả phần tử có class "footer-list" (các menu con trong footer)
     document.querySelectorAll(".footer-list").forEach(menu => {
+        // Lấy biểu tượng (+/-) từ phần tử liền trước menu
         let icon = menu.previousElementSibling.querySelector(".footer-icon");
-        let isNewsletter = menu.id === "newsletter";
+        // Kiểm tra xem menu có mở sẵn hay không dựa vào biểu tượng (+/-)
+        let isOpen = icon.textContent.trim() === "-";
 
-        if (isNewsletter) {
-            menu.style.maxHeight = menu.scrollHeight / 10 + "rem";
-            icon.textContent = "-";
+        if (isOpen) {
+            // Nếu biểu tượng là "-", mở sẵn menu với chiều cao thực tế
+            requestAnimationFrame(() => {
+                menu.style.maxHeight = menu.scrollHeight / 10 + "rem";
+            });
         } else {
+            // Nếu biểu tượng là "+", giữ menu đóng với maxHeight = 0
             menu.style.maxHeight = "0rem";
-            icon.textContent = "+";
         }
-        menu.dataset.open = isNewsletter; // Lưu trạng thái mở/đóng
+        // Lưu trạng thái mở/đóng của menu vào thuộc tính dataset
+        menu.dataset.open = isOpen;
     });
 });
+
+// Hàm xử lý khi người dùng nhấn vào menu để mở hoặc đóng
 function toggleMenu(id) {
+    // Lấy menu theo ID
     let menu = document.getElementById(id);
+    // Lấy biểu tượng (+/-) từ phần tử liền trước menu
     let icon = menu.previousElementSibling.querySelector(".footer-icon");
+    // Kiểm tra trạng thái hiện tại của menu
     let isOpen = menu.dataset.open === "true";
 
+    // Nếu menu đang mở, thu gọn lại, nếu đang đóng, mở rộng ra
     menu.style.maxHeight = isOpen ? "0rem" : menu.scrollHeight / 10 + "rem";
+    // Cập nhật biểu tượng tương ứng
     icon.textContent = isOpen ? "+" : "-";
+    // Cập nhật trạng thái mới vào dataset
     menu.dataset.open = !isOpen;
 }
 
@@ -834,6 +848,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //     }
 // });
 document.addEventListener("DOMContentLoaded", function () {
+    // Khai báo các phần tử HTML cần sử dụng
     const elements = {
         menuMobileIcon: "menuMobileIcon",
         menuMobileBlock: "menuMobileBlock",
@@ -853,23 +868,31 @@ document.addEventListener("DOMContentLoaded", function () {
         closeSubShopLayout: "closeSubShopLayout"
     };
 
+    // Gán các phần tử HTML vào đối tượng elements
     Object.keys(elements).forEach(key => {
         elements[key] = document.getElementById(elements[key]);
     });
 
+    // Hàm thêm hoặc xóa class từ một phần tử
     const toggleClass = (element, className, action) => {
         if (element) element.classList[action](className);
     };
 
+    // Hàm đóng menu mobile với hiệu ứng
     const closeMenuMobileWithAnimation = () => {
-        [elements.menuMobileBlock, elements.subHomeBlock, elements.subShopBlock, elements.subShopLayoutBlock].forEach(el => toggleClass(el, "open", "remove"));
+        [elements.menuMobileBlock,
+        elements.subHomeBlock,
+        elements.subShopBlock,
+        elements.subShopLayoutBlock].forEach(el => toggleClass(el, "open", "remove"));
         setTimeout(() => toggleClass(elements.overlayMenuMobile, "show", "remove"), 400);
     };
 
+    // Hàm thiết lập sự kiện click cho các phần tử
     const setupClickEvent = (trigger, target, className = "open", action = "add") => {
         if (trigger && target) {
             trigger.addEventListener("click", () => {
                 toggleClass(target, className, action);
+                // Nếu mở menu mobile, hiển thị overlay
                 if (action === "add" && target === elements.menuMobileBlock) {
                     toggleClass(elements.overlayMenuMobile, "show", "add");
                 }
@@ -877,11 +900,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
+    // Thiết lập sự kiện mở menu và submenu
     setupClickEvent(elements.menuMobileIcon, elements.menuMobileBlock);
     setupClickEvent(elements.subHome, elements.subHomeBlock);
     setupClickEvent(elements.subShop, elements.subShopBlock);
     setupClickEvent(elements.subShopLayout, elements.subShopLayoutBlock);
 
+    // Thiết lập sự kiện đóng menu mobile khi nhấn vào overlay hoặc nút đóng
     [elements.closeMenuMobile, 
     elements.overlayMenuMobile, 
     elements.closeSubHome, 
@@ -890,6 +915,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (el) el.addEventListener("click", closeMenuMobileWithAnimation);
     });
 
+    // Thiết lập sự kiện nút back để đóng submenu
     setupClickEvent(elements.subHomeBack, elements.subHomeBlock, "open", "remove");
     setupClickEvent(elements.subShopBack, elements.subShopBlock, "open", "remove");
     setupClickEvent(elements.subShopLayoutBack, elements.subShopLayoutBlock, "open", "remove");
