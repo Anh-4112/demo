@@ -633,7 +633,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Đóng giỏ hàng
     const closeCartWithAnimation = () => {
         cartBlock.classList.remove("open");
-        setTimeout(() => overlayCart.classList.remove("show"), 400);
+        setTimeout(() => overlayCart.classList.remove("show"), 300);
     };
 
     closeCart.addEventListener("click", closeCartWithAnimation);
@@ -728,3 +728,57 @@ document.addEventListener("DOMContentLoaded", function () {
 
     renderCart();
 });
+
+// ===== Menu Mobile ======================
+document.addEventListener("DOMContentLoaded", function () {
+    const menuMobileIcon = document.getElementById("menuMobileIcon");
+    const menuMobileBlock = document.getElementById("menuMobileBlock");
+    const closeMenuMobile = document.getElementById("closeMenuMobile");
+    const overlayMenuMobile = document.getElementById("overlayMenuMobile");
+    const subHome = document.getElementById("subHome");
+    const subHomeBlock = document.getElementById("subHomeBlock");
+    const subHomeBack = document.getElementById("subHomeBack");
+    const closeSubHome = document.getElementById("closeSubHome");
+
+    if (menuMobileIcon) {
+        menuMobileIcon.addEventListener("click", () => {
+            menuMobileBlock.classList.add("open");
+            overlayMenuMobile.classList.add("show");
+        });
+    }
+
+    const closeMenuMobileWithAnimation = () => {
+        menuMobileBlock.classList.remove("open");
+        subHomeBlock.classList.remove("open"); // Đóng luôn sub-home
+        setTimeout(() => overlayMenuMobile.classList.remove("show"), 400);
+    };    
+
+    if (subHome) {
+        subHome.addEventListener("click", () => {
+            subHomeBlock.classList.add("open");
+        });
+    }
+
+    const closeSubHomeWithAnimation = () => {
+        subHomeBlock.classList.remove("open");
+    };
+
+    // Đóng hoàn toàn menu khi click vào dấu "x" của sub-home
+    if (closeSubHome) {
+        closeSubHome.addEventListener("click", closeMenuMobileWithAnimation);
+    }
+
+    // Đóng menu mobile khi nhấn overlay
+    if (overlayMenuMobile) {
+        overlayMenuMobile.addEventListener("click", closeMenuMobileWithAnimation);
+    }
+
+    if (closeMenuMobile) {
+        closeMenuMobile.addEventListener("click", closeMenuMobileWithAnimation);
+    }
+
+    if (subHomeBack) {
+        subHomeBack.addEventListener("click", closeSubHomeWithAnimation);
+    }
+});
+
