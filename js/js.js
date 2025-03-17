@@ -730,107 +730,167 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ===== Menu Mobile ======================
-document.addEventListener("DOMContentLoaded", function () {
-    const menuMobileIcon = document.getElementById("menuMobileIcon");
-    const menuMobileBlock = document.getElementById("menuMobileBlock");
-    const closeMenuMobile = document.getElementById("closeMenuMobile");
-    const overlayMenuMobile = document.getElementById("overlayMenuMobile");
+// document.addEventListener("DOMContentLoaded", function () {
+//     const menuMobileIcon = document.getElementById("menuMobileIcon");
+//     const menuMobileBlock = document.getElementById("menuMobileBlock");
+//     const closeMenuMobile = document.getElementById("closeMenuMobile");
+//     const overlayMenuMobile = document.getElementById("overlayMenuMobile");
 
-    const subHome = document.getElementById("subHome");
-    const subHomeBlock = document.getElementById("subHomeBlock");
-    const subHomeBack = document.getElementById("subHomeBack");
-    const closeSubHome = document.getElementById("closeSubHome");
+//     const subHome = document.getElementById("subHome");
+//     const subHomeBlock = document.getElementById("subHomeBlock");
+//     const subHomeBack = document.getElementById("subHomeBack");
+//     const closeSubHome = document.getElementById("closeSubHome");
 
-    const subShop = document.getElementById("subShop");
-    const subShopBlock = document.getElementById("subShopBlock");
-    const subShopBack = document.getElementById("subShopBack");
-    const closeSubShop = document.getElementById("closeSubShop");
+//     const subShop = document.getElementById("subShop");
+//     const subShopBlock = document.getElementById("subShopBlock");
+//     const subShopBack = document.getElementById("subShopBack");
+//     const closeSubShop = document.getElementById("closeSubShop");
 
-    const subShopLayout = document.getElementById("subShopLayout");
-    const subShopLayoutBlock = document.getElementById("subShopLayoutBlock");
-    const subShopLayoutBack = document.getElementById("subShopLayoutBack");
-    const closeSubShopLayout = document.getElementById("closeSubShopLayout");
+//     const subShopLayout = document.getElementById("subShopLayout");
+//     const subShopLayoutBlock = document.getElementById("subShopLayoutBlock");
+//     const subShopLayoutBack = document.getElementById("subShopLayoutBack");
+//     const closeSubShopLayout = document.getElementById("closeSubShopLayout");
 
-    if (menuMobileIcon) {
-        menuMobileIcon.addEventListener("click", () => {
-            menuMobileBlock.classList.add("open");
-            overlayMenuMobile.classList.add("show");
-        });
-    }
+//     if (menuMobileIcon) {
+//         menuMobileIcon.addEventListener("click", () => {
+//             menuMobileBlock.classList.add("open");
+//             overlayMenuMobile.classList.add("show");
+//         });
+//     }
 
-    const closeMenuMobileWithAnimation = () => {
-        menuMobileBlock.classList.remove("open");
-        subHomeBlock.classList.remove("open"); // Đóng luôn sub-home
-        subShopBlock.classList.remove("open"); // Đóng luôn sub-shop
-        subShopLayoutBlock.classList.remove("open"); // Đóng luôn sub-shop-layout
-        setTimeout(() => overlayMenuMobile.classList.remove("show"), 400);
-    };    
+//     const closeMenuMobileWithAnimation = () => {
+//         menuMobileBlock.classList.remove("open");
+//         subHomeBlock.classList.remove("open"); // Đóng luôn sub-home
+//         subShopBlock.classList.remove("open"); // Đóng luôn sub-shop
+//         subShopLayoutBlock.classList.remove("open"); // Đóng luôn sub-shop-layout
+//         setTimeout(() => overlayMenuMobile.classList.remove("show"), 400);
+//     };    
 
-    if (subHome) {
-        subHome.addEventListener("click", () => {
-            subHomeBlock.classList.add("open");
-        });
-    }
+//     if (subHome) {
+//         subHome.addEventListener("click", () => {
+//             subHomeBlock.classList.add("open");
+//         });
+//     }
 
-    const closeSubHomeWithAnimation = () => {
-        subHomeBlock.classList.remove("open");
-    };
+//     const closeSubHomeWithAnimation = () => {
+//         subHomeBlock.classList.remove("open");
+//     };
 
     
-    if (subShop) {
-        subShop.addEventListener("click", () => {
-            subShopBlock.classList.add("open");
-        });
-    }
+//     if (subShop) {
+//         subShop.addEventListener("click", () => {
+//             subShopBlock.classList.add("open");
+//         });
+//     }
 
-    const closeSubShopWithAnimation = () => {
-        subShopBlock.classList.remove("open");
+//     const closeSubShopWithAnimation = () => {
+//         subShopBlock.classList.remove("open");
+//     };
+
+//     if (subShopLayout) {
+//         subShopLayout.addEventListener("click", () => {
+//             subShopLayoutBlock.classList.add("open");
+//         });
+//     }
+
+//     const closeSubShopLayoutWithAnimation = () => {
+//         subShopLayoutBlock.classList.remove("open");
+//     };
+
+//     // Đóng hoàn toàn menu khi click vào dấu "x" của sub-home
+//     if (closeSubHome) {
+//         closeSubHome.addEventListener("click", closeMenuMobileWithAnimation);
+//     }
+
+//     // Đóng hoàn toàn menu khi click vào dấu "x" của sub-shop
+//     if (closeSubShop) {
+//         closeSubShop.addEventListener("click", closeMenuMobileWithAnimation);
+//     }
+
+//         // Đóng hoàn toàn menu khi click vào dấu "x" của sub-shop-layout
+//         if (closeSubShopLayout) {
+//             closeSubShopLayout.addEventListener("click", closeMenuMobileWithAnimation);
+//         }
+
+//     // Đóng menu mobile khi nhấn overlay
+//     if (overlayMenuMobile) {
+//         overlayMenuMobile.addEventListener("click", closeMenuMobileWithAnimation);
+//     }
+
+//     if (closeMenuMobile) {
+//         closeMenuMobile.addEventListener("click", closeMenuMobileWithAnimation);
+//     }
+
+//     if (subHomeBack) {
+//         subHomeBack.addEventListener("click", closeSubHomeWithAnimation);
+//     }
+
+//     if (subShopBack) {
+//         subShopBack.addEventListener("click", closeSubShopWithAnimation);
+//     }
+
+//     if (subShopLayoutBack) {
+//         subShopLayoutBack.addEventListener("click", closeSubShopLayoutWithAnimation);
+//     }
+// });
+document.addEventListener("DOMContentLoaded", function () {
+    const elements = {
+        menuMobileIcon: "menuMobileIcon",
+        menuMobileBlock: "menuMobileBlock",
+        closeMenuMobile: "closeMenuMobile",
+        overlayMenuMobile: "overlayMenuMobile",
+        subHome: "subHome",
+        subHomeBlock: "subHomeBlock",
+        subHomeBack: "subHomeBack",
+        closeSubHome: "closeSubHome",
+        subShop: "subShop",
+        subShopBlock: "subShopBlock",
+        subShopBack: "subShopBack",
+        closeSubShop: "closeSubShop",
+        subShopLayout: "subShopLayout",
+        subShopLayoutBlock: "subShopLayoutBlock",
+        subShopLayoutBack: "subShopLayoutBack",
+        closeSubShopLayout: "closeSubShopLayout"
     };
 
-    if (subShopLayout) {
-        subShopLayout.addEventListener("click", () => {
-            subShopLayoutBlock.classList.add("open");
-        });
-    }
+    Object.keys(elements).forEach(key => {
+        elements[key] = document.getElementById(elements[key]);
+    });
 
-    const closeSubShopLayoutWithAnimation = () => {
-        subShopLayoutBlock.classList.remove("open");
+    const toggleClass = (element, className, action) => {
+        if (element) element.classList[action](className);
     };
 
-    // Đóng hoàn toàn menu khi click vào dấu "x" của sub-home
-    if (closeSubHome) {
-        closeSubHome.addEventListener("click", closeMenuMobileWithAnimation);
-    }
+    const closeMenuMobileWithAnimation = () => {
+        [elements.menuMobileBlock, elements.subHomeBlock, elements.subShopBlock, elements.subShopLayoutBlock].forEach(el => toggleClass(el, "open", "remove"));
+        setTimeout(() => toggleClass(elements.overlayMenuMobile, "show", "remove"), 400);
+    };
 
-    // Đóng hoàn toàn menu khi click vào dấu "x" của sub-shop
-    if (closeSubShop) {
-        closeSubShop.addEventListener("click", closeMenuMobileWithAnimation);
-    }
-
-        // Đóng hoàn toàn menu khi click vào dấu "x" của sub-shop-layout
-        if (closeSubShopLayout) {
-            closeSubShopLayout.addEventListener("click", closeMenuMobileWithAnimation);
+    const setupClickEvent = (trigger, target, className = "open", action = "add") => {
+        if (trigger && target) {
+            trigger.addEventListener("click", () => {
+                toggleClass(target, className, action);
+                if (action === "add" && target === elements.menuMobileBlock) {
+                    toggleClass(elements.overlayMenuMobile, "show", "add");
+                }
+            });
         }
+    };
 
-    // Đóng menu mobile khi nhấn overlay
-    if (overlayMenuMobile) {
-        overlayMenuMobile.addEventListener("click", closeMenuMobileWithAnimation);
-    }
+    setupClickEvent(elements.menuMobileIcon, elements.menuMobileBlock);
+    setupClickEvent(elements.subHome, elements.subHomeBlock);
+    setupClickEvent(elements.subShop, elements.subShopBlock);
+    setupClickEvent(elements.subShopLayout, elements.subShopLayoutBlock);
 
-    if (closeMenuMobile) {
-        closeMenuMobile.addEventListener("click", closeMenuMobileWithAnimation);
-    }
+    [elements.closeMenuMobile, 
+    elements.overlayMenuMobile, 
+    elements.closeSubHome, 
+    elements.closeSubShop, 
+    elements.closeSubShopLayout].forEach(el => {
+        if (el) el.addEventListener("click", closeMenuMobileWithAnimation);
+    });
 
-    if (subHomeBack) {
-        subHomeBack.addEventListener("click", closeSubHomeWithAnimation);
-    }
-
-    if (subShopBack) {
-        subShopBack.addEventListener("click", closeSubShopWithAnimation);
-    }
-
-    if (subShopLayoutBack) {
-        subShopLayoutBack.addEventListener("click", closeSubShopLayoutWithAnimation);
-    }
+    setupClickEvent(elements.subHomeBack, elements.subHomeBlock, "open", "remove");
+    setupClickEvent(elements.subShopBack, elements.subShopBlock, "open", "remove");
+    setupClickEvent(elements.subShopLayoutBack, elements.subShopLayoutBlock, "open", "remove");
 });
-

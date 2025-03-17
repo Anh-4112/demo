@@ -664,6 +664,10 @@ html {
     padding-right: 2.1rem;
 }
 
+.pr-30 {
+    padding-right: 3rem;
+}
+
 /* === Padding X ========= */
 .p-30 {
     padding: 3rem;
@@ -1483,38 +1487,17 @@ html {
     visibility: visible;
 }
 
-.sub-home {
-    width: 43rem;
-    max-width: 100%;
-    transition: transform 0.4s ease-in-out;
-    transform: translateX(-100%);
-}
-
-.sub-home.open {
-    transform: translateX(0);
-}
-
-.sub-shop {
-    width: 43rem;
-    max-width: 100%;
-    transition: transform 0.4s ease-in-out;
-    transform: translateX(-100%);
-}
-
-.sub-shop.open {
-    transform: translateX(0);
-    opacity: 1;
-}
-
+.sub-home,
+.sub-shop,
 .sub-shop-layout {
     width: 43rem;
     max-width: 100%;
     transition: transform 0.4s ease-in-out;
     transform: translateX(-100%);
-    left: 0;
 }
 
+.sub-home.open,
+.sub-shop.open,
 .sub-shop-layout.open {
     transform: translateX(0);
-    opacity: 1;
 }
