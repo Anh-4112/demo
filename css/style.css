@@ -653,7 +653,7 @@ html {
 }
 
 .pb-33 {
-    padding-bottom: 3.3rem;
+    padding-bottom: 3.2rem;
 }
 
 .pb-35 {
@@ -710,9 +710,25 @@ html {
     padding-right: 1.6rem;
 }
 
+.px-18 {
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;
+}
+
+
+.px-19 {
+    padding-left: 1.9rem;
+    padding-right: 1.9rem;
+}
+
 .px-20 {
     padding-left: 2rem;
     padding-right: 2rem;
+}
+
+.px-21 {
+    padding-left: 2.1rem;
+    padding-right: 2.1rem;
 }
 
 .px-26 {
@@ -1086,6 +1102,14 @@ html {
     bottom: 2.5rem;
 }
 
+.bottom-86 {
+    bottom: 8.6rem;
+}
+
+.bottom-156 {
+    bottom: 15.6rem;
+}
+
 .bottom-55pct {
     bottom: 55%;
 }
@@ -1101,6 +1125,10 @@ html {
 
 .right-19 {
     right: 1.9rem;
+}
+
+.right-20 {
+    right: 2rem;
 }
 
 .right-30 {
@@ -1469,8 +1497,12 @@ html {
     transform: translateX(0);
 }
 
-/* -+-+-+-+-+-+-+-+-+-+-+- */
+/* === Sticky ================= */
 .sticky-bottom {
-    transform: translateY(100%);
+    transform: translateY(100%); /* Mặc định ẩn xuống */
     transition: transform 0.3s ease-in-out;
+}
+
+.sticky-bottom.show {
+    transform: translateY(0); /* Hiện từ dưới lên */
 }

@@ -921,22 +921,83 @@ document.addEventListener("DOMContentLoaded", function () {
     setupClickEvent(elements.subShopLayoutBack, elements.subShopLayoutBlock, "open", "remove");
 });
 
-// ========================================
+// =============================
+document.addEventListener("DOMContentLoaded", function () {
+    const goToTopButton = document.querySelector(".go-to-top");
+
+    // Hiển thị hoặc ẩn nút khi cuộn
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 600) {
+            goToTopButton.style.display = "block";
+        } else {
+            goToTopButton.style.display = "none";
+        }
+    });
+
+    // Cuộn lên đầu khi click
+    goToTopButton.addEventListener("click", function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+});
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     const goToTopButton = document.querySelector(".go-to-top");
+//     goToTopButton.style.backgroundColor = "white"; // Màu trắng ban đầu
+//     goToTopButton.style.transition = "background-color 0.5s ease-in-out";
+
+//     // Hiển thị hoặc ẩn nút khi cuộn
+//     window.addEventListener("scroll", function () {
+//         if (window.scrollY > 500) {
+//             goToTopButton.style.display = "block";
+//             let scrollPercentage = Math.min(window.scrollY / document.documentElement.scrollHeight, 1);
+//             let blackIntensity = Math.floor(scrollPercentage * 255);
+//             goToTopButton.style.backgroundColor = `rgb(${255 - blackIntensity}, ${255 - blackIntensity}, ${255 - blackIntensity})`;
+//         } else {
+//             goToTopButton.style.display = "none";
+//         }
+//     });
+
+//     // Cuộn lên đầu khi click
+//     goToTopButton.addEventListener("click", function () {
+//         window.scrollTo({
+//             top: 0,
+//             behavior: "smooth"
+//         });
+//     });
+// });
+
+// ===== Sticky ======================
 document.addEventListener("DOMContentLoaded", function () {
     let lastScrollTop = window.scrollY; // Lưu vị trí cuộn trước đó
-    const stickyNav = document.querySelector(".sticky-bottom"); // Lấy phần tử thanh điều hướng
+    const stickyBottom = document.querySelector(".sticky-bottom"); // Lấy sticky
 
     window.addEventListener("scroll", function () {
         let scrollTop = window.scrollY; // Lấy vị trí cuộn hiện tại
+        let documentHeight = document.documentElement.scrollHeight; // Chiều cao toàn bộ trang
+        let windowHeight = window.innerHeight; // Chiều cao vùng hiển thị
 
-        if (scrollTop < lastScrollTop) {
-            // Nếu vị trí cuộn hiện tại nhỏ hơn vị trí trước đó => người dùng đang cuộn lên
-            stickyNav.style.transform = "translateY(0)"; // Hiển thị thanh điều hướng
+        if (scrollTop > lastScrollTop) {
+            // Nếu cuộn xuống, hiển thị thanh điều hướng
+            stickyBottom.classList.add("show");
         } else {
-            // Nếu vị trí cuộn hiện tại lớn hơn vị trí trước đó => người dùng đang cuộn xuống
-            stickyNav.style.transform = "translateY(100%)"; // Ẩn thanh điều hướng
+            // Nếu cuộn lên, ẩn thanh điều hướng
+            stickyBottom.classList.remove("show");
         }
 
-        lastScrollTop = scrollTop; // Cập nhật lại vị trí cuộn trước đó
+        if (scrollTop + windowHeight >= documentHeight - 5) {
+            // Nếu cuộn đến cuối trang, luôn hiển thị thanh điều hướng
+            stickyBottom.classList.add("show");
+        }
+
+        lastScrollTop = scrollTop; // Cập nhật vị trí cuộn trước đó
     });
 });
+
+
+
+
+
+
