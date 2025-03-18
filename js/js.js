@@ -920,3 +920,23 @@ document.addEventListener("DOMContentLoaded", function () {
     setupClickEvent(elements.subShopBack, elements.subShopBlock, "open", "remove");
     setupClickEvent(elements.subShopLayoutBack, elements.subShopLayoutBlock, "open", "remove");
 });
+
+// ========================================
+document.addEventListener("DOMContentLoaded", function () {
+    let lastScrollTop = window.scrollY; // Lưu vị trí cuộn trước đó
+    const stickyNav = document.querySelector(".sticky-bottom"); // Lấy phần tử thanh điều hướng
+
+    window.addEventListener("scroll", function () {
+        let scrollTop = window.scrollY; // Lấy vị trí cuộn hiện tại
+
+        if (scrollTop < lastScrollTop) {
+            // Nếu vị trí cuộn hiện tại nhỏ hơn vị trí trước đó => người dùng đang cuộn lên
+            stickyNav.style.transform = "translateY(0)"; // Hiển thị thanh điều hướng
+        } else {
+            // Nếu vị trí cuộn hiện tại lớn hơn vị trí trước đó => người dùng đang cuộn xuống
+            stickyNav.style.transform = "translateY(100%)"; // Ẩn thanh điều hướng
+        }
+
+        lastScrollTop = scrollTop; // Cập nhật lại vị trí cuộn trước đó
+    });
+});
