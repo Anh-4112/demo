@@ -285,6 +285,11 @@
     padding-bottom: 6.5rem;
    }
 
+   .px-xl-10 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+   }
+
    .px-xl-30 {
     padding-left: 3rem;
     padding-right: 3rem;
@@ -308,6 +313,10 @@
    .py-xl-21 {
     padding-top: 2.1rem;
     padding-bottom: 2.1rem;
+   }
+
+   .mt-xl-7 {
+    margin-top: 0.7rem;
    }
 
    .mt-xl-8 {
@@ -336,6 +345,10 @@
 
    .mt-xl-15 {
     margin-top: 1.5rem;
+   }
+
+   .mt-xl-17 {
+    margin-top: 1.7rem;
    }
 
    .mt-xl-18 {
