@@ -6,175 +6,179 @@
 /* md */
 @media screen and (min-width: 768px) {
     :root {
-        --height-slider: 65rem;
+     --height-slider: 65rem;
     }
 
+/* == Pointer None ========================== */
+    .pe-md-none {
+     pointer-events: none; /* Vô hiệu hóa click */
+    }
+
+/* === Display None ========================= */
+    .d-md-none {
+     display: none;
+    }
+
+/* == Display Flex ========================== */
     .d-md-flex {
-        display: flex;
+     display: flex;
     }
 
     .flex-md-wrap {
-        flex-wrap: wrap;
+     flex-wrap: wrap;
     }
 
-    .justify-content-md-between {
-        justify-content: space-between;
-    }
-
-    .border-md-none {
-        border: none;
-    }
-
-    .d-md-none {
-        display: none;
-    }
-
-    .pe-md-none {
-        pointer-events: none; /* Vô hiệu hóa click */
-    }
-
-    .footer-list-md {
-        max-height: none !important;
-        overflow: visible;
-    }
-
+/* == Display Grid ========================== */
     .grid-md-3-2 {
-        grid-template-columns: auto auto auto;
-        grid-template-rows: repeat(2, auto);
+     grid-template-columns: auto auto auto;
+     grid-template-rows: repeat(2, auto);
     }
-    
+       
     .grid-md-col-1 {
-        grid-column: 1;
-        grid-row: 1/3;
+     grid-column: 1;
+     grid-row: 1/3;
     }
-    
+       
     .grid-md-col-2-row-1 {
-        grid-column: 2;
-        grid-row: 1/2;
+     grid-column: 2;
+     grid-row: 1/2;
     }
-    
+       
     .grid-md-col-2-row-2 {
-        grid-column: 2;
-        grid-row: 2/3;
+     grid-column: 2;
+     grid-row: 2/3;
     }
-    
+       
     .grid-md-col-3 {
-        grid-column: 3;
-        grid-row: 1/3;
+     grid-column: 3;
+     grid-row: 1/3;
     }
-
-    .gap-md-30 {
-        gap: 3rem;
-    }
-
+   
+/* == Column ========================== */
     .col-md-2 {
-        flex: 0 0 50%;
+    flex: 0 0 50%;
     }
-
+   
     .col-md-2-gap-30 {
-        flex: 0 0 calc(calc(100% - 3rem) /2);
+    flex: 0 0 calc(calc(100% - 3rem) /2);
     }
-    
+       
+    .col-md-3-gap-5 {
+    flex: 0 0 calc(calc(100% - 1rem) /3);
+    }
+   
     .col-md-3-gap-20 {
-        flex: 0 0 calc(calc(100% - 4rem) /3);
+    flex: 0 0 calc(calc(100% - 4rem) /3);
     }
 
-    .col-md-3-gap-5 {
-        flex: 0 0 calc(calc(100% - 1rem) /3);
+/* == Gap ========================== */
+    .gap-md-30 {
+     gap: 3rem;
+    }
+
+/* == Justify Content ========================== */
+    .justify-content-md-between {
+     justify-content: space-between;
+    }
+
+/* == Border ========================== */  
+    .border-md-none {
+     border: none;
     }
 
     .text-md-center {
-        text-align: center;
+     text-align: center;
     }
 
     .pt-md-20 {
-        padding-top: 2rem;
-    }
-
-    .mb-md-73 {
-        margin-bottom: 7.3rem;
+     padding-top: 2rem;
     }
 
     .top-md-225 {
-        top: 22.5rem;
+     top: 22.5rem;
     }
 
     .left-md-130 {
-        left: 13rem;
+     left: 13rem;
     }
 
     .fw-md-600 {
-    font-weight: 600;
-   }
+     font-weight: 600;
+    }
+
+    .footer-list-md {
+     max-height: none !important;
+     overflow: visible;
+    }
 }
 
 /* lg */
 @media screen and (min-width: 992px) {
     :root {
-        --height-slider: 81rem;
-        --position-img-slider: 50% center;
+     --height-slider: 81rem;
+     --position-img-slider: 50% center;
     }
     
     .d-lg-none {
-        display: none;
+     display: none;
     }
 
     .d-lg-block {
-        display: block;
+     display: block;
     }
 
     .flex-lg-auto {
-        flex: auto;
+     flex: auto;
     }
 
     .col-lg-25pct {
-        flex: 0 0 25%;
+     flex: 0 0 25%;
     }
 
     .col-lg-50pct {
-        flex: 0 0 50%;
+     flex: 0 0 50%;
     }
 
     .gap-lg-15 {
-        gap: 1.5rem;
+     gap: 1.5rem;
     }
 
     .gap-lg-20 {
-        gap: 2rem;
+     gap: 2rem;
     }
     
     .justify-content-lg-start {
-        justify-content: start;
+     justify-content: start;
     }
 
     .pt-lg-1 {
-        padding-top: 0.1rem;
+     padding-top: 0.1rem;
     }
     
     .pt-lg-24 {
-        padding-top: 2.4rem;
+     padding-top: 2.4rem;
     }
 
     .pr-lg-10 {
-        padding-right: 1rem;
+     padding-right: 1rem;
     }
 
     .px-lg-30 {
-        padding-left: 3rem;
-        padding-right: 3rem;
+     padding-left: 3rem;
+     padding-right: 3rem;
     }
 
     .mx-lg-0 {
-        margin-right: 0;
-        margin-left: 0;
+     margin-right: 0;
+     margin-left: 0;
     }
 
     .top-lg-300 {
-        top: 30rem;
+     top: 30rem;
     }
 
     .left-lg-220 {
-        left: 22rem;
+     left: 22rem;
     }
 
 }
