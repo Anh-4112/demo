@@ -172,6 +172,10 @@ html {
     overflow: hidden;
 }
 
+.overflow-visible {
+    overflow: visible;
+}
+
 .overflow-y {
     overflow-y: auto;
 }
@@ -305,6 +309,10 @@ html {
     z-index: 4;
 }
 
+.z-index-50 {
+    z-index: 50;
+}
+
 .z-index-98 {
     z-index: 98;
 }
@@ -315,10 +323,6 @@ html {
 
 .z-index-102 {
     z-index: 102;
-}
-
-.z-index-999 {
-    z-index: 999;
 }
 
 /* === Opacity =============== */
@@ -404,6 +408,10 @@ html {
 }
 
 /* === Gap ========= */
+.gap-auto {
+    gap: auto;
+}
+
 .gap-1 {
     gap: 0.1rem;
 }
@@ -463,6 +471,10 @@ html {
 
 .col-33pct {
     flex: 0 0 33.33%;
+}
+
+.col-60pct {
+    flex: 0 0 60%;
 }
 
 /* === Justify Content ========= */
@@ -703,6 +715,10 @@ html {
     padding-right: 3.5rem;
 }
 
+.pr-55 {
+    padding-right: 5.5rem;
+}
+
 /* === Padding ========= */
 .p-30 {
     padding: 3rem;
@@ -773,6 +789,12 @@ html {
     padding-left: 4rem;
     padding-right: 4rem;
 }
+
+.px-42 {
+    padding-left: 4.2rem;
+    padding-right: 4.2rem;
+}
+
 
 .px-44 {
     padding-left: 4.4rem;
@@ -885,6 +907,10 @@ html {
 
 .mt-12 {
     margin-top: 1.2rem;
+}
+
+.mt-13 {
+    margin-top: 1.3rem;
 }
 
 .mt-16 {
@@ -1545,12 +1571,11 @@ html {
 }
 
 /* === Sticky ================= */
-.sticky-bottom {
-    transform: translateY(100%); /* Mặc định ẩn xuống */
+/* .sticky-bottom {
+    transform: translateY(100%);
     transition: transform 0.3s ease-in-out;
 }
 
 .sticky-bottom.show {
-    transform: translateY(0); /* Hiện từ dưới lên */
-}
-
+    transform: translateY(0);
+} */

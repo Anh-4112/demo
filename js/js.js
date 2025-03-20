@@ -1,71 +1,71 @@
-$(document).ready(function () {
-    let currentIndex = 0;
-    const slides = $(".slide");
-    const totalSlides = slides.length;
-    const slider = $(".slider");
-    const dotsContainer = $(".slider-dots");
+// $(document).ready(function () {
+//     let currentIndex = 0;
+//     const slides = $(".slide");
+//     const totalSlides = slides.length;
+//     const slider = $(".slider");
+//     const dotsContainer = $(".slider-dots");
 
-    slides.eq(0).addClass("active"); // Slide đầu tiên sẽ hiển thị ngay từ đầu
+//     slides.eq(0).addClass("active"); // Slide đầu tiên sẽ hiển thị ngay từ đầu
 
 
-    // Thêm dots theo số lượng slide
-    for (let i = 0; i < totalSlides; i++) {
-        dotsContainer.append(`<span class="dot" data-index="${i}"></span>`);
-    }
-    let dots = $(".dot");
+//     // Thêm dots theo số lượng slide
+//     for (let i = 0; i < totalSlides; i++) {
+//         dotsContainer.append(`<span class="dot" data-index="${i}"></span>`);
+//     }
+//     let dots = $(".dot");
 
-    function getRemSize(valuePx) {
-        let rootFontSize = parseFloat($("html").css("font-size")); // Lấy font-size của thẻ <html>
-        return valuePx / rootFontSize; // Chuyển px sang rem
-    }
+//     function getRemSize(valuePx) {
+//         let rootFontSize = parseFloat($("html").css("font-size")); // Lấy font-size của thẻ <html>
+//         return valuePx / rootFontSize; // Chuyển px sang rem
+//     }
 
-    function updateSlider() {
-        let slideWidthRem = getRemSize($(".slider-wrapper").width()); // Lấy chiều rộng slider và đổi sang rem
-        slider.css("transform", `translateX(-${currentIndex * slideWidthRem}rem)`);
+//     function updateSlider() {
+//         let slideWidthRem = getRemSize($(".slider-wrapper").width()); // Lấy chiều rộng slider và đổi sang rem
+//         slider.css("transform", `translateX(-${currentIndex * slideWidthRem}rem)`);
     
-        slides.removeClass("active"); // Xóa lớp active khỏi tất cả slide
-        slides.eq(currentIndex).addClass("active"); // Thêm lớp active cho slide hiện tại
+//         slides.removeClass("active"); // Xóa lớp active khỏi tất cả slide
+//         slides.eq(currentIndex).addClass("active"); // Thêm lớp active cho slide hiện tại
     
-        dots.removeClass("active");
-        dots.eq(currentIndex).addClass("active");
-    }
+//         dots.removeClass("active");
+//         dots.eq(currentIndex).addClass("active");
+//     }
 
-    function resetAutoSlide() {
-        clearInterval(slideInterval);
-        slideInterval = setInterval(autoSlide, 3000);
-    }
+//     function resetAutoSlide() {
+//         clearInterval(slideInterval);
+//         slideInterval = setInterval(autoSlide, 3000);
+//     }
 
-    $(".next").click(function () {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        updateSlider();
-        resetAutoSlide();
-    });
+//     $(".next").click(function () {
+//         currentIndex = (currentIndex + 1) % totalSlides;
+//         updateSlider();
+//         resetAutoSlide();
+//     });
 
-    $(".prev").click(function () {
-        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        updateSlider();
-        resetAutoSlide();
-    });
+//     $(".prev").click(function () {
+//         currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+//         updateSlider();
+//         resetAutoSlide();
+//     });
 
-    dots.click(function () {
-        currentIndex = $(this).data("index");
-        updateSlider();
-        resetAutoSlide();
-    });
+//     dots.click(function () {
+//         currentIndex = $(this).data("index");
+//         updateSlider();
+//         resetAutoSlide();
+//     });
 
-    function autoSlide() {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        updateSlider();
-    }
+//     function autoSlide() {
+//         currentIndex = (currentIndex + 1) % totalSlides;
+//         updateSlider();
+//     }
 
-    let slideInterval = setInterval(autoSlide, 3000);
+//     let slideInterval = setInterval(autoSlide, 3000);
 
-    $(window).resize(function () {
-        updateSlider();
-    });
+//     $(window).resize(function () {
+//         updateSlider();
+//     });
 
-    updateSlider();
-});
+//     updateSlider();
+// });
 
 // ===== Slideshow Trending ===================
 document.addEventListener("DOMContentLoaded", () => {
@@ -343,99 +343,32 @@ function changeImageArrivals(element, imageSrc) {
 }
 
 // ===== Slideshow Feedback ==========================
-// document.addEventListener("DOMContentLoaded", () => {
-//     const carousel = document.querySelector(".carousel-feedback");
-// 	const btnTrending = document.querySelectorAll(".btn-feedback-prev, .btn-feedback-next");
-//     const firstCard = carousel.querySelector(".card-feedback");
-//     const firstCardWidth = firstCard ? firstCard.offsetWidth : 0;
-    
-//     let isDragging = false, startX, startScrollLeft;
-//     let moved = false; // Kiểm tra có di chuyển chuột hay không
-
-//     // Khi bắt đầu kéo
-//     const dragStart = (e) => {
-//         isDragging = true;
-//         moved = false;
-//         startX = e.pageX;
-//         startScrollLeft = carousel.scrollLeft;
-//         carousel.classList.add("dragging");
-//     };
-
-//     // Khi kéo chuột
-//     const dragging = (e) => {
-//         if (!isDragging) return;
-//         moved = true;
-//         carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
-//     };
-
-//     // Khi thả chuột
-//     const dragStop = () => {
-//         isDragging = false;
-//         carousel.classList.remove("dragging");
-//     };
-
-//     // Scroll mượt khi bấm nút prev/next
-//     const scrollSmoothly = (offset) => {
-//         carousel.style.scrollBehavior = "smooth";
-//         carousel.scrollLeft += offset;
-//         setTimeout(() => {
-//             carousel.style.scrollBehavior = "auto";
-//         }, 600);
-//     };
-
-//     // Xử lý khi click nút prev/next
-//     btnTrending.forEach(btn => {
-//         btn.addEventListener("click", () => {
-//             if (btn.classList.contains("btn-feedback-prev")) {
-//                 scrollSmoothly(-firstCardWidth);
-//             } else {
-//                 scrollSmoothly(firstCardWidth);
-//             }
-//         });
-//     });
-
-//     // Gán sự kiện cho slider
-//     carousel.addEventListener("mousedown", dragStart);
-//     carousel.addEventListener("mousemove", dragging);
-//     document.addEventListener("mouseup", dragStop);
-//     carousel.addEventListener("mouseleave", dragStop);
-// });
 document.addEventListener("DOMContentLoaded", () => {
     const carousel = document.querySelector(".carousel-feedback");
-    const btnTrending = document.querySelectorAll(".btn-feedback-prev, .btn-feedback-next");
+	const btnTrending = document.querySelectorAll(".btn-feedback-prev, .btn-feedback-next");
     const firstCard = carousel.querySelector(".card-feedback");
     const firstCardWidth = firstCard ? firstCard.offsetWidth : 0;
     
     let isDragging = false, startX, startScrollLeft;
     let moved = false; // Kiểm tra có di chuyển chuột hay không
 
-    // Scroll mượt
-    const enableSmoothScroll = () => {
-        carousel.style.scrollBehavior = "smooth";
-        setTimeout(() => {
-            carousel.style.scrollBehavior = "auto";
-        }, 600);
-    };
-
-    // Khi bắt đầu kéo chuột hoặc cảm ứng
+    // Khi bắt đầu kéo
     const dragStart = (e) => {
         isDragging = true;
         moved = false;
-        startX = e.pageX || e.touches[0].pageX;
+        startX = e.pageX;
         startScrollLeft = carousel.scrollLeft;
         carousel.classList.add("dragging");
     };
 
-    // Khi kéo chuột hoặc cảm ứng
+    // Khi kéo chuột
     const dragging = (e) => {
         if (!isDragging) return;
         moved = true;
-        const x = e.pageX || e.touches[0].pageX;
-        carousel.scrollLeft = startScrollLeft - (x - startX);
-        enableSmoothScroll();
+        carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
     };
 
-    // Khi thả chuột hoặc kết thúc cảm ứng
+    // Khi thả chuột
     const dragStop = () => {
         isDragging = false;
         carousel.classList.remove("dragging");
@@ -443,8 +376,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Scroll mượt khi bấm nút prev/next
     const scrollSmoothly = (offset) => {
-        enableSmoothScroll();
+        carousel.style.scrollBehavior = "smooth";
         carousel.scrollLeft += offset;
+        setTimeout(() => {
+            carousel.style.scrollBehavior = "auto";
+        }, 600);
     };
 
     // Xử lý khi click nút prev/next
@@ -458,16 +394,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Gán sự kiện cho chuột
+    // Gán sự kiện cho slider
     carousel.addEventListener("mousedown", dragStart);
     carousel.addEventListener("mousemove", dragging);
     document.addEventListener("mouseup", dragStop);
     carousel.addEventListener("mouseleave", dragStop);
-
-    // Gán sự kiện cho cảm ứng
-    carousel.addEventListener("touchstart", dragStart);
-    carousel.addEventListener("touchmove", dragging);
-    carousel.addEventListener("touchend", dragStop);
 });
 
 // ===== Slideshow Ig ==========================
@@ -921,9 +852,16 @@ document.addEventListener("DOMContentLoaded", function () {
     setupClickEvent(elements.subShopLayoutBack, elements.subShopLayoutBlock, "open", "remove");
 });
 
-// =============================
+// ===== Go to top ========================
 document.addEventListener("DOMContentLoaded", function () {
     const goToTopButton = document.querySelector(".go-to-top");
+
+    // Kiểm tra ngay khi trang vừa load
+    if (window.scrollY > 600) {
+        goToTopButton.style.display = "block";
+    } else {
+        goToTopButton.style.display = "none";
+    }
 
     // Hiển thị hoặc ẩn nút khi cuộn
     window.addEventListener("scroll", function () {
@@ -943,61 +881,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     const goToTopButton = document.querySelector(".go-to-top");
-//     goToTopButton.style.backgroundColor = "white"; // Màu trắng ban đầu
-//     goToTopButton.style.transition = "background-color 0.5s ease-in-out";
-
-//     // Hiển thị hoặc ẩn nút khi cuộn
-//     window.addEventListener("scroll", function () {
-//         if (window.scrollY > 500) {
-//             goToTopButton.style.display = "block";
-//             let scrollPercentage = Math.min(window.scrollY / document.documentElement.scrollHeight, 1);
-//             let blackIntensity = Math.floor(scrollPercentage * 255);
-//             goToTopButton.style.backgroundColor = `rgb(${255 - blackIntensity}, ${255 - blackIntensity}, ${255 - blackIntensity})`;
-//         } else {
-//             goToTopButton.style.display = "none";
-//         }
-//     });
-
-//     // Cuộn lên đầu khi click
-//     goToTopButton.addEventListener("click", function () {
-//         window.scrollTo({
-//             top: 0,
-//             behavior: "smooth"
-//         });
-//     });
-// });
 
 // ===== Sticky ======================
-document.addEventListener("DOMContentLoaded", function () {
-    let lastScrollTop = window.scrollY; // Lưu vị trí cuộn trước đó
-    const stickyBottom = document.querySelector(".sticky-bottom"); // Lấy sticky
+// document.addEventListener("DOMContentLoaded", function () {
+//     let lastScrollTop = window.scrollY; // Lưu vị trí cuộn trước đó
+//     const stickyBottom = document.querySelector(".sticky-bottom"); // Lấy sticky
 
-    window.addEventListener("scroll", function () {
-        let scrollTop = window.scrollY; // Lấy vị trí cuộn hiện tại
-        let documentHeight = document.documentElement.scrollHeight; // Chiều cao toàn bộ trang
-        let windowHeight = window.innerHeight; // Chiều cao vùng hiển thị
+//     window.addEventListener("scroll", function () {
+//         let scrollTop = window.scrollY; // Lấy vị trí cuộn hiện tại
+//         let documentHeight = document.documentElement.scrollHeight; // Chiều cao toàn bộ trang
+//         let windowHeight = window.innerHeight; // Chiều cao vùng hiển thị
 
-        if (scrollTop > lastScrollTop) {
-            // Nếu cuộn xuống, hiển thị thanh điều hướng
-            stickyBottom.classList.add("show");
-        } else {
-            // Nếu cuộn lên, ẩn thanh điều hướng
-            stickyBottom.classList.remove("show");
-        }
+//         if (scrollTop > lastScrollTop) {
+//             // Nếu cuộn xuống, hiển thị thanh điều hướng
+//             stickyBottom.classList.add("show");
+//         } else {
+//             // Nếu cuộn lên, ẩn thanh điều hướng
+//             stickyBottom.classList.remove("show");
+//         }
 
-        if (scrollTop + windowHeight >= documentHeight - 5) {
-            // Nếu cuộn đến cuối trang, luôn hiển thị thanh điều hướng
-            stickyBottom.classList.add("show");
-        }
+//         if (scrollTop + windowHeight >= documentHeight - 5) {
+//             // Nếu cuộn đến cuối trang, luôn hiển thị thanh điều hướng
+//             stickyBottom.classList.add("show");
+//         }
 
-        lastScrollTop = scrollTop; // Cập nhật vị trí cuộn trước đó
-    });
-});
-
-
-
-
-
-
+//         lastScrollTop = scrollTop; // Cập nhật vị trí cuộn trước đó
+//     });
+// });

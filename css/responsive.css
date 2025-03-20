@@ -1,3 +1,23 @@
+/* ssm */
+@media screen and (max-width: 375.98px) {
+    .gap-ssm-10 {
+        gap: 1rem;
+    }
+    
+    .gap-ssm-20 {
+        gap: 2rem;
+    }
+
+    .bottom-ssm-8 {
+        bottom: 0.8rem;
+    }
+
+    .py-ssm-8 {
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+    }
+}
+
 /* sm */
 @media screen and (min-width: 576px) {
     
