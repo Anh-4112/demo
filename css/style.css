@@ -386,8 +386,8 @@ html {
     flex: 0 0 76.7%;
 }
 
-.flex-70pct {
-    flex: 0 0 70%;
+.flex-65pct {
+    flex: 0 0 65%;
 }
 
 .flex-direction-column {
@@ -546,6 +546,10 @@ html {
 
 .border-gray-medium {
     border-color: var(--gray-medium);
+}
+
+.border-gray-light {
+    border-color: var(--gray-light);
 }
 
 /*=== Rounded =================*/
@@ -801,16 +805,15 @@ html {
     padding-right: 4.5rem;
 }
 
-.px-92 {
-    padding-left: 9.2rem;
-    padding-right: 9.2rem;
-}
-
 .px-100 {
     padding-left: 10rem;
     padding-right: 10rem;
 }
 
+.px-122 {
+    padding-left: 12.2rem;
+    padding-right: 12.2rem;
+}
 /* === Padding Y ========= */
 .py-6 {
     padding-top: 0.6rem;
@@ -1026,6 +1029,10 @@ html {
 }
 
 /* === Margin Bottom ========= */
+.mb-6 {
+    margin-bottom: 0.6rem;
+}
+
 .mb-8 {
     margin-bottom: 0.8rem;
 }
@@ -1036,6 +1043,10 @@ html {
 
 .mb-14 {
     margin-bottom: 1.4rem;
+}
+
+.mb-16 {
+    margin-bottom: 1.6rem;
 }
 
 .mb-17 {
@@ -1391,6 +1402,11 @@ html {
 
 .h-40 {
     height: 4rem;
+}
+
+/* === Shadow ==================== */
+.shadow {
+    box-shadow: 0 0.1rem 1.6rem rgba(0, 0, 0, 0.3);
 }
 
 /* ======================= */
