@@ -203,12 +203,6 @@ html {
     opacity: 0;
 }
 
-.tooltiptext-top {
-    bottom: 150%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 .tooltiptext-lefr {
     bottom: 15%;
     right: 115%;
@@ -224,13 +218,19 @@ html {
 .tooltiptext-after-top::after {
     border-color: var(--black) transparent transparent transparent;
     top: 100%;
-    left: 45%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .tooltiptext-after-left::after {
     border-color: transparent transparent transparent var(--black);
     top: 33%;
     left: 99%;
+}
+
+#tooltiptext-color-trending,
+#tooltiptext-color-arrivals {
+    position: fixed;
 }
 
 .tooltip:hover .tooltiptext {
@@ -1313,7 +1313,8 @@ html {
     background-color: var(--black);
 }
 
-.btn-color {
+.btn-color-trending,
+.btn-color-arrivals {
     width: 1.8rem;
     height: 1.8rem;
 }
@@ -1591,3 +1592,9 @@ html {
 .sticky-bottom.show {
     transform: translateY(0);
 } */
+
+/* .tooltip {
+    position: relative;
+    display: inline-block;
+} */
+
