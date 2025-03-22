@@ -641,7 +641,6 @@ document.addEventListener("DOMContentLoaded", () => {
     carousel.addEventListener("touchend", dragStop);
 });
 
-
 // ===== List Footer =============================
 document.addEventListener("DOMContentLoaded", () => {
     // Chọn tất cả phần tử có class "footer-list" (các menu con trong footer)
@@ -649,7 +648,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Lấy biểu tượng (+/-) từ phần tử liền trước menu
         let icon = menu.previousElementSibling.querySelector(".footer-icon");
         // Kiểm tra xem menu có mở sẵn hay không dựa vào biểu tượng (+/-)
-        let isOpen = icon.textContent.trim() === "-";
+        let isOpen = icon.textContent.trim() === "−";
 
         if (isOpen) {
             // Nếu biểu tượng là "-", mở sẵn menu với chiều cao thực tế
@@ -676,7 +675,7 @@ function toggleMenu(id) {
     // Nếu menu đang mở, thu gọn lại, nếu đang đóng, mở rộng ra
     menu.style.maxHeight = isOpen ? "0rem" : menu.scrollHeight / 10 + "rem";
     // Cập nhật biểu tượng tương ứng
-    icon.textContent = isOpen ? "+" : "-";
+    icon.textContent = isOpen ? "+" : "−";
     // Cập nhật trạng thái mới vào dataset
     menu.dataset.open = !isOpen;
 }
