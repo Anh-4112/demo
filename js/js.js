@@ -572,20 +572,25 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", () => {
             const id = button.dataset.id;
             const name = button.dataset.name;
-            const price = parseInt(button.dataset.price);
+            const price = parseFloat(button.dataset.price); // Dùng parseFloat để giữ số thập phân
             const image = button.dataset.image;
-
+    
             const existingItem = cart.find((item) => item.id === id);
             if (existingItem) {
                 existingItem.quantity++;
             } else {
                 cart.push({ id, name, price, image, quantity: 1 });
             }
-
+    
             saveCart();
             renderCart();
+            
+            // Mở giỏ hàng ngay sau khi thêm sản phẩm
+            cartBlock.classList.add("open");
+            overlayCart.classList.add("show");
         });
     });
+    
 
     // Hiển thị danh sách sản phẩm trong giỏ hàng
     function renderCart() {
@@ -593,31 +598,32 @@ document.addEventListener("DOMContentLoaded", function () {
         if (cart.length === 0) {
             cartTotal.innerText = "$0.00";
         }
-
+    
         let total = 0;
         cart.forEach((item) => {
             total += item.price * item.quantity;
             const cartItem = cartItemTemplate.content.cloneNode(true);
-
+    
             cartItem.querySelector(".cart-item-img").src = item.image;
             cartItem.querySelector(".cart-item-info h3").textContent = item.name;
-            cartItem.querySelector(".cart-item-price").textContent = `$${(item.price * item.quantity).toLocaleString()}`;
+            cartItem.querySelector(".cart-item-price").textContent = `$${(item.price * item.quantity).toFixed(2)}`;
             cartItem.querySelector(".cart-item-qty").textContent = item.quantity;
-
+    
             const increaseBtn = cartItem.querySelector(".cart-item-increase");
             const decreaseBtn = cartItem.querySelector(".cart-item-decrease");
             const removeBtn = cartItem.querySelector(".btn-cart-item-remove");
-
+    
             increaseBtn.addEventListener("click", () => updateQuantity(item.id, 1));
             decreaseBtn.addEventListener("click", () => updateQuantity(item.id, -1));
             removeBtn.addEventListener("click", () => removeFromCart(item.id));
-
+    
             cartItemsContainer.appendChild(cartItem);
         });
-
-        cartTotal.innerText = `$${total.toLocaleString()}`;
+    
+        cartTotal.innerText = `$${total.toFixed(2)}`;
         updateCartCount();
     }
+    
 
     function updateQuantity(id, change) {
         const item = cart.find((item) => item.id === id);
