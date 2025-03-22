@@ -73,20 +73,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const carousel = document.querySelector(".carousel-trending");
     const btnTrending = document.querySelectorAll(".btn-trending-prev, .btn-trending-next");
     const firstCard = carousel.querySelector(".card-trending");
-    const firstCardWidth = firstCard ? firstCard.offsetWidth : 0;
     
+    let firstCardWidth = firstCard ? firstCard.offsetWidth : 0;
+    let gap = parseInt(getComputedStyle(carousel).gap) || 0;
+
     let isDragging = false, startX, startScrollLeft;
-    let moved = false; // Kiểm tra có di chuyển hay không
+    let moved = false;
+
+    // Cập nhật kích thước khi thay đổi màn hình
+    const updateSizes = () => {
+        firstCardWidth = firstCard ? firstCard.offsetWidth : 0;
+        gap = parseInt(getComputedStyle(carousel).gap) || 0;
+    };
+    window.addEventListener("resize", updateSizes);
 
     // Ngăn kéo link
     document.querySelectorAll(".carousel-trending a").forEach(a => {
         a.addEventListener("click", (e) => {
-            if (moved) e.preventDefault(); // Nếu kéo thì chặn click
+            if (moved) e.preventDefault();
         });
-        a.addEventListener("dragstart", (e) => e.preventDefault()); // Ngăn kéo link
+        a.addEventListener("dragstart", (e) => e.preventDefault());
     });
 
-    // Khi bắt đầu kéo chuột hoặc cảm ứng
+    // Khi bắt đầu kéo
     const dragStart = (e) => {
         isDragging = true;
         moved = false;
@@ -95,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
         carousel.classList.add("dragging");
     };
 
-    // Khi kéo chuột hoặc cảm ứng
+    // Khi kéo
     const dragging = (e) => {
         if (!isDragging) return;
         moved = true;
@@ -103,16 +112,23 @@ document.addEventListener("DOMContentLoaded", () => {
         carousel.scrollLeft = startScrollLeft - (x - startX);
     };
 
-    // Khi thả chuột hoặc kết thúc cảm ứng
+    // Khi thả chuột
     const dragStop = () => {
         isDragging = false;
         carousel.classList.remove("dragging");
     };
 
-    // Scroll mượt khi bấm nút prev/next
-    const scrollSmoothly = (offset) => {
+    // Cuộn chính xác đến item, tính cả gap
+    const scrollToItem = (direction) => {
+        const scrollLeft = carousel.scrollLeft;
+        const cardWidthWithGap = firstCardWidth + gap; // Kích thước mỗi item kèm khoảng cách
+        const newScrollPosition = direction === "prev"
+            ? Math.max(0, Math.floor(scrollLeft / cardWidthWithGap) * cardWidthWithGap - cardWidthWithGap)
+            : Math.min(carousel.scrollWidth, Math.ceil(scrollLeft / cardWidthWithGap) * cardWidthWithGap + cardWidthWithGap);
+
         carousel.style.scrollBehavior = "smooth";
-        carousel.scrollLeft += offset;
+        carousel.scrollTo({ left: newScrollPosition, behavior: "smooth" });
+
         setTimeout(() => {
             carousel.style.scrollBehavior = "auto";
         }, 500);
@@ -122,20 +138,20 @@ document.addEventListener("DOMContentLoaded", () => {
     btnTrending.forEach(btn => {
         btn.addEventListener("click", () => {
             if (btn.classList.contains("btn-trending-prev")) {
-                scrollSmoothly(-firstCardWidth);
+                scrollToItem("prev");
             } else {
-                scrollSmoothly(firstCardWidth);
+                scrollToItem("next");
             }
         });
     });
 
-    // Gán sự kiện cho chuột
+    // Gán sự kiện kéo chuột
     carousel.addEventListener("mousedown", dragStart);
     carousel.addEventListener("mousemove", dragging);
     document.addEventListener("mouseup", dragStop);
     carousel.addEventListener("mouseleave", dragStop);
 
-    // Gán sự kiện cho cảm ứng
+    // Gán sự kiện cảm ứng
     carousel.addEventListener("touchstart", dragStart);
     carousel.addEventListener("touchmove", dragging);
     carousel.addEventListener("touchend", dragStop);
@@ -263,22 +279,31 @@ document.addEventListener("DOMContentLoaded", () => {
 // ===== Slideshow Arrivals ===============================
 document.addEventListener("DOMContentLoaded", () => {
     const carousel = document.querySelector(".carousel-arrivals");
-    const btnTrending = document.querySelectorAll(".btn-arrivals-prev, .btn-arrivals-next");
+    const btnArrivals = document.querySelectorAll(".btn-arrivals-prev, .btn-arrivals-next");
     const firstCard = carousel.querySelector(".card-arrivals");
-    const firstCardWidth = firstCard ? firstCard.offsetWidth : 0;
     
+    let firstCardWidth = firstCard ? firstCard.offsetWidth : 0;
+    let gap = parseInt(getComputedStyle(carousel).gap) || 0;
+
     let isDragging = false, startX, startScrollLeft;
-    let moved = false; // Kiểm tra có di chuyển hay không
+    let moved = false;
+
+    // Cập nhật kích thước khi thay đổi màn hình
+    const updateSizes = () => {
+        firstCardWidth = firstCard ? firstCard.offsetWidth : 0;
+        gap = parseInt(getComputedStyle(carousel).gap) || 0;
+    };
+    window.addEventListener("resize", updateSizes);
 
     // Ngăn kéo link
     document.querySelectorAll(".carousel-arrivals a").forEach(a => {
         a.addEventListener("click", (e) => {
-            if (moved) e.preventDefault(); // Nếu kéo thì chặn click
+            if (moved) e.preventDefault();
         });
-        a.addEventListener("dragstart", (e) => e.preventDefault()); // Ngăn kéo link
+        a.addEventListener("dragstart", (e) => e.preventDefault());
     });
 
-    // Khi bắt đầu kéo chuột hoặc cảm ứng
+    // Khi bắt đầu kéo
     const dragStart = (e) => {
         isDragging = true;
         moved = false;
@@ -287,7 +312,7 @@ document.addEventListener("DOMContentLoaded", () => {
         carousel.classList.add("dragging");
     };
 
-    // Khi kéo chuột hoặc cảm ứng
+    // Khi kéo
     const dragging = (e) => {
         if (!isDragging) return;
         moved = true;
@@ -295,43 +320,51 @@ document.addEventListener("DOMContentLoaded", () => {
         carousel.scrollLeft = startScrollLeft - (x - startX);
     };
 
-    // Khi thả chuột hoặc kết thúc cảm ứng
+    // Khi thả chuột
     const dragStop = () => {
         isDragging = false;
         carousel.classList.remove("dragging");
     };
 
-    // Scroll mượt khi bấm nút prev/next
-    const scrollSmoothly = (offset) => {
+    // Cuộn chính xác đến item, tính cả gap
+    const scrollToItem = (direction) => {
+        const scrollLeft = carousel.scrollLeft;
+        const cardWidthWithGap = firstCardWidth + gap; // Kích thước mỗi item kèm khoảng cách
+        const newScrollPosition = direction === "prev"
+            ? Math.max(0, Math.floor(scrollLeft / cardWidthWithGap) * cardWidthWithGap - cardWidthWithGap)
+            : Math.min(carousel.scrollWidth, Math.ceil(scrollLeft / cardWidthWithGap) * cardWidthWithGap + cardWidthWithGap);
+
         carousel.style.scrollBehavior = "smooth";
-        carousel.scrollLeft += offset;
+        carousel.scrollTo({ left: newScrollPosition, behavior: "smooth" });
+
         setTimeout(() => {
             carousel.style.scrollBehavior = "auto";
         }, 500);
     };
 
     // Xử lý khi click nút prev/next
-    btnTrending.forEach(btn => {
+    btnArrivals.forEach(btn => {
         btn.addEventListener("click", () => {
             if (btn.classList.contains("btn-arrivals-prev")) {
-                scrollSmoothly(-firstCardWidth);
+                scrollToItem("prev");
             } else {
-                scrollSmoothly(firstCardWidth);
+                scrollToItem("next");
             }
         });
     });
 
-    // Gán sự kiện cho chuột
+    // Gán sự kiện kéo chuột
     carousel.addEventListener("mousedown", dragStart);
     carousel.addEventListener("mousemove", dragging);
     document.addEventListener("mouseup", dragStop);
     carousel.addEventListener("mouseleave", dragStop);
 
-    // Gán sự kiện cho cảm ứng
+    // Gán sự kiện cảm ứng
     carousel.addEventListener("touchstart", dragStart);
     carousel.addEventListener("touchmove", dragging);
     carousel.addEventListener("touchend", dragStop);
 });
+
 // +-+ Btn-Change-Color-Arrivals +-+
 function changeImageArrivals(element, imageSrc) {    
     let parentDiv = element.closest(".card-arrivals");
@@ -388,29 +421,105 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // ===== Slideshow Feedback ==========================
+// document.addEventListener("DOMContentLoaded", () => {
+//     const carousel = document.querySelector(".carousel-feedback");
+// 	const btnTrending = document.querySelectorAll(".btn-feedback-prev, .btn-feedback-next");
+//     const firstCard = carousel.querySelector(".card-feedback");
+//     const firstCardWidth = firstCard ? firstCard.offsetWidth : 0;
+    
+//     let isDragging = false, startX, startScrollLeft;
+//     let moved = false; // Kiểm tra có di chuyển chuột hay không
+
+//     // Khi bắt đầu kéo
+//     const dragStart = (e) => {
+//         isDragging = true;
+//         moved = false;
+//         startX = e.pageX;
+//         startScrollLeft = carousel.scrollLeft;
+//         carousel.classList.add("dragging");
+//     };
+
+//     // Khi kéo chuột
+//     const dragging = (e) => {
+//         if (!isDragging) return;
+//         moved = true;
+//         carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
+//     };
+
+//     // Khi thả chuột
+//     const dragStop = () => {
+//         isDragging = false;
+//         carousel.classList.remove("dragging");
+//     };
+
+//     // Scroll mượt khi bấm nút prev/next
+//     const scrollSmoothly = (offset) => {
+//         carousel.style.scrollBehavior = "smooth";
+//         carousel.scrollLeft += offset;
+//         setTimeout(() => {
+//             carousel.style.scrollBehavior = "auto";
+//         }, 600);
+//     };
+
+//     // Xử lý khi click nút prev/next
+//     btnTrending.forEach(btn => {
+//         btn.addEventListener("click", () => {
+//             if (btn.classList.contains("btn-feedback-prev")) {
+//                 scrollSmoothly(-firstCardWidth);
+//             } else {
+//                 scrollSmoothly(firstCardWidth);
+//             }
+//         });
+//     });
+
+//     // Gán sự kiện cho slider
+//     carousel.addEventListener("mousedown", dragStart);
+//     carousel.addEventListener("mousemove", dragging);
+//     document.addEventListener("mouseup", dragStop);
+//     carousel.addEventListener("mouseleave", dragStop);
+// });
+
 document.addEventListener("DOMContentLoaded", () => {
     const carousel = document.querySelector(".carousel-feedback");
-	const btnTrending = document.querySelectorAll(".btn-feedback-prev, .btn-feedback-next");
+    const btnFeedback = document.querySelectorAll(".btn-feedback-prev, .btn-feedback-next");
     const firstCard = carousel.querySelector(".card-feedback");
-    const firstCardWidth = firstCard ? firstCard.offsetWidth : 0;
     
+    let firstCardWidth = firstCard ? firstCard.offsetWidth : 0;
+    let gap = parseInt(getComputedStyle(carousel).gap) || 0;
+
     let isDragging = false, startX, startScrollLeft;
-    let moved = false; // Kiểm tra có di chuyển chuột hay không
+    let moved = false;
+
+    // Cập nhật kích thước khi thay đổi màn hình
+    const updateSizes = () => {
+        firstCardWidth = firstCard ? firstCard.offsetWidth : 0;
+        gap = parseInt(getComputedStyle(carousel).gap) || 0;
+    };
+    window.addEventListener("resize", updateSizes);
+
+    // Ngăn kéo link
+    document.querySelectorAll(".carousel-feedback a").forEach(a => {
+        a.addEventListener("click", (e) => {
+            if (moved) e.preventDefault();
+        });
+        a.addEventListener("dragstart", (e) => e.preventDefault());
+    });
 
     // Khi bắt đầu kéo
     const dragStart = (e) => {
         isDragging = true;
         moved = false;
-        startX = e.pageX;
+        startX = e.pageX || e.touches[0].pageX;
         startScrollLeft = carousel.scrollLeft;
         carousel.classList.add("dragging");
     };
 
-    // Khi kéo chuột
+    // Khi kéo
     const dragging = (e) => {
         if (!isDragging) return;
         moved = true;
-        carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
+        const x = e.pageX || e.touches[0].pageX;
+        carousel.scrollLeft = startScrollLeft - (x - startX);
     };
 
     // Khi thả chuột
@@ -419,31 +528,43 @@ document.addEventListener("DOMContentLoaded", () => {
         carousel.classList.remove("dragging");
     };
 
-    // Scroll mượt khi bấm nút prev/next
-    const scrollSmoothly = (offset) => {
+    // Cuộn chính xác đến item, tính cả gap
+    const scrollToItem = (direction) => {
+        const scrollLeft = carousel.scrollLeft;
+        const cardWidthWithGap = firstCardWidth + gap; // Kích thước mỗi item kèm khoảng cách
+        const newScrollPosition = direction === "prev"
+            ? Math.max(0, Math.floor(scrollLeft / cardWidthWithGap) * cardWidthWithGap - cardWidthWithGap)
+            : Math.min(carousel.scrollWidth, Math.ceil(scrollLeft / cardWidthWithGap) * cardWidthWithGap + cardWidthWithGap);
+
         carousel.style.scrollBehavior = "smooth";
-        carousel.scrollLeft += offset;
+        carousel.scrollTo({ left: newScrollPosition, behavior: "smooth" });
+
         setTimeout(() => {
             carousel.style.scrollBehavior = "auto";
-        }, 600);
+        }, 500);
     };
 
     // Xử lý khi click nút prev/next
-    btnTrending.forEach(btn => {
+    btnFeedback.forEach(btn => {
         btn.addEventListener("click", () => {
             if (btn.classList.contains("btn-feedback-prev")) {
-                scrollSmoothly(-firstCardWidth);
+                scrollToItem("prev");
             } else {
-                scrollSmoothly(firstCardWidth);
+                scrollToItem("next");
             }
         });
     });
 
-    // Gán sự kiện cho slider
+    // Gán sự kiện kéo chuột
     carousel.addEventListener("mousedown", dragStart);
     carousel.addEventListener("mousemove", dragging);
     document.addEventListener("mouseup", dragStop);
     carousel.addEventListener("mouseleave", dragStop);
+
+    // Gán sự kiện cảm ứng
+    carousel.addEventListener("touchstart", dragStart);
+    carousel.addEventListener("touchmove", dragging);
+    carousel.addEventListener("touchend", dragStop);
 });
 
 
@@ -540,6 +661,7 @@ function toggleMenu(id) {
 
 // ===== Mini Cart ======================
 document.addEventListener("DOMContentLoaded", function () {
+    // Lấy các phần tử DOM cần sử dụng
     const cartIcon = document.getElementById("cartIcon");
     const cartBlock = document.getElementById("cartBlock");
     const closeCart = document.getElementById("closeCart");
@@ -549,57 +671,63 @@ document.addEventListener("DOMContentLoaded", function () {
     const addToCartButtons = document.querySelectorAll(".btn-add-to-cart");
     const cartItemTemplate = document.getElementById("cartItem");
     const cartCount = document.getElementById("cartCount");
+    const freeShippingThreshold = 120;
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // Hiển thị giỏ hàng
-    cartIcon.addEventListener("click", () => {
-        cartBlock.classList.add("open");
-        overlayCart.classList.add("show");
-    });
-
+    // Mở giỏ hàng
+    cartIcon.addEventListener("click", () => toggleCart(true));
+    
     // Đóng giỏ hàng
-    const closeCartWithAnimation = () => {
-        cartBlock.classList.remove("open");
-        setTimeout(() => overlayCart.classList.remove("show"), 300);
-    };
-
+    const closeCartWithAnimation = () => toggleCart(false);
     closeCart.addEventListener("click", closeCartWithAnimation);
     overlayCart.addEventListener("click", closeCartWithAnimation);
 
-    // Thêm sản phẩm vào giỏ hàng
-    addToCartButtons.forEach((button) => {
+    function toggleCart(isOpen) {
+        cartBlock.classList.toggle("open", isOpen);
+        overlayCart.classList.toggle("show", isOpen);
+    }
+
+    // Cập nhật tiến trình miễn phí vận chuyển
+    function updateShippingProgress(total) {
+        const progressFill = document.getElementById("progressFill");
+        const progressIcon = document.getElementById("progressIcon");
+        const shippingMessage = document.getElementById("shippingMessage");
+        
+        let progress = Math.min((total / freeShippingThreshold) * 100, 100);
+        progressFill.style.width = `${progress}%`;
+        progressIcon.style.left = `${progress}%`;
+
+        shippingMessage.innerHTML = total >= freeShippingThreshold
+            ? `<span class="fs-14 color-green">Congratulations! You've got free shipping!</span>`
+            : `Spend $${(freeShippingThreshold - total).toFixed(2)} more and get <span class="fs-14 fw-600 color-orange-red">FREE SHIPPING!</span>`;
+    }
+
+    // Xử lý thêm sản phẩm vào giỏ hàng
+    addToCartButtons.forEach(button => {
         button.addEventListener("click", () => {
-            const id = button.dataset.id;
-            const name = button.dataset.name;
-            const price = parseFloat(button.dataset.price); // Dùng parseFloat để giữ số thập phân
-            const image = button.dataset.image;
-    
-            const existingItem = cart.find((item) => item.id === id);
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cart.push({ id, name, price, image, quantity: 1 });
-            }
-    
-            saveCart();
-            renderCart();
-            
-            // Mở giỏ hàng ngay sau khi thêm sản phẩm
-            cartBlock.classList.add("open");
-            overlayCart.classList.add("show");
+            const { id, name, price, image } = button.dataset;
+            addToCart(id, name, parseFloat(price), image);
         });
     });
-    
 
-    // Hiển thị danh sách sản phẩm trong giỏ hàng
+    function addToCart(id, name, price, image) {
+        const existingItem = cart.find(item => item.id === id);
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cart.push({ id, name, price, image, quantity: 1 });
+        }
+        saveCart();
+        renderCart();
+        toggleCart(true); // Mở giỏ hàng sau khi thêm sản phẩm
+    }
+
+    // Hiển thị giỏ hàng
     function renderCart() {
         cartItemsContainer.innerHTML = "";
-        if (cart.length === 0) {
-            cartTotal.innerText = "$0.00";
-        }
-    
         let total = 0;
+    
         cart.forEach((item) => {
             total += item.price * item.quantity;
             const cartItem = cartItemTemplate.content.cloneNode(true);
@@ -609,24 +737,21 @@ document.addEventListener("DOMContentLoaded", function () {
             cartItem.querySelector(".cart-item-price").textContent = `$${(item.price * item.quantity).toFixed(2)}`;
             cartItem.querySelector(".cart-item-qty").textContent = item.quantity;
     
-            const increaseBtn = cartItem.querySelector(".cart-item-increase");
-            const decreaseBtn = cartItem.querySelector(".cart-item-decrease");
-            const removeBtn = cartItem.querySelector(".btn-cart-item-remove");
-    
-            increaseBtn.addEventListener("click", () => updateQuantity(item.id, 1));
-            decreaseBtn.addEventListener("click", () => updateQuantity(item.id, -1));
-            removeBtn.addEventListener("click", () => removeFromCart(item.id));
+            cartItem.querySelector(".cart-item-increase").addEventListener("click", () => updateQuantity(item.id, 1));
+            cartItem.querySelector(".cart-item-decrease").addEventListener("click", () => updateQuantity(item.id, -1));
+            cartItem.querySelector(".btn-cart-item-remove").addEventListener("click", () => removeFromCart(item.id));
     
             cartItemsContainer.appendChild(cartItem);
         });
     
         cartTotal.innerText = `$${total.toFixed(2)}`;
+        updateShippingProgress(total);
         updateCartCount();
     }
-    
 
+    // Cập nhật số lượng sản phẩm
     function updateQuantity(id, change) {
-        const item = cart.find((item) => item.id === id);
+        const item = cart.find(item => item.id === id);
         if (!item) return;
 
         item.quantity += change;
@@ -638,12 +763,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Xóa sản phẩm khỏi giỏ hàng
     function removeFromCart(id) {
-        cart = cart.filter((item) => item.id !== id);
+        cart = cart.filter(item => item.id !== id);
         saveCart();
         renderCart();
     }
 
+    // Lưu giỏ hàng vào localStorage
     let saveCartTimeout;
     function saveCart() {
         clearTimeout(saveCartTimeout);
@@ -653,90 +780,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 300);
     }
 
+    // Cập nhật số lượng hiển thị trên icon giỏ hàng
     function updateCartCount() {
         if (!cartCount) return;
         let totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
         cartCount.innerText = totalQuantity;
-        cartCount.style.visibility = "visible"; // Luôn hiển thị, ngay cả khi số lượng là 0
+        cartCount.style.visibility = "visible"; 
     }
 
+    // Khởi tạo giao diện giỏ hàng
     renderCart();
-});
-
-
-// ===== Menu Mobile ======================
-document.addEventListener("DOMContentLoaded", function () {
-    // Khai báo các phần tử HTML cần sử dụng
-    const elements = {
-        menuMobileIcon: "menuMobileIcon",
-        menuMobileBlock: "menuMobileBlock",
-        closeMenuMobile: "closeMenuMobile",
-        overlayMenuMobile: "overlayMenuMobile",
-        subHome: "subHome",
-        subHomeBlock: "subHomeBlock",
-        subHomeBack: "subHomeBack",
-        closeSubHome: "closeSubHome",
-        subShop: "subShop",
-        subShopBlock: "subShopBlock",
-        subShopBack: "subShopBack",
-        closeSubShop: "closeSubShop",
-        subShopLayout: "subShopLayout",
-        subShopLayoutBlock: "subShopLayoutBlock",
-        subShopLayoutBack: "subShopLayoutBack",
-        closeSubShopLayout: "closeSubShopLayout"
-    };
-
-    // Gán các phần tử HTML vào đối tượng elements
-    Object.keys(elements).forEach(key => {
-        elements[key] = document.getElementById(elements[key]);
-    });
-
-    // Hàm thêm hoặc xóa class từ một phần tử
-    const toggleClass = (element, className, action) => {
-        if (element) element.classList[action](className);
-    };
-
-    // Hàm đóng menu mobile với hiệu ứng
-    const closeMenuMobileWithAnimation = () => {
-        [elements.menuMobileBlock,
-        elements.subHomeBlock,
-        elements.subShopBlock,
-        elements.subShopLayoutBlock].forEach(el => toggleClass(el, "open", "remove"));
-        setTimeout(() => toggleClass(elements.overlayMenuMobile, "show", "remove"), 400);
-    };
-
-    // Hàm thiết lập sự kiện click cho các phần tử
-    const setupClickEvent = (trigger, target, className = "open", action = "add") => {
-        if (trigger && target) {
-            trigger.addEventListener("click", () => {
-                toggleClass(target, className, action);
-                // Nếu mở menu mobile, hiển thị overlay
-                if (action === "add" && target === elements.menuMobileBlock) {
-                    toggleClass(elements.overlayMenuMobile, "show", "add");
-                }
-            });
-        }
-    };
-
-    // Thiết lập sự kiện mở menu và submenu
-    setupClickEvent(elements.menuMobileIcon, elements.menuMobileBlock);
-    setupClickEvent(elements.subHome, elements.subHomeBlock);
-    setupClickEvent(elements.subShop, elements.subShopBlock);
-    setupClickEvent(elements.subShopLayout, elements.subShopLayoutBlock);
-
-    // Thiết lập sự kiện đóng menu mobile khi nhấn vào overlay hoặc nút đóng
-    [elements.closeMenuMobile, 
-    elements.overlayMenuMobile, 
-    elements.closeSubHome, 
-    elements.closeSubShop, 
-    elements.closeSubShopLayout].forEach(el => {
-        if (el) el.addEventListener("click", closeMenuMobileWithAnimation);
-    });
-
-    // Thiết lập sự kiện nút back để đóng submenu
-    setupClickEvent(elements.subHomeBack, elements.subHomeBlock, "open", "remove");
-    setupClickEvent(elements.subShopBack, elements.subShopBlock, "open", "remove");
-    setupClickEvent(elements.subShopLayoutBack, elements.subShopLayoutBlock, "open", "remove");
 });
 
 

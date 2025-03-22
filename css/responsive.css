@@ -561,6 +561,11 @@
         gap: 3.2rem;
     }
 
+    .px-xxl-100 {
+        padding-left: 10rem;
+        padding-right: 10rem;
+    }
+
     .ml-xxl-1 {
         margin-left: 0.1rem;
     }
