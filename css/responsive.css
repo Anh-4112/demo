@@ -213,6 +213,10 @@
      width: 100%;
     }
 
+    .pointer-xl-auto {
+        pointer-events: auto;
+    }
+
     .opacity-xl-0 {
      opacity: 0;
     }

@@ -421,6 +421,118 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // ===== Slideshow Feedback ==========================
+// document.addEventListener("DOMContentLoaded", () => {
+//     const carousel = document.querySelector(".carousel-feedback");
+//     const btnFeedback = document.querySelectorAll(".btn-feedback-prev, .btn-feedback-next");
+//     const firstCard = carousel.querySelector(".card-feedback");
+    
+//     let firstCardWidth = firstCard ? firstCard.offsetWidth : 0;
+//     let gap = parseInt(getComputedStyle(carousel).gap) || 0;
+    
+//     let isDragging = false, startX, startScrollLeft;
+//     let moved = false;
+//     let scrollTimeout;
+    
+//     // Cập nhật kích thước khi thay đổi màn hình
+//     const updateSizes = () => {
+//         firstCardWidth = firstCard ? firstCard.offsetWidth : 0;
+//         gap = parseInt(getComputedStyle(carousel).gap) || 0;
+//     };
+//     window.addEventListener("resize", updateSizes);
+    
+//     // Khi bắt đầu kéo
+//     const dragStart = (e) => {
+//         isDragging = true;
+//         moved = false;
+//         startX = e.pageX || e.touches[0].pageX;
+//         startScrollLeft = carousel.scrollLeft;
+//         carousel.classList.add("dragging");
+//     };
+    
+//     // Khi kéo
+//     const dragging = (e) => {
+//         if (!isDragging) return;
+//         moved = true;
+//         const x = e.pageX || e.touches[0].pageX;
+//         carousel.scrollLeft = startScrollLeft - (x - startX);
+//     };
+    
+//     // Khi thả chuột hoặc dừng kéo
+//     const dragStop = () => {
+//         isDragging = false;
+//         carousel.classList.remove("dragging");
+    
+//         if (moved) {
+//             const cardWidthWithGap = firstCardWidth + gap;
+//             const scrollLeft = carousel.scrollLeft;
+            
+//             // Làm tròn vị trí cuộn để về đúng vị trí gần nhất của item
+//             const closestIndex = Math.round(scrollLeft / cardWidthWithGap);
+//             const newScrollPosition = closestIndex * cardWidthWithGap;
+    
+//             carousel.style.scrollBehavior = "smooth";
+//             carousel.scrollTo({ left: newScrollPosition, behavior: "smooth" });
+    
+//             // Đặt lại scrollBehavior để tránh lỗi khi kéo
+//             clearTimeout(scrollTimeout);
+//             scrollTimeout = setTimeout(() => {
+//                 carousel.style.scrollBehavior = "auto";
+//             }, 300);
+//         }
+//     };
+    
+//     // Xử lý khi click nút prev/next
+//     const scrollToItem = (direction) => {
+//         const scrollLeft = carousel.scrollLeft;
+//         const cardWidthWithGap = firstCardWidth + gap; // Kích thước mỗi item kèm khoảng cách
+        
+//         // Dùng Math.round() thay vì Math.floor()/Math.ceil() để tránh cuộn lỗi
+//         const closestIndex = Math.round(scrollLeft / cardWidthWithGap);
+//         const newScrollPosition = direction === "prev"
+//             ? Math.max(0, (closestIndex - 1) * cardWidthWithGap)
+//             : Math.min(carousel.scrollWidth, (closestIndex + 1) * cardWidthWithGap);
+    
+//         carousel.style.scrollBehavior = "smooth";
+//         carousel.scrollTo({ left: newScrollPosition, behavior: "smooth" });
+    
+//         // Đặt lại scrollBehavior sau khi cuộn xong
+//         clearTimeout(scrollTimeout);
+//         scrollTimeout = setTimeout(() => {
+//             carousel.style.scrollBehavior = "auto";
+//         }, 500);
+//     };
+    
+//     // Gán sự kiện khi nhấn nút prev/next
+//     btnFeedback.forEach(btn => {
+//         btn.addEventListener("click", () => {
+//             if (btn.classList.contains("btn-feedback-prev")) {
+//                 scrollToItem("prev");
+//             } else {
+//                 scrollToItem("next");
+//             }
+//         });
+//     });
+    
+//     // Gán sự kiện kéo chuột
+//     carousel.addEventListener("mousedown", dragStart);
+//     carousel.addEventListener("mousemove", dragging);
+//     document.addEventListener("mouseup", dragStop);
+//     carousel.addEventListener("mouseleave", dragStop);
+    
+//     // Gán sự kiện cảm ứng trên mobile
+//     carousel.addEventListener("touchstart", dragStart);
+//     carousel.addEventListener("touchmove", dragging);
+//     carousel.addEventListener("touchend", dragStop);
+    
+//     // Lắng nghe sự kiện cuộn để đặt lại scrollBehavior
+//     carousel.addEventListener("scroll", () => {
+//         clearTimeout(scrollTimeout);
+//         scrollTimeout = setTimeout(() => {
+//             carousel.style.scrollBehavior = "auto";
+//         }, 500);
+//     });
+// });
+
 document.addEventListener("DOMContentLoaded", () => {
     const carousel = document.querySelector(".carousel-feedback");
     const btnFeedback = document.querySelectorAll(".btn-feedback-prev, .btn-feedback-next");
@@ -428,17 +540,19 @@ document.addEventListener("DOMContentLoaded", () => {
     
     let firstCardWidth = firstCard ? firstCard.offsetWidth : 0;
     let gap = parseInt(getComputedStyle(carousel).gap) || 0;
-
+    
     let isDragging = false, startX, startScrollLeft;
     let moved = false;
-
+    let scrollTimeout;
+    const threshold = 3; // Ngưỡng tối thiểu để nhận diện kéo
+    
     // Cập nhật kích thước khi thay đổi màn hình
     const updateSizes = () => {
         firstCardWidth = firstCard ? firstCard.offsetWidth : 0;
         gap = parseInt(getComputedStyle(carousel).gap) || 0;
     };
     window.addEventListener("resize", updateSizes);
-
+    
     // Khi bắt đầu kéo
     const dragStart = (e) => {
         isDragging = true;
@@ -447,16 +561,21 @@ document.addEventListener("DOMContentLoaded", () => {
         startScrollLeft = carousel.scrollLeft;
         carousel.classList.add("dragging");
     };
-
+    
     // Khi kéo
     const dragging = (e) => {
         if (!isDragging) return;
-        moved = true;
         const x = e.pageX || e.touches[0].pageX;
-        carousel.scrollLeft = startScrollLeft - (x - startX);
+        const moveDistance = Math.abs(x - startX);
+        
+        if (moveDistance > threshold) {
+            moved = true;
+            const speedFactor = 3; // Điều chỉnh tốc độ di chuyển, càng lớn thì càng mượt
+        carousel.scrollLeft += (startX - x) / speedFactor;
+        }
     };
-
-    // Khi thả chuột
+    
+    // Khi thả chuột hoặc dừng kéo
     const dragStop = () => {
         isDragging = false;
         carousel.classList.remove("dragging");
@@ -464,34 +583,29 @@ document.addEventListener("DOMContentLoaded", () => {
         if (moved) {
             const cardWidthWithGap = firstCardWidth + gap;
             const scrollLeft = carousel.scrollLeft;
+            
+            // Làm tròn vị trí cuộn để về đúng vị trí gần nhất của item
             const closestIndex = Math.round(scrollLeft / cardWidthWithGap);
             const newScrollPosition = closestIndex * cardWidthWithGap;
     
-            carousel.style.scrollBehavior = "smooth";
             carousel.scrollTo({ left: newScrollPosition, behavior: "smooth" });
-    
-            setTimeout(() => {
-                carousel.style.scrollBehavior = "auto";
-            }, 500);
         }
     };
     
+    // Xử lý khi click nút prev/next
     const scrollToItem = (direction) => {
         const scrollLeft = carousel.scrollLeft;
-        const cardWidthWithGap = firstCardWidth + gap; // Kích thước mỗi item kèm khoảng cách
+        const cardWidthWithGap = firstCardWidth + gap;
+        
+        const closestIndex = Math.round(scrollLeft / cardWidthWithGap);
         const newScrollPosition = direction === "prev"
-            ? Math.max(0, Math.floor(scrollLeft / cardWidthWithGap) * cardWidthWithGap - cardWidthWithGap)
-            : Math.min(carousel.scrollWidth, Math.ceil(scrollLeft / cardWidthWithGap) * cardWidthWithGap + cardWidthWithGap);
+            ? Math.max(0, (closestIndex - 1) * cardWidthWithGap)
+            : Math.min(carousel.scrollWidth, (closestIndex + 1) * cardWidthWithGap);
     
-        carousel.style.scrollBehavior = "smooth";
         carousel.scrollTo({ left: newScrollPosition, behavior: "smooth" });
-    
-        setTimeout(() => {
-            carousel.style.scrollBehavior = "auto";
-        }, 500);
     };
-
-    // Xử lý khi click nút prev/next
+    
+    // Gán sự kiện khi nhấn nút prev/next
     btnFeedback.forEach(btn => {
         btn.addEventListener("click", () => {
             if (btn.classList.contains("btn-feedback-prev")) {
@@ -501,14 +615,14 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
-
+    
     // Gán sự kiện kéo chuột
     carousel.addEventListener("mousedown", dragStart);
     carousel.addEventListener("mousemove", dragging);
     document.addEventListener("mouseup", dragStop);
     carousel.addEventListener("mouseleave", dragStop);
-
-    // Gán sự kiện cảm ứng
+    
+    // Gán sự kiện cảm ứng trên mobile
     carousel.addEventListener("touchstart", dragStart);
     carousel.addEventListener("touchmove", dragging);
     carousel.addEventListener("touchend", dragStop);
@@ -693,29 +807,29 @@ document.addEventListener("DOMContentLoaded", function () {
     const addToCartButtons = document.querySelectorAll(".btn-add-to-cart");
     const cartItemTemplate = document.getElementById("cartItem");
     const cartCount = document.getElementById("cartCount");
-    const freeShippingThreshold = 120;
+    const freeShippingThreshold = 120; // Ngưỡng miễn phí vận chuyển
 
+    // Lấy giỏ hàng từ localStorage (nếu có) hoặc khởi tạo mảng trống
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // Mở giỏ hàng
+    // Sự kiện mở giỏ hàng
     cartIcon.addEventListener("click", () => toggleCart(true));
-    
-    // Đóng giỏ hàng
+    window.toggleCart = function (isOpen) {
+        cartBlock.classList.toggle("open", isOpen);
+        overlayCart.classList.toggle("show", isOpen);
+    };
+
+    // Sự kiện đóng giỏ hàng
     const closeCartWithAnimation = () => toggleCart(false);
     closeCart.addEventListener("click", closeCartWithAnimation);
     overlayCart.addEventListener("click", closeCartWithAnimation);
-
-    function toggleCart(isOpen) {
-        cartBlock.classList.toggle("open", isOpen);
-        overlayCart.classList.toggle("show", isOpen);
-    }
 
     // Cập nhật tiến trình miễn phí vận chuyển
     function updateShippingProgress(total) {
         const progressFill = document.getElementById("progressFill");
         const progressIcon = document.getElementById("progressIcon");
         const shippingMessage = document.getElementById("shippingMessage");
-        
+
         let progress = Math.min((total / freeShippingThreshold) * 100, 100);
         progressFill.style.width = `${progress}%`;
         progressIcon.style.left = `${progress}%`;
@@ -725,7 +839,7 @@ document.addEventListener("DOMContentLoaded", function () {
             : `Spend $${(freeShippingThreshold - total).toFixed(2)} more and get <span class="fs-14 fw-600 color-orange-red">FREE SHIPPING!</span>`;
     }
 
-    // Xử lý thêm sản phẩm vào giỏ hàng
+    // Thêm sản phẩm vào giỏ hàng
     addToCartButtons.forEach(button => {
         button.addEventListener("click", () => {
             const { id, name, price, image } = button.dataset;
@@ -749,23 +863,23 @@ document.addEventListener("DOMContentLoaded", function () {
     function renderCart() {
         cartItemsContainer.innerHTML = "";
         let total = 0;
-    
+
         cart.forEach((item) => {
             total += item.price * item.quantity;
             const cartItem = cartItemTemplate.content.cloneNode(true);
-    
+
             cartItem.querySelector(".cart-item-img").src = item.image;
             cartItem.querySelector(".cart-item-info h3").textContent = item.name;
             cartItem.querySelector(".cart-item-price").textContent = `$${(item.price * item.quantity).toFixed(2)}`;
             cartItem.querySelector(".cart-item-qty").textContent = item.quantity;
-    
+
             cartItem.querySelector(".cart-item-increase").addEventListener("click", () => updateQuantity(item.id, 1));
             cartItem.querySelector(".cart-item-decrease").addEventListener("click", () => updateQuantity(item.id, -1));
             cartItem.querySelector(".btn-cart-item-remove").addEventListener("click", () => removeFromCart(item.id));
-    
+
             cartItemsContainer.appendChild(cartItem);
         });
-    
+
         cartTotal.innerText = `$${total.toFixed(2)}`;
         updateShippingProgress(total);
         updateCartCount();
@@ -804,14 +918,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Cập nhật số lượng hiển thị trên icon giỏ hàng
     function updateCartCount() {
-        if (!cartCount) return;
-        let totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
-        cartCount.innerText = totalQuantity;
-        cartCount.style.visibility = "visible"; 
+        // Kiểm tra nếu cart là một mảng, nếu không thì gán giá trị mặc định là []
+        let totalQuantity = Array.isArray(cart) ? cart.reduce((sum, item) => sum + (item.quantity || 0), 0) : 0;
+    
+        // Cập nhật số lượng trên icon giỏ hàng
+        const cartCountIcon = document.getElementById("cartCount");
+        if (cartCountIcon) {
+            cartCountIcon.innerText = totalQuantity;
+            cartCountIcon.style.visibility = "visible"; // Luôn hiển thị
+        }
+    
+        // Cập nhật số lượng trên sticky cart
+        const cartCountSticky = document.querySelector(".cart-count-sticky");
+        if (cartCountSticky) {
+            cartCountSticky.innerText = totalQuantity;
+            cartCountSticky.style.visibility = "visible"; // Luôn hiển thị
+        }
     }
-
-    // Khởi tạo giao diện giỏ hàng
+    
+    
+    // Hiển thị lại giỏ hàng khi trang tải lại
     renderCart();
+    updateCartCount();
 });
 
 
