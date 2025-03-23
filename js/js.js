@@ -116,6 +116,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const dragStop = () => {
         isDragging = false;
         carousel.classList.remove("dragging");
+
+        if (moved) {
+            const cardWidthWithGap = firstCardWidth + gap;
+            const scrollLeft = carousel.scrollLeft;
+            const closestIndex = Math.round(scrollLeft / cardWidthWithGap);
+            const newScrollPosition = closestIndex * cardWidthWithGap;
+
+            carousel.style.scrollBehavior = "smooth";
+            carousel.scrollTo({ left: newScrollPosition, behavior: "smooth" });
+
+            setTimeout(() => {
+                carousel.style.scrollBehavior = "auto";
+            }, 500);
+        }
     };
 
     // Cuộn chính xác đến item, tính cả gap
@@ -324,6 +338,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const dragStop = () => {
         isDragging = false;
         carousel.classList.remove("dragging");
+
+        if (moved) {
+            const cardWidthWithGap = firstCardWidth + gap;
+            const scrollLeft = carousel.scrollLeft;
+            const closestIndex = Math.round(scrollLeft / cardWidthWithGap);
+            const newScrollPosition = closestIndex * cardWidthWithGap;
+
+            carousel.style.scrollBehavior = "smooth";
+            carousel.scrollTo({ left: newScrollPosition, behavior: "smooth" });
+
+            setTimeout(() => {
+                carousel.style.scrollBehavior = "auto";
+            }, 500);
+        }
     };
 
     // Cuộn chính xác đến item, tính cả gap
@@ -630,55 +658,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // ===== Slideshow Ig ==========================
-// document.addEventListener("DOMContentLoaded", () => {
-//     const carousel = document.querySelector(".carousel-ig");
-    
-//     let isDragging = false, startX, startScrollLeft;
-//     let moved = false; // Kiểm tra có di chuyển chuột hay không
-
-//     // Ngăn kéo link
-//     document.querySelectorAll(".carousel-ig a").forEach(a => {
-//         a.addEventListener("click", (e) => {
-//             if (moved) e.preventDefault(); // Nếu kéo thì chặn click
-//         });
-//         a.addEventListener("dragstart", (e) => e.preventDefault()); // Ngăn kéo link
-//     });
-
-//     // Khi bắt đầu kéo chuột hoặc cảm ứng
-//     const dragStart = (e) => {
-//         isDragging = true;
-//         moved = false;
-//         startX = e.pageX || e.touches[0].pageX;
-//         startScrollLeft = carousel.scrollLeft;
-//         carousel.classList.add("dragging");
-//     };
-
-//     // Khi kéo chuột hoặc cảm ứng
-//     const dragging = (e) => {
-//         if (!isDragging) return;
-//         moved = true;
-//         let x = e.pageX || e.touches[0].pageX;
-//         carousel.scrollLeft = startScrollLeft - (x - startX);
-//     };
-
-//     // Khi thả chuột hoặc kết thúc cảm ứng
-//     const dragStop = () => {
-//         isDragging = false;
-//         carousel.classList.remove("dragging");
-//     };
-
-//     // Gán sự kiện cho chuột
-//     carousel.addEventListener("mousedown", dragStart);
-//     carousel.addEventListener("mousemove", dragging);
-//     document.addEventListener("mouseup", dragStop);
-//     carousel.addEventListener("mouseleave", dragStop);
-
-//     // Gán sự kiện cho cảm ứng
-//     carousel.addEventListener("touchstart", dragStart);
-//     carousel.addEventListener("touchmove", dragging);
-//     carousel.addEventListener("touchend", dragStop);
-// });
-
 document.addEventListener("DOMContentLoaded", () => {
     const carousel = document.querySelector(".carousel-ig");
     if (!carousel) return; // Nếu không tìm thấy carousel thì dừng script
