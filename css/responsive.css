@@ -155,12 +155,12 @@
      flex: auto;
     }
 
-    .col-lg-25pct {
-     flex: 0 0 25%;
+    .col-lg-20pct {
+     flex: 0 0 20%;
     }
 
-    .col-lg-50pct {
-     flex: 0 0 50%;
+    .col-lg-60pct {
+     flex: 0 0 60%;
     }
 
     .gap-lg-15 {
@@ -469,6 +469,10 @@
 
    .top-xl-40pct {
     top: 40%;
+   }
+
+   .top-xl-370pct {
+    top: 370%;
    }
 
    .top-xl-center {

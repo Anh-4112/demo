@@ -1128,8 +1128,12 @@ html {
     transform: translateY(-50%);
 }
 
-.top-120pct {
-    top: 120%;
+.top-550pct {
+    top: 550%;
+}
+
+.top-370pct {
+    top: 370%;
 }
 
 .top-0 {
@@ -1453,9 +1457,18 @@ html {
     max-height: none;
 }
 
+.list-home-pc,
+.list-shop-pc {
+    transition: transform, opacity, 0.4s ease-in-out;
+    z-index: -1;
+}
+
 .wrapper-menu-pc:hover .list-home-pc,
 .wrapper-menu-pc:hover .list-shop-pc {
-    display: block;
+    /* display: block; */
+    transform: translateY(-8%);
+    opacity: 1;
+    z-index: 2;
 }
 
 /* === Progress Bar ==================== */
