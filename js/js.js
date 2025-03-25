@@ -392,7 +392,6 @@ document.addEventListener("DOMContentLoaded", () => {
     carousel.addEventListener("touchmove", dragging);
     carousel.addEventListener("touchend", dragStop);
 });
-
 // +-+ Btn-Change-Color-Arrivals +-+
 function changeImageArrivals(element, imageSrc) {    
     let parentDiv = element.closest(".card-arrivals");
@@ -810,6 +809,7 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCartCount();
 });
 
+
 // ===== Menu Mobile ======================
 document.addEventListener("DOMContentLoaded", function () {
     // Khai báo các phần tử HTML cần sử dụng
@@ -935,4 +935,3 @@ document.addEventListener("DOMContentLoaded", function () {
 //         lastScrollTop = scrollTop; // Cập nhật vị trí cuộn trước đó
 //     });
 // });
-
