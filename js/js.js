@@ -449,118 +449,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // ===== Slideshow Feedback ==========================
-// document.addEventListener("DOMContentLoaded", () => {
-//     const carousel = document.querySelector(".carousel-feedback");
-//     const btnFeedback = document.querySelectorAll(".btn-feedback-prev, .btn-feedback-next");
-//     const firstCard = carousel.querySelector(".card-feedback");
-    
-//     let firstCardWidth = firstCard ? firstCard.offsetWidth : 0;
-//     let gap = parseInt(getComputedStyle(carousel).gap) || 0;
-    
-//     let isDragging = false, startX, startScrollLeft;
-//     let moved = false;
-//     let scrollTimeout;
-    
-//     // Cập nhật kích thước khi thay đổi màn hình
-//     const updateSizes = () => {
-//         firstCardWidth = firstCard ? firstCard.offsetWidth : 0;
-//         gap = parseInt(getComputedStyle(carousel).gap) || 0;
-//     };
-//     window.addEventListener("resize", updateSizes);
-    
-//     // Khi bắt đầu kéo
-//     const dragStart = (e) => {
-//         isDragging = true;
-//         moved = false;
-//         startX = e.pageX || e.touches[0].pageX;
-//         startScrollLeft = carousel.scrollLeft;
-//         carousel.classList.add("dragging");
-//     };
-    
-//     // Khi kéo
-//     const dragging = (e) => {
-//         if (!isDragging) return;
-//         moved = true;
-//         const x = e.pageX || e.touches[0].pageX;
-//         carousel.scrollLeft = startScrollLeft - (x - startX);
-//     };
-    
-//     // Khi thả chuột hoặc dừng kéo
-//     const dragStop = () => {
-//         isDragging = false;
-//         carousel.classList.remove("dragging");
-    
-//         if (moved) {
-//             const cardWidthWithGap = firstCardWidth + gap;
-//             const scrollLeft = carousel.scrollLeft;
-            
-//             // Làm tròn vị trí cuộn để về đúng vị trí gần nhất của item
-//             const closestIndex = Math.round(scrollLeft / cardWidthWithGap);
-//             const newScrollPosition = closestIndex * cardWidthWithGap;
-    
-//             carousel.style.scrollBehavior = "smooth";
-//             carousel.scrollTo({ left: newScrollPosition, behavior: "smooth" });
-    
-//             // Đặt lại scrollBehavior để tránh lỗi khi kéo
-//             clearTimeout(scrollTimeout);
-//             scrollTimeout = setTimeout(() => {
-//                 carousel.style.scrollBehavior = "auto";
-//             }, 300);
-//         }
-//     };
-    
-//     // Xử lý khi click nút prev/next
-//     const scrollToItem = (direction) => {
-//         const scrollLeft = carousel.scrollLeft;
-//         const cardWidthWithGap = firstCardWidth + gap; // Kích thước mỗi item kèm khoảng cách
-        
-//         // Dùng Math.round() thay vì Math.floor()/Math.ceil() để tránh cuộn lỗi
-//         const closestIndex = Math.round(scrollLeft / cardWidthWithGap);
-//         const newScrollPosition = direction === "prev"
-//             ? Math.max(0, (closestIndex - 1) * cardWidthWithGap)
-//             : Math.min(carousel.scrollWidth, (closestIndex + 1) * cardWidthWithGap);
-    
-//         carousel.style.scrollBehavior = "smooth";
-//         carousel.scrollTo({ left: newScrollPosition, behavior: "smooth" });
-    
-//         // Đặt lại scrollBehavior sau khi cuộn xong
-//         clearTimeout(scrollTimeout);
-//         scrollTimeout = setTimeout(() => {
-//             carousel.style.scrollBehavior = "auto";
-//         }, 500);
-//     };
-    
-//     // Gán sự kiện khi nhấn nút prev/next
-//     btnFeedback.forEach(btn => {
-//         btn.addEventListener("click", () => {
-//             if (btn.classList.contains("btn-feedback-prev")) {
-//                 scrollToItem("prev");
-//             } else {
-//                 scrollToItem("next");
-//             }
-//         });
-//     });
-    
-//     // Gán sự kiện kéo chuột
-//     carousel.addEventListener("mousedown", dragStart);
-//     carousel.addEventListener("mousemove", dragging);
-//     document.addEventListener("mouseup", dragStop);
-//     carousel.addEventListener("mouseleave", dragStop);
-    
-//     // Gán sự kiện cảm ứng trên mobile
-//     carousel.addEventListener("touchstart", dragStart);
-//     carousel.addEventListener("touchmove", dragging);
-//     carousel.addEventListener("touchend", dragStop);
-    
-//     // Lắng nghe sự kiện cuộn để đặt lại scrollBehavior
-//     carousel.addEventListener("scroll", () => {
-//         clearTimeout(scrollTimeout);
-//         scrollTimeout = setTimeout(() => {
-//             carousel.style.scrollBehavior = "auto";
-//         }, 500);
-//     });
-// });
-
 document.addEventListener("DOMContentLoaded", () => {
     const carousel = document.querySelector(".carousel-feedback");
     const btnFeedback = document.querySelectorAll(".btn-feedback-prev, .btn-feedback-next");
@@ -733,6 +621,7 @@ document.addEventListener("DOMContentLoaded", () => {
     carousel.addEventListener("touchmove", dragging);
     carousel.addEventListener("touchend", dragStop);
 });
+
 
 // ===== List Footer =============================
 document.addEventListener("DOMContentLoaded", () => {
@@ -919,6 +808,74 @@ document.addEventListener("DOMContentLoaded", function () {
     // Hiển thị lại giỏ hàng khi trang tải lại
     renderCart();
     updateCartCount();
+});
+
+// ===== Menu Mobile ======================
+document.addEventListener("DOMContentLoaded", function () {
+    // Khai báo các phần tử HTML cần sử dụng
+    const elements = {
+        menuMobileIcon: "menuMobileIcon",
+        menuMobileBlock: "menuMobileBlock",
+        closeMenuMobile: "closeMenuMobile",
+        overlayMenuMobile: "overlayMenuMobile",
+        subHome: "subHome",
+        subHomeBlock: "subHomeBlock",
+        subHomeBack: "subHomeBack",
+        closeSubHome: "closeSubHome",
+        subShop: "subShop",
+        subShopBlock: "subShopBlock",
+        subShopBack: "subShopBack",
+        closeSubShop: "closeSubShop",
+        subShopLayout: "subShopLayout",
+        subShopLayoutBlock: "subShopLayoutBlock",
+        subShopLayoutBack: "subShopLayoutBack",
+        closeSubShopLayout: "closeSubShopLayout"
+    };
+
+    // Gán các phần tử HTML vào đối tượng elements
+    Object.keys(elements).forEach(key => {
+        elements[key] = document.getElementById(elements[key]);
+    });
+
+    // Hàm thêm hoặc xóa class từ một phần tử
+    const toggleClass = (element, className, action) => {
+        if (element) element.classList[action](className);
+    };
+
+    // Hàm đóng menu mobile với hiệu ứng
+    const closeMenuMobileWithAnimation = () => {
+        [elements.menuMobileBlock, elements.subHomeBlock, elements.subShopBlock, elements.subShopLayoutBlock].forEach(el => toggleClass(el, "open", "remove"));
+        setTimeout(() => toggleClass(elements.overlayMenuMobile, "show", "remove"), 400);
+    };
+
+    // Hàm thiết lập sự kiện click cho các phần tử
+    const setupClickEvent = (trigger, target, className = "open", action = "add") => {
+        if (trigger && target) {
+            trigger.addEventListener("click", () => {
+                toggleClass(target, className, action);
+                // Nếu mở menu mobile, hiển thị overlay
+                if (action === "add" && target === elements.menuMobileBlock) {
+                    toggleClass(elements.overlayMenuMobile, "show", "add");
+                }
+            });
+        }
+    };
+
+    // Thiết lập sự kiện mở menu và submenu
+    setupClickEvent(elements.menuMobileIcon, elements.menuMobileBlock);
+    setupClickEvent(elements.subHome, elements.subHomeBlock);
+    setupClickEvent(elements.subShop, elements.subShopBlock);
+    setupClickEvent(elements.subShopLayout, elements.subShopLayoutBlock);
+
+    // Thiết lập sự kiện đóng menu mobile khi nhấn vào overlay hoặc nút đóng
+    [elements.closeMenuMobile, elements.overlayMenuMobile, elements.closeSubHome, elements.closeSubShop, elements.closeSubShopLayout].forEach(el => {
+        if (el) el.addEventListener("click", closeMenuMobileWithAnimation);
+    });
+
+    // Thiết lập sự kiện nút back để đóng submenu
+    setupClickEvent(elements.subHomeBack, elements.subHomeBlock, "open", "remove");
+    setupClickEvent(elements.subShopBack, elements.subShopBlock, "open", "remove");
+    setupClickEvent(elements.subShopLayoutBack, elements.subShopLayoutBlock, "open", "remove");
 });
 
 
