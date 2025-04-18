@@ -935,3 +935,29 @@ document.addEventListener("DOMContentLoaded", function () {
 //         lastScrollTop = scrollTop; // Cập nhật vị trí cuộn trước đó
 //     });
 // });
+
+// ===== Block Animation ======================
+document.addEventListener('DOMContentLoaded', () => {
+    const blocks = document.querySelectorAll('.block-animation');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          // Delay dựa theo thứ tự xuất hiện
+          setTimeout(() => {
+            entry.target.classList.add('show');
+          }, index * 150); // mỗi block cách nhau 150ms
+        }
+        // Ẩn lại khi scroll ra khỏi viewport
+        // else {
+        //   entry.target.classList.remove('show');
+        // }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    blocks.forEach((block) => {
+      observer.observe(block);
+    });
+});
