@@ -1644,7 +1644,7 @@ html {
 
 .block-animation {
     opacity: 0;
-    transform: translateY(5rem);    
+    transform: translateY(5rem);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
@@ -1652,3 +1652,28 @@ html {
     opacity: 1;
     transform: translateY(0);
 }
+
+.txt-animation {
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+  
+/* Hướng bắt đầu */
+.txt-animation.from-top {
+    transform: translateY(5rem);
+}
+
+.txt-animation.from-right {
+    transform: translateX(5rem);
+}
+
+.txt-animation.from-left {
+    transform: translateX(-5rem);
+}
+  
+/* Khi hiện ra */
+.txt-animation.show {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+  
